@@ -1,0 +1,41 @@
+<!doctype html>
+    <html ng-app="gdgBoomerang">
+        <head>
+            <title>Google Developer Group</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+            <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet' type='text/css'>
+            <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+            <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+            <link href="css/gdg.css" rel="stylesheet" media="screen">
+            <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
+            <script src="http://code.angularjs.org/1.0.6/angular-sanitize.min.js"></script>
+            <script src="js/gdg.js"></script>
+            <script src="js/dateFormat.js"></script>
+	</head>
+        <body ng-controller="navControl">
+            <!-- NAV -->
+            <div class="navbar navbar-fixed-top">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <div class="row">
+                            <div class="nav-collapse collapse span12">
+                                <a class="brand" id="brand_name">{{brand.name}}</a>
+                                <ul class="nav" ng-click="setActive($event)">
+                                    <li class="active"><a href="#about">About</a></li>
+                                    <!--<li><a href="#news">News</a></li>-->
+                                    <li><a href="#events">Events</a></li>
+                                    <li><a href="#photos">Photos</a></li>
+                                    <!--<li><a href="google+">Google+</a></li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="row" ng-view></div>
+            </div>
+        </body>
+    </html>    

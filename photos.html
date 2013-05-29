@@ -1,0 +1,15 @@
+<div class="span12">
+    <p>&nbsp;</p>
+    <p id="photos">&nbsp;</p>
+    <div class="row">
+        <div class="span12">
+            <ul class="thumbnails">
+                <li class="span3" ng-repeat="photo in photos">
+                    <a ng-href="{{photo.link}}" class="thumbnail" target="_blank">
+                        <img ng-src="{{photo.src}}?sz=260" alt="{{photo.alt}}" title="{{photo.title}}">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
