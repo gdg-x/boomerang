@@ -3,8 +3,16 @@ var Config = (function(){
         //modify these
         'name'          : 'GDG Fresno',
         'id'            : '114769570436363155784',
-        'google_api'    : 'get_your_own',
-        'pwa_id'        : '5846413253595166705' //picasa web album id, must belong to google+ id above
+        'google_api'    : 'AIzaSyDPjRfTjr-X-FB0jRSf06_7rHAvu9oQ3To',
+        'pwa_id'        : '5846413253595166705', //picasa web album id, must belong to google+ id above
+        'cover' : {
+            title : 'DevFest Fresno',
+            subtitle : 'The largest Google Developer Conference in the Central Valley',
+            button : {
+                text : 'Register',
+                url : 'https://devfestfresno.eventbrite.com'
+            }
+        }
     };
     return {get : function(a) { return config[a]}}
 })();
@@ -12,46 +20,41 @@ var Config = (function(){
 var boomerang = angular.module('gdgBoomerang', ['ngSanitize'])
     .config(function($routeProvider) {
          $routeProvider.
-               when("/about",  {templateUrl:'views/about.html', controller:"AboutControl"}).
-               when("/news", {templateUrl:'views/news.html', controller:"NewsControl"}).
-               when("/events", {templateUrl:'views/events.html', controller:"EventsControl"}).
-               when("/photos", {templateUrl:'views/photos.html', controller:"PhotosControl"});
+             when("/",  {redirectTo : "/about" }).
+             when("/about",  {templateUrl:'views/about.html', controller:"AboutControl"}).
+             when("/news", {templateUrl:'views/news.html', controller:"NewsControl"}).
+             when("/events", {templateUrl:'views/events.html', controller:"EventsControl"}).
+             when("/photos", {templateUrl:'views/photos.html', controller:"PhotosControl"});
     });
+
   
 
-boomerang.controller('NavControl', function($scope) {
-
+boomerang.controller('MainControl', function($scope) {
     $scope.chapter_name = Config.get('name');
     $scope.google_plus_link = 'https://plus.google.com/' + Config.get('id');
-
-    $scope.setActiveTab = function(t){
-        $scope.activeTab = t;
-    }
 });
 
 boomerang.controller('AboutControl', function( $scope, $http, $location ) {
+    $scope.loading = true;
+    $scope.$parent.activeTab = "about";
+    $scope.cover = Config.get('cover');
     $http.jsonp('https://www.googleapis.com/plus/v1/people/'+Config.get('id')+'?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key='+Config.get('google_api')).
         success(function(data){
             console.log(data);
             $scope.desc = data.aboutMe;
             if(data.cover && data.cover.coverPhoto.url){
-                $scope.cover = {
-                    url : data.cover.coverPhoto.url,
-                    title : 'Google I/O Recap',
-                    subtitle : 'Review announcments made at Google I/O, and schwag!',
-                    button : {
-                        text : 'View Event',
-                        url : 'https://developers.google.com/events/555120305/'
-                    }
-                }
+                $scope.cover.url = data.cover.coverPhoto.url;
             }
             if($location.path() == ''){
                 $location.path('/about');
             }
+            $scope.loading = false;
         });
 });
 
 boomerang.controller("NewsControl", function($scope, $http, $timeout) {
+    $scope.loading = true;
+    $scope.$parent.activeTab = "news";
     $http.
         jsonp('https://www.googleapis.com/plus/v1/people/' + Config.get('id') + '/activities/public?callback=JSON_CALLBACK&maxResults=10&key=' +Config.get('google_api')).
         success(function(response){
@@ -138,11 +141,14 @@ boomerang.controller("NewsControl", function($scope, $http, $timeout) {
             $timeout(function(){
                 gapi.plusone.go();
             });
+            $scope.loading = false;
         });
 
 });
 
 boomerang.controller("EventsControl", function( $scope, $http ) {
+    $scope.loading = true;
+    $scope.$parent.activeTab = "events";
 
     $scope.events = {past:[] ,future:[]};
     $http.get("http://gdgfresno.com/gdgfeed.php?id="+Config.get('id')).
@@ -160,11 +166,14 @@ boomerang.controller("EventsControl", function( $scope, $http ) {
                     $scope.events.future.push(data[i]);
                 }
             }
+            $scope.loading = false;
         });
 
 });
 
 boomerang.controller("PhotosControl", function( $scope, $http ) {
+    $scope.loading = true;
+    $scope.$parent.activeTab = "photos";
     $scope.photos = [];
 
     var pwa = 'https://picasaweb.google.com/data/feed/api/user/'+Config.get('id')+'/albumid/'+Config.get('pwa_id')+'?access=public&alt=json-in-script&kind=photo&max-results=20&fields=entry(title,link/@href,summary,content/@src)&v=2.0&callback=JSON_CALLBACK';
@@ -180,5 +189,6 @@ boomerang.controller("PhotosControl", function( $scope, $http ) {
                 };
                 $scope.photos.push(photo);
             }
+            $scope.loading = false;
         });
 });

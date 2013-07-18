@@ -117,3 +117,9 @@ body {
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none;
 }
+
+.gdg_loading {
+    background: url('../images/gdg_loading.gif') no-repeat 0 0 #fff;
+    width: 64px;
+    height: 64px;
+}

@@ -12,7 +12,7 @@
             <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
             <script src="js/boomerang.js"></script>
 	</head>
-        <body ng-controller="NavControl">
+        <body ng-controller="MainControl">
             <!-- NAV -->
             <div class="navbar navbar-static-top navbar-inverse">
                 <div class="navbar-inner">
@@ -20,11 +20,11 @@
                         <div class="row">
                             <div class="nav-collapse collapse span12">
                                 <a class="brand" id="gdg_chapter_name">{{ chapter_name }}</a>
-                                <ul class="nav" ng-click="setActive($event)">
-                                    <li ng-class="{ 'active' : activeTab=='about' }" ng-click="setActiveTab('about')"><a href="#about">About</a></li>
-                                    <li ng-class="{ 'active' : activeTab=='news' }" ng-click="setActiveTab('news')"><a href="#news">News</a></li>
-                                    <li ng-class="{ 'active' : activeTab=='events' }" ng-click="setActiveTab('events')"><a href="#events">Events</a></li>
-                                    <li ng-class="{ 'active' : activeTab=='photos' }" ng-click="setActiveTab('photos')"><a href="#photos">Photos</a></li>
+                                <ul class="nav">
+                                    <li ng-class="{ 'active' : activeTab=='about' }"><a href="#about">About</a></li>
+                                    <li ng-class="{ 'active' : activeTab=='news' }"><a href="#news">News</a></li>
+                                    <li ng-class="{ 'active' : activeTab=='events' }"><a href="#events">Events</a></li>
+                                    <li ng-class="{ 'active' : activeTab=='photos' }"><a href="#photos">Photos</a></li>
                                     <li><a ng-href="{{ google_plus_link }}" target="_blank">Google+</a></li>
                                 </ul>
                             </div>
@@ -32,7 +32,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="container">
                 <div class="row" ng-view></div>
             </div>
