@@ -5,10 +5,10 @@
             <h1 class="span12">{{cover.title}}</h1>
             <p class="span12">{{cover.subtitle}}</p>
             <p class="span12">
-                <a class="btn btn-primary btn-large" href="{{cover.button.url}}" target="_blank">{{cover.button.text}}</a>
+                <a class="btn btn-primary btn-large" ng-href="{{cover.button.url}}" target="_blank">{{cover.button.text}}</a>
             </p>
         </div>
     </div>
     <hr>
-    <p class="row span12" ng-bind-html-unsafe="about.desc"></p>
+    <p class="row span12" ng-bind-html-unsafe="desc"></p>
 </div>
