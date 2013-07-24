@@ -5,7 +5,8 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize'])
              when("/about",  {templateUrl:'views/about.html', controller:"AboutControl"}).
              when("/news", {templateUrl:'views/news.html', controller:"NewsControl"}).
              when("/events", {templateUrl:'views/events.html', controller:"EventsControl"}).
-             when("/photos", {templateUrl:'views/photos.html', controller:"PhotosControl"});
+             when("/photos", {templateUrl:'views/photos.html', controller:"PhotosControl"}).
+             otherwise({ redirectTo: '/about' });
     });
 
 boomerang.factory('Config',function(){
@@ -13,7 +14,7 @@ boomerang.factory('Config',function(){
         //modify these
         'name'          : 'GDG Fresno',
         'id'            : '114769570436363155784',
-        'google_api'    : 'enter_your_own',
+        'google_api'    : 'AIzaSyDPjRfTjr-X-FB0jRSf06_7rHAvu9oQ3To',
         'pwa_id'        : '5846413253595166705', //picasa web album id, must belong to google+ id above
         'cover' : {
             title : 'DevFest Fresno',
@@ -41,9 +42,6 @@ boomerang.controller('AboutControl', function( $scope, $http, $location, Config 
             $scope.desc = data.aboutMe;
             if(data.cover && data.cover.coverPhoto.url){
                 $scope.cover.url = data.cover.coverPhoto.url;
-            }
-            if($location.path() == ''){
-                $location.path('/about');
             }
             $scope.loading = false;
         });
