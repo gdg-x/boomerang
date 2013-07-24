@@ -1,22 +1,3 @@
-var Config = (function(){
-    var config = {
-        //modify these
-        'name'          : 'GDG Fresno',
-        'id'            : '114769570436363155784',
-        'google_api'    : 'enter_your_own',
-        'pwa_id'        : '5846413253595166705', //picasa web album id, must belong to google+ id above
-        'cover' : {
-            title : 'DevFest Fresno',
-            subtitle : 'The largest Google Developer Conference in the Central Valley',
-            button : {
-                text : 'Register',
-                url : 'https://devfestfresno.eventbrite.com'
-            }
-        }
-    };
-    return {get : function(a) { return config[a]}}
-})();
- 
 var boomerang = angular.module('gdgBoomerang', ['ngSanitize'])
     .config(function($routeProvider) {
          $routeProvider.
@@ -27,18 +8,34 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize'])
              when("/photos", {templateUrl:'views/photos.html', controller:"PhotosControl"});
     });
 
-  
-
-boomerang.controller('MainControl', function($scope) {
-    $scope.chapter_name = Config.get('name');
-    $scope.google_plus_link = 'https://plus.google.com/' + Config.get('id');
+boomerang.factory('Config',function(){
+    return {
+        //modify these
+        'name'          : 'GDG Fresno',
+        'id'            : '114769570436363155784',
+        'google_api'    : 'enter_your_own',
+        'pwa_id'        : '5846413253595166705', //picasa web album id, must belong to google+ id above
+        'cover' : {
+            title : 'DevFest Fresno',
+                subtitle : 'The largest Google Developer Conference in the Central Valley',
+                button : {
+                    text : 'Register',
+                    url : 'https://devfestfresno.eventbrite.com'
+                }
+        }
+    }
 });
 
-boomerang.controller('AboutControl', function( $scope, $http, $location ) {
+boomerang.controller('MainControl', function($scope, Config) {
+    $scope.chapter_name = Config.name;
+    $scope.google_plus_link = 'https://plus.google.com/' + Config.id;
+});
+
+boomerang.controller('AboutControl', function( $scope, $http, $location, Config ) {
     $scope.loading = true;
     $scope.$parent.activeTab = "about";
-    $scope.cover = Config.get('cover');
-    $http.jsonp('https://www.googleapis.com/plus/v1/people/'+Config.get('id')+'?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key='+Config.get('google_api')).
+    $scope.cover = Config.cover;
+    $http.jsonp('https://www.googleapis.com/plus/v1/people/'+Config.id+'?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key='+Config.google_api).
         success(function(data){
             console.log(data);
             $scope.desc = data.aboutMe;
@@ -52,11 +49,11 @@ boomerang.controller('AboutControl', function( $scope, $http, $location ) {
         });
 });
 
-boomerang.controller("NewsControl", function($scope, $http, $timeout) {
+boomerang.controller("NewsControl", function($scope, $http, $timeout, Config) {
     $scope.loading = true;
     $scope.$parent.activeTab = "news";
     $http.
-        jsonp('https://www.googleapis.com/plus/v1/people/' + Config.get('id') + '/activities/public?callback=JSON_CALLBACK&maxResults=10&key=' +Config.get('google_api')).
+        jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id + '/activities/public?callback=JSON_CALLBACK&maxResults=10&key=' + Config.google_api).
         success(function(response){
             var entries = [];
             for (var i = 0; i < response.items.length; i++) {
@@ -146,12 +143,12 @@ boomerang.controller("NewsControl", function($scope, $http, $timeout) {
 
 });
 
-boomerang.controller("EventsControl", function( $scope, $http ) {
+boomerang.controller("EventsControl", function( $scope, $http, Config ) {
     $scope.loading = true;
     $scope.$parent.activeTab = "events";
 
     $scope.events = {past:[] ,future:[]};
-    $http.get("http://gdgfresno.com/gdgfeed.php?id="+Config.get('id')).
+    $http.get("http://gdgfresno.com/gdgfeed.php?id="+Config.id).
         success(function(data){
             var now = new Date();
             for(var i=data.length-1;i>=0;i--){
@@ -171,15 +168,15 @@ boomerang.controller("EventsControl", function( $scope, $http ) {
 
 });
 
-boomerang.controller("PhotosControl", function( $scope, $http ) {
+boomerang.controller("PhotosControl", function( $scope, $http, Config ) {
     $scope.loading = true;
     $scope.$parent.activeTab = "photos";
     $scope.photos = [];
 
-    var pwa = 'https://picasaweb.google.com/data/feed/api/user/'+Config.get('id')+'/albumid/'+Config.get('pwa_id')+'?access=public&alt=json-in-script&kind=photo&max-results=20&fields=entry(title,link/@href,summary,content/@src)&v=2.0&callback=JSON_CALLBACK';
+    var pwa = 'https://picasaweb.google.com/data/feed/api/user/'+Config.id+'/albumid/'+Config.pwa_id+'?access=public&alt=json-in-script&kind=photo&max-results=20&fields=entry(title,link/@href,summary,content/@src)&v=2.0&callback=JSON_CALLBACK';
     $http.jsonp(pwa).
         success(function(d){
-            var p = d.feed.entry
+            var p = d.feed.entry;
             for(var x in p){
                 var photo = {
                     link : p[x].link[1].href,
