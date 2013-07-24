@@ -14,7 +14,7 @@ boomerang.factory('Config',function(){
         //modify these
         'name'          : 'GDG Fresno',
         'id'            : '114769570436363155784',
-        'google_api'    : 'AIzaSyDPjRfTjr-X-FB0jRSf06_7rHAvu9oQ3To',
+        'google_api'    : 'enter_your_own',
         'pwa_id'        : '5846413253595166705', //picasa web album id, must belong to google+ id above
         'cover' : {
             title : 'DevFest Fresno',
