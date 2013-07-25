@@ -1,4 +1,4 @@
-var boomerang = angular.module('gdgBoomerang', ['ngSanitize'])
+var boomerang = angular.module('gdgBoomerang', ['ngSanitize','ui.bootstrap'])
     .config(function($routeProvider) {
          $routeProvider.
              when("/about",  {templateUrl:'views/about.html', controller:"AboutControl"}).
@@ -29,6 +29,7 @@ boomerang.factory('Config',function(){
 boomerang.controller('MainControl', function($scope, Config) {
     $scope.chapter_name = Config.name;
     $scope.google_plus_link = 'https://plus.google.com/' + Config.id;
+    $scope.isNavCollapsed = true;
 });
 
 boomerang.controller('AboutControl', function( $scope, $http, $location, Config ) {

@@ -10,6 +10,7 @@
             <script src="http://code.angularjs.org/1.0.6/angular.min.js"></script>
             <script src="http://code.angularjs.org/1.0.6/angular-sanitize.min.js"></script>
             <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+            <script src="lib/angular.ui.min.js"></script>
             <script src="js/boomerang.js"></script>
 	</head>
         <body ng-controller="MainControl">
@@ -17,17 +18,20 @@
             <div class="navbar navbar-static-top navbar-inverse">
                 <div class="navbar-inner">
                     <div class="container">
-                        <div class="row">
-                            <div class="nav-collapse collapse span12">
-                                <a class="brand" id="gdg_chapter_name">{{ chapter_name }}</a>
-                                <ul class="nav">
-                                    <li ng-class="{ 'active' : activeTab=='about' }"><a href="#about">About</a></li>
-                                    <li ng-class="{ 'active' : activeTab=='news' }"><a href="#news">News</a></li>
-                                    <li ng-class="{ 'active' : activeTab=='events' }"><a href="#events">Events</a></li>
-                                    <li ng-class="{ 'active' : activeTab=='photos' }"><a href="#photos">Photos</a></li>
-                                    <li><a ng-href="{{ google_plus_link }}" target="_blank">Google+</a></li>
-                                </ul>
-                            </div>
+                        <button type="button" class="btn btn-navbar" ng-click="isNavCollapsed = !isNavCollapsed">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="brand" id="gdg_chapter_name">{{ chapter_name }}</a>
+                        <div class="nav-collapse" collapse="isNavCollapsed" ng-click="isNavCollapsed = true">
+                            <ul class="nav">
+                                <li ng-class="{ 'active' : activeTab=='about' }"><a href="#about">About</a></li>
+                                <li ng-class="{ 'active' : activeTab=='news' }"><a href="#news">News</a></li>
+                                <li ng-class="{ 'active' : activeTab=='events' }"><a href="#events">Events</a></li>
+                                <li ng-class="{ 'active' : activeTab=='photos' }"><a href="#photos">Photos</a></li>
+                                <li><a ng-href="{{ google_plus_link }}" target="_blank">Google+</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
