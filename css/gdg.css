@@ -21,11 +21,11 @@
 #news-feed li {
     position: relative;
     padding: 12px 0 12px 30px;
-    border: 1px solid #ddd;
+    border: 1px solid rgb(221, 221, 221);
     font-size: 16px;
     line-height: 24px;
     overflow: hidden;
-    background-color: #F6F6F6;
+    background-color: rgb(246, 246, 246);
     margin-bottom: 15px;
     border-radius: 4px;
 }
@@ -38,12 +38,12 @@
 
 #news-feed li .meta {
   margin-top: 3px;
-  color: #999;
+  color: rgb(153, 153, 153);
   font-size: 11px;
 }
 
 #news-feed li .meta a {
-  color: #999;
+  color: rgb(153, 153, 153);
 }
 
 #news-feed li .meta a:hover {
@@ -54,8 +54,8 @@
 #news-feed .label {
   margin: 0 6px 0 0;
   vertical-align: top;
-  border: 1px solid #CBCBCB;
-  color: #DA573A;
+  border: 1px solid rgb(203, 203, 203);
+  color: rgb(218, 87, 58);
   text-shadow: none;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -71,7 +71,7 @@
 }
 
 #news-feed li .link-attachment {
-  border-left: 3px solid #ccc;
+  border-left: 3px solid rgb(204, 204, 204);
   padding-left: 8px;
   margin-top: 6px;
   font-size: 11px;
@@ -119,7 +119,7 @@ body {
 }
 
 .gdg_loading {
-    background: url('../images/gdg_loading.gif') no-repeat 0 0 #fff;
+    background: url('../images/gdg_loading.gif') no-repeat 0 0 rgb(255, 255, 255);
     width: 64px;
     height: 64px;
 }

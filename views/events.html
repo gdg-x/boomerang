@@ -4,7 +4,8 @@
     <div class="row">
         <h3 ng-show="events.future.length" class="span12">Upcoming Events</h3>
         <div class="media span12" ng-repeat="event in events.future">
-            <a ng-show="event.iconUrl" class="pull-left" ng-href="https://developers.google.com{{event.link}}" target="_blank"><img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}"></a>
+            <a ng-show="event.iconUrl" class="pull-left" ng-href="https://developers.google.com{{event.link}}" target="_blank">
+                <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}"></a>
             <div class="media-body">
                 <h4 class="media-heading"><a ng-href="https://developers.google.com{{event.link}}" target="_blank">{{event.title}}</a></h4>
                 <h5>{{event.location}}<br/>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
@@ -15,7 +16,8 @@
     <div class="row">
         <h3 ng-show="events.past.length" class="span12">Past Events</h3>
         <div class="media span12" ng-repeat="event in events.past">
-            <a ng-show="event.iconUrl" class="pull-left" ng-href="https://developers.google.com{{event.link}}" target="_blank"><img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}"></a>
+            <a ng-show="event.iconUrl" class="pull-left" ng-href="https://developers.google.com{{event.link}}" target="_blank">
+                <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}"></a>
             <div class="media-body">
                 <h4 class="media-heading"><a ng-href="https://developers.google.com{{event.link}}" target="_blank">{{event.title}}</a></h4>
                 <h5>{{event.location}}<br/>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>

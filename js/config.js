@@ -1,4 +1,4 @@
-boomerang.factory('Config',function(){
+boomerang.factory('Config', function () {
     return {
         //modify these
         'name'          : 'GDG Space Coast',
@@ -13,5 +13,5 @@ boomerang.factory('Config',function(){
                 url : 'http://gwtcreate.com/'
             }
         }
-    }
+    };
 });
