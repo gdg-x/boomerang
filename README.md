@@ -11,7 +11,14 @@ Update js/config.js with values appropriate for your group:
    URL is https://plus.google.com/u/0/b/115803993493374365281/, then the ID
    is 115803993493374365281
 3. **google_api**: The API key for your project, available from
+<<<<<<< HEAD
    https://code.google.com/apis/console
+=======
+   https://code.google.com/apis/console - create a new project, add Google+ API,
+   and use the API key shown in 'Simple API Access'
+   If you're using the new Cloud Console https://cloud.google.com/console
+   add the Google+ API and use the basic BrowserKey registered app's API key
+>>>>>>> pr/14
 4. **pwa_id**: The ID for a Picasa web album from which pictures will be
    drawn. If you do not have a Picasa web album for your group, you will want
    to comment out the photos tab in **index.html**.
