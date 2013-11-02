@@ -3,7 +3,7 @@ boomerang.factory('Config', function () {
         //modify these
         'name'          : 'GDG Space Coast',
         'id'            : '103959793061819610212',
-        'google_api'    : 'AIzaSyBoJOzKrUyT4ShFVWvMWvwpNP-jPnhgZJs',
+        'google_api'    : 'AIzaSyA9ALjr2iWvhf3Rsz9-bH0cEcDcrdkpuAg',
         'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
         'cover' : {
             title : 'GWT.create',

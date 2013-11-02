@@ -18,7 +18,8 @@ boomerang.controller('AboutControl', function ($scope, $http, $location, Config)
     $scope.loading = true;
     $scope.$parent.activeTab = "about";
     $scope.cover = Config.cover;
-    $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id + '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.google_api).
+    $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
+            '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.google_api).
         success(function (data) {
             console.log(data);
             $scope.desc = data.aboutMe;
@@ -33,7 +34,8 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, Config) {
     $scope.loading = true;
     $scope.$parent.activeTab = "news";
     $http.
-        jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id + '/activities/public?callback=JSON_CALLBACK&maxResults=10&key=' + Config.google_api).
+        jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
+            '/activities/public?callback=JSON_CALLBACK&maxResults=10&key=' + Config.google_api).
         success(function (response) {
             var entries = [], i, j;
             for (i = 0; i < response.items.length; i++) {
@@ -41,9 +43,9 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, Config) {
                 var actor = item.actor || {};
                 var object = item.object || {};
                 // Normalize tweet to a FriendFeed-like entry.
-                var item_title = '<b>' + item.title + '</b>';
+                var itemTitle = '<b>' + item.title + '</b>';
 
-                var html = [item_title.replace(new RegExp('\n', 'g'), '<br />')];
+                var html = [itemTitle.replace(new RegExp('\n', 'g'), '<br />')];
                 //html.push(' <b>Read More &raquo;</a>');
 
                 var thumbnails = [];
@@ -95,8 +97,8 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, Config) {
 
                 html = html.join('');
 
-                var actor_image = actor.image.url;
-                actor_image = actor_image.substr(0, actor_image.length - 2) + '16';
+                var actorImage = actor.image.url;
+                actorImage = actorImage.substr(0, actorImage.length - 2) + '16';
 
                 var entry = {
                     via: {
@@ -109,7 +111,7 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, Config) {
                     plusones: (object.plusoners || {}).totalItems,
                     comments: (object.replies || {}).totalItems,
                     thumbnails: thumbnails,
-                    icon: actor_image
+                    icon: actorImage
                 };
 
                 entries.push(entry);
@@ -153,7 +155,8 @@ boomerang.controller("PhotosControl", function ($scope, $http, Config) {
     $scope.$parent.activeTab = "photos";
     $scope.photos = [];
 
-    var pwa = 'https://picasaweb.google.com/data/feed/api/user/' + Config.id + '/albumid/' + Config.pwa_id + '?access=public&alt=json-in-script&kind=photo&max-results=20&fields=entry(title,link/@href,summary,content/@src)&v=2.0&callback=JSON_CALLBACK';
+    var pwa = 'https://picasaweb.google.com/data/feed/api/user/' + Config.id + '/albumid/' + Config.pwa_id +
+        '?access=public&alt=json-in-script&kind=photo&max-results=20&fields=entry(title,link/@href,summary,content/@src)&v=2.0&callback=JSON_CALLBACK';
     $http.jsonp(pwa).
         success(function (d) {
             var p = d.feed.entry;
