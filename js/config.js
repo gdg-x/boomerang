@@ -1,17 +1,17 @@
-boomerang.factory('Config',function(){
+boomerang.factory('Config', function () {
     return {
         //modify these
-        'name'          : 'GDG Fresno',
-        'id'            : '114769570436363155784',
-        'google_api'    : 'AIzaSyDPjRfTjr-X-FB0jRSf06_7rHAvu9oQ3To',
-        'pwa_id'        : '5846413253595166705', //picasa web album id, must belong to google+ id above
+        'name'          : 'GDG Space Coast',
+        'id'            : '103959793061819610212',
+        'google_api'    : 'AIzaSyA9ALjr2iWvhf3Rsz9-bH0cEcDcrdkpuAg',
+        'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
         'cover' : {
-            title : 'DevFest Fresno',
-            subtitle : 'The largest Google Developer Conference in the Central Valley',
+            title : 'GWT.create',
+            subtitle : 'The largest event about GWT in 2013 with 2 days and more than 60 presentations.',
             button : {
                 text : 'Register',
-                url : 'https://devfestfresno.eventbrite.com'
+                url : 'http://gwtcreate.com/'
             }
         }
-    }
+    };
 });
