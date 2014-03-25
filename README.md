@@ -2,6 +2,8 @@ boomerang
 =========
 Boomerang is a template for a basic GDG web site.
 
+There is a forked version for Google App Engine - https://github.com/Splaktar/boomerang-gae
+
 Using boomerang
 ---------------
 Update js/config.js with values appropriate for your group:
