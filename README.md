@@ -31,8 +31,8 @@ Update js/config.js with values appropriate for your group:
 Then deploy on your web server of choice. If you need a web server, Google App
 Engine's free tier should be more than sufficient for your needs.
 
-Note
-----
-Testing on localhost will not produce satisfactory results, as the Google API
-will not serve up the content required by the pages. Test on a server with a
-real hostname.
+If you aren't using App Engine, you should be able to test locally with
+node.js (installed separately) using the following:
+* npm install http-server -g
+* cd boomerang
+* http-server -o

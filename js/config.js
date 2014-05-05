@@ -6,11 +6,11 @@ boomerang.factory('Config', function () {
         'google_api'    : 'AIzaSyA9ALjr2iWvhf3Rsz9-bH0cEcDcrdkpuAg',
         'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
         'cover' : {
-            title : 'GWT.create',
-            subtitle : 'The largest event about GWT in 2013 with 2 days and more than 60 presentations.',
-            button : {
-                text : 'Register',
-                url : 'http://gwtcreate.com/'
+            title: 'Google I/O 2014',
+            subtitle: 'Google\'s yearly developer event is being held June 25-26th in San Francisco, CA.',
+            button: {
+                text: 'Find out more',
+                url: 'https://www.google.com/events/io'
             }
         }
     };
