@@ -99,11 +99,11 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, Config) {
 
                 var actorImage = actor.image.url;
                 actorImage = actorImage.substr(0, actorImage.length - 2) + '16';
-
+                // The replace in the item URL is a dirty quick fix for issue #20 which seems to be a g+ api bug
                 var entry = {
                     via: {
                         name: 'Google+',
-                        url: item.url
+                        url: item.url.replace('https://plus.google.com/https://plus.google.com', 'https://plus.google.com')
                     },
                     body: html,
                     date: item.updated,
