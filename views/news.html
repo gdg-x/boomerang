@@ -1,16 +1,17 @@
 <div class="span12">
     <p>&nbsp;</p>
     <div class="gdg_loading" ng-show="loading"></div>
+    <h1 class="span12" ng-hide="loading">{{ chapter_name }} News</h1>
     <ul id="news-feed">
         <li ng-repeat="article in news">
 
-            <img class="icon" ng-src="{{ article.icon }}" />
-            <p ng-bind-html-unsafe="article.body"></p>
+            <img class="icon" ng-src="{{ article.icon }}" alt="Article Icon" />
+            <p ng-bind-html="article.body"></p>
 
             <ul class="thumbnails">
                 <li ng-repeat="tn in article.thumbnails">
                     <a ng-href="{{ tn.link }}">
-                        <img ng-src="{{ tn.url }}" />
+                        <img ng-src="{{ tn.url }}" alt="Article Thumbnail" />
                     </a>
                 </li>
             </ul>

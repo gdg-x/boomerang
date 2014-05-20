@@ -1,11 +1,12 @@
 <div class="span12">
     <p>&nbsp;</p>
     <div class="gdg_loading" ng-show="loading"></div>
+    <h1 class="span12" ng-hide="loading">{{ chapter_name }} events</h1>
     <div class="row">
         <h3 ng-show="events.future.length" class="span12">Upcoming Events</h3>
         <div class="media span12" ng-repeat="event in events.future | orderBy:'start'">
             <a class="pull-left" ng-href="https://developers.google.com{{event.link}}" target="_blank">
-                <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}">
+                <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}" alt="GDG Boomerang">
             </a>
             <div class="media-body">
                 <h4 class="media-heading">
@@ -20,7 +21,7 @@
         <h3 ng-show="events.past.length" class="span12">Past Events</h3>
         <div class="media span12" ng-repeat="event in events.past">
             <a class="pull-left" ng-href="https://developers.google.com{{event.link}}" target="_blank">
-                <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}">
+                <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}" alt="GDG Boomerang">
             </a>
             <div class="media-body">
                 <h4 class="media-heading">
