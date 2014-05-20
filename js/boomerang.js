@@ -1,4 +1,4 @@
-var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ui.bootstrap'])
+var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ui.bootstrap'])
     .config(function ($routeProvider, $locationProvider) {
 
         $locationProvider.hashPrefix('!');
@@ -11,13 +11,14 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ui.bootstrap'])
             otherwise({ redirectTo: '/about' });
     });
 
-boomerang.controller('MainControl', function ($scope, Config) {
+boomerang.controller('MainControl', function ($rootScope, $scope, Config) {
     $scope.chapter_name = Config.name;
     $scope.google_plus_link = 'https://plus.google.com/' + Config.id;
     $scope.isNavCollapsed = true;
+    $rootScope.canonical = Config.domain;
 });
 
-boomerang.controller('AboutControl', function ($scope, $http, $location, Config) {
+boomerang.controller('AboutControl', function ($scope, $http, $location, $sce, Config) {
     $scope.loading = true;
     $scope.$parent.activeTab = "about";
     $scope.cover = Config.cover;
@@ -25,6 +26,8 @@ boomerang.controller('AboutControl', function ($scope, $http, $location, Config)
             '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.google_api).
         success(function (data) {
             $scope.desc = data.aboutMe;
+            $sce.trustAsHtml($scope.desc);
+
             if (data.cover && data.cover.coverPhoto.url) {
                 $scope.cover.url = data.cover.coverPhoto.url;
             }
@@ -36,7 +39,7 @@ boomerang.controller('AboutControl', function ($scope, $http, $location, Config)
         });
 });
 
-boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, Config) {
+boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, $sce, Config) {
     $scope.loading = true;
     $scope.$parent.activeTab = "news";
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
@@ -104,6 +107,7 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, 
                 }
 
                 html = html.join('');
+                $sce.trustAsHtml(html);
 
                 actorImage = actor.image.url;
                 actorImage = actorImage.substr(0, actorImage.length - 2) + '16';
@@ -129,6 +133,11 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, 
                 gapi.plusone.go();
             });
             $scope.loading = false;
+        })
+        .error(function (response) {
+            $scope.desc = "Sorry, we failed to retrieve the News from the Google+ API.";
+            $scope.loading = false;
+            $scope.status = 'ready';
         });
 });
 

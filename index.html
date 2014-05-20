@@ -2,7 +2,7 @@
 <html ng-app="gdgBoomerang">
     <head>
         <title>Google Developer Group</title>
-        <link rel="canonical" href="http://www.gdgspacecoast.org" />
+        <link rel="canonical" ng-href="{{ canonical }}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="description" content="Google Developer Groups (GDG) are technology user groups that meet to discuss the latest Technologies, Tools, SDKs, & APIs like Android, GWT, GAE, & GCP.">
@@ -13,7 +13,7 @@
         <link href="css/gdg.css" rel="stylesheet" media="screen">
         <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
     </head>
-    <body ng-controller="MainControl" class="ng-cloak">
+    <body ng-controller="MainControl">
         <!-- NAV -->
         <div class="navbar navbar-static-top navbar-inverse">
             <div class="navbar-inner">
@@ -23,7 +23,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="brand" id="gdg_chapter_name" href="#!/about">{{ chapter_name }}</a>
+                    <a class="brand" ng-cloak id="gdg_chapter_name" href="#!/about">{{ chapter_name }}</a>
 
                     <div class="nav-collapse" collapse="isNavCollapsed" ng-click="isNavCollapsed = true">
                         <ul class="nav">
@@ -41,8 +41,9 @@
             <div class="row" ng-view></div>
         </div>
     </body>
-    <script src="http://code.angularjs.org/1.0.8/angular.min.js"></script>
-    <script src="http://code.angularjs.org/1.0.8/angular-sanitize.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.16/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.16/angular-sanitize.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.16/angular-route.min.js"></script>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     <script src="lib/angular.ui.min.js"></script>
     <script src="js/boomerang.js"></script>
