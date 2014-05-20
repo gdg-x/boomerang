@@ -20,11 +20,12 @@ Update js/config.js with values appropriate for your group:
 4. **pwa_id**: The ID for a Picasa web album from which pictures will be
    drawn. If you do not have a Picasa web album for your group, you will want
    to comment out the photos tab in **index.html**.
-5. **cover.title**: A notice that will appear on the landing page.
-6. **cover.subtitle**: More text to support the landing page notice.
-7. **cover.button.text**: Text for the button.
-8. **cover.button.url**: The URL that the button links to.
-9. **cover.url**: _Optional_: If the cover image drawn from your Google+ page
+5. **domain**: Your custom domain name (or base appspot URL).
+6. **cover.title**: A notice that will appear on the landing page.
+7. **cover.subtitle**: More text to support the landing page notice.
+8. **cover.button.text**: Text for the button.
+9. **cover.button.url**: The URL that the button links to.
+10. **cover.url**: _Optional_: If the cover image drawn from your Google+ page
    does not work with the default layout, you can specify a URL for a specific
    image instead.
 
