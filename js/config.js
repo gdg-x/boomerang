@@ -1,17 +1,18 @@
-boomerang.factory('Config',function(){
+boomerang.factory('Config', function () {
     return {
         //modify these
-        'name'          : 'GDG Northern Colorado',
-        'id'            : '100148220005153084415',
-        'google_api'    : 'AIzaSyCS3ILgldb7Oe4rjyr6j5UUvLpeSygj2U0',
-        //'pwa_id'        : '5846413253595166705', //picasa web album id, must belong to google+ id above
+        'name'          : 'GDG Space Coast',
+        'id'            : '103959793061819610212',
+        'google_api'    : 'AIzaSyA9ALjr2iWvhf3Rsz9-bH0cEcDcrdkpuAg',
+        'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
+        'domain'        : 'http://www.gdgspacecoast.org',
         'cover' : {
-            title : 'GDG Northern Colorado',
-            subtitle : 'A Google Developer Group for Northern Colorado',
-            button : {
-                text : 'Google Developers',
-                url : 'https://developers.google.com/groups/chapter/100148220005153084415/'
+            title: 'Google I/O 2014',
+            subtitle: 'Google\'s yearly developer event is being held June 25-26th in San Francisco, CA.',
+            button: {
+                text: 'Find out more',
+                url: 'https://www.google.com/events/io'
             }
         }
-    }
+    };
 });
