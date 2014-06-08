@@ -24,7 +24,7 @@ boomerang.controller('AboutControl', function ($scope, $http, $location, $sce, C
     $scope.cover = Config.cover;
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
             '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.google_api).
-        success(function (data) 
+        success(function (data) {
             $scope.desc = data.aboutMe;
             $sce.trustAsHtml($scope.desc);
 
@@ -147,8 +147,8 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
 
     $scope.events = {past:[] ,future:[]};
     var url = "http://hub.gdgx.io/api/v1/chapters/"+Config.id+"/events?callback=JSON_CALLBACK";
-    var config = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
-    $http.jsonp(url, config).
+    var httpConfig = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
+    $http.jsonp(url, httpConfig).
         success(function(data){
             var now = new Date();
             var items = data.items;
