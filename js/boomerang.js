@@ -20,7 +20,6 @@ boomerang.controller('AboutControl', function( $scope, $http, $location, Config 
     $scope.cover = Config.cover;
     $http.jsonp('https://www.googleapis.com/plus/v1/people/'+Config.id+'?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key='+Config.google_api).
         success(function(data){
-            //console.log(data);
             $scope.desc = data.aboutMe;
             if(data.cover && data.cover.coverPhoto.url){
                 $scope.cover.url = data.cover.coverPhoto.url;
