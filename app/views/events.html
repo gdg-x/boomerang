@@ -1,0 +1,26 @@
+<ul class="list-unstyled">
+    <li ng-repeat="event in events.upcoming | orderBy:'start'" class="col-sm-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{event.title}}</h3>
+            </div>
+            <div class="panel-body">
+                <p><small class="text-muted">{{event.start | date:config.date_format}}</small></p>
+                <p ng-bind-html="event.about"></p>
+                <p><small><a ng-href="https://www.google.com/maps/search/{{event.location}}" target="_blank">{{event.location}}</a></small></p>
+            </div>
+        </div>
+    </li>
+    <li ng-repeat="event in events.past | orderBy:'start':true" class="col-sm-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{event.title}}</h3>
+            </div>
+            <div class="panel-body">
+                <p><small class="text-muted">{{event.start | date:config.date_format}}</small></p>
+                <p ng-bind-html="event.about"></p>
+                <p><small><a ng-href="https://www.google.com/maps/search/{{event.location}}" target="_blank">{{event.location}}</a></small></p>
+            </div>
+        </div>
+    </li>
+</ul>

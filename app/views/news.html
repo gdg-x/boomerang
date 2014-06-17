@@ -1,0 +1,23 @@
+<ul class="list-unstyled">
+    <li ng-repeat="article in news" class="panel panel-primary">
+        <div class="panel-body">
+            <p ng-bind-html="article.body" class="news-article"></p>
+
+            <ul class="list-unstyled">
+                <li ng-repeat="tn in article.thumbnails" class="col-xs-12 thumbnail">
+                    <a ng-href="{{ tn.link }}" target="_blank">
+                        <img ng-src="{{ tn.url }}" alt="Article Thumbnail" />
+                    </a>
+                </li>
+            </ul>
+
+            <div class="g-plusone-container">
+                <div class="g-plusone" data-size="medium" data-annotation="bubble" data-href="{{ article.via.url }}"></div>
+            </div>
+            <span class="text-muted">&nbsp;&nbsp;<small>{{ article.comments }} comment<span ng-show="article.comments != 1">s</span></small></span>
+            <span class="text-muted">&nbsp;&nbsp;<small>{{ article.reshares }} share<span ng-show="article.reshares != 1">s</span></small></span>
+
+            <span class="pull-right"> <a ng-href="{{ article.via.url }}" target="_blank"><button class="btn btn-sm btn-primary"><span class="glyphicon glyphicon-new-window"></span></button></a> </span>
+        </div>
+    </li>
+</ul>
