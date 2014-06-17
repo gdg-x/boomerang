@@ -6,4 +6,8 @@
     </div>
 </div>
 <hr>
-<p class="span12" ng-bind-html="chapter.aboutMe"></p></div>
+<p class="span12" ng-bind-html="chapter.aboutMe"></p>
+<hr>
+<div ng-repeat="organizer in organizers" class="text-center">
+    <div class="g-person" data-width="290" data-href="//plus.google.com/u/0/{{organizer}}" data-rel="author"  data-layout="landscape"></div>
+</div>

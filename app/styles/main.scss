@@ -35,12 +35,12 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 
   #chapter-info {
     position: relative;
-    height: 60px;
+    height: 30px;
     img {
       border: 1px solid $gray-lighter;
       padding: 4px;
       position: relative;
-      top: -52px;
+      top: -26px;
       left: 10px;
       background-color: #fff;
     }
@@ -49,7 +49,7 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
       font-weight: 700;
       position: relative;
       left: 20px;
-      top: -20px;
+      top: -8px;
     }
   }
 }
