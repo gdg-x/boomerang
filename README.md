@@ -2,7 +2,9 @@ boomerang
 =========
 Boomerang is a template for a basic GDG web site.
 
-There is a forked version for Google App Engine - https://github.com/Splaktar/boomerang-gae
+There are multiple forked versions for Google App Engine
+* Java - https://github.com/Splaktar/boomerang-gae
+* Python - https://github.com/neojato/boomerang-gdgkc
 
 Using boomerang
 ---------------
