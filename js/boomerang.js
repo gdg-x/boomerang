@@ -146,27 +146,26 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
     $scope.$parent.activeTab = "events";
 
     $scope.events = {past:[] ,future:[]};
-    var url = "http://hub.gdgx.io/api/v1/chapters/"+Config.id+"/events?callback=JSON_CALLBACK";
-    var httpConfig = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
-    $http.jsonp(url, httpConfig).
-        success(function(data){
-            var now = new Date();
-            var items = data.items;
-            for(var i=items.length-1;i>=0;i--){
-                var start = new Date(items[i].start);
-
-                items[i].start = start;
-                items[i].end = new Date(items[i].end);
-                if (start < now){
-                    $scope.events.past.push(items[i]);
-
-                } else {
-                    $scope.events.future.push(items[i]);
-                }
+    var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
+    var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
+    $http.jsonp(url, headers)
+        .success(function (data) {
+            for (var i = data.items.length - 1; i >= 0; i--) {
+                $scope.events.future.push(data.items[i]);
             }
             $scope.loading = false;
+            $scope.status = 'ready';
         });
 
+    url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?callback=JSON_CALLBACK';
+    $http.jsonp(url, headers)
+        .success(function (data) {
+            for (var i = data.items.length - 1; i >= 0; i--) {
+                $scope.events.past.push(data.items[i]);
+            }
+            $scope.loading = false;
+            $scope.status = 'ready';
+        });
 });
 
 boomerang.controller("PhotosControl", function ($scope, $http, Config) {
@@ -178,8 +177,8 @@ boomerang.controller("PhotosControl", function ($scope, $http, Config) {
         '?access=public&alt=json-in-script&kind=photo&max-results=50&fields=entry(title,link/@href,summary,content/@src)&v=2.0&callback=JSON_CALLBACK';
 
     $http.jsonp(pwa).
-        success(function (d) {
-            var p = d.feed.entry;
+        success(function (data) {
+            var p = data.feed.entry;
             for (var x in p) {
                 var photo = {
                     link: p[x].link[1].href,

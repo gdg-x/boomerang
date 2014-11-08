@@ -5,30 +5,30 @@
     <div class="row">
         <h3 ng-show="events.future.length" class="span12">Upcoming Events</h3>
         <div class="media span12" ng-repeat="event in events.future | orderBy:'start'">
-            <a class="pull-left" ng-href="https://developers.google.com{{event.link}}" target="_blank">
+            <a class="pull-left" ng-href="https://developers.google.com/events/{{event._id}}/" target="_blank">
                 <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}" alt="GDG Boomerang">
             </a>
             <div class="media-body">
                 <h4 class="media-heading">
-                    <a ng-href="{{event.gPlusEventLink}}" target="_blank">{{event.title}}</a>
+                    <a ng-href="{{event.eventUrl}}" target="_blank">{{event.title}}</a>
                 </h4>
                 <h5>{{event.location}}<br/>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
-                <p ng-bind-html="event.description | htmlLinky | hashLinky"></p>
+                <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
             </div>
         </div>
     </div>
     <div class="row">
         <h3 ng-show="events.past.length" class="span12">Past Events</h3>
         <div class="media span12" ng-repeat="event in events.past">
-            <a class="pull-left" ng-href="https://developers.google.com{{event.link}}" target="_blank">
+            <a class="pull-left" ng-href="https://developers.google.com/events/{{event._id}}/" target="_blank">
                 <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}" alt="GDG Boomerang">
             </a>
             <div class="media-body">
                 <h4 class="media-heading">
-                    <a ng-href="{{event.gPlusEventLink}}" target="_blank">{{event.title}}</a>
+                    <a ng-href="{{event.eventUrl}}" target="_blank">{{event.title}}</a>
                 </h4>
                 <h5>{{event.location}}<br/>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
-                <p ng-bind-html="event.description | htmlLinky | hashLinky"></p>
+                <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
             </div>
         </div>
     </div>
