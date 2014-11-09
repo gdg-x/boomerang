@@ -19,7 +19,7 @@
     </div>
     <div class="row">
         <h3 ng-show="events.past.length" class="span12">Past Events</h3>
-        <div class="media span12" ng-repeat="event in events.past">
+        <div class="media span12" ng-repeat="event in events.past | orderBy:'start':true">
             <a class="pull-left" ng-href="https://developers.google.com/events/{{event._id}}/" target="_blank">
                 <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}" alt="GDG Boomerang">
             </a>
