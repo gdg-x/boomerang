@@ -3,7 +3,7 @@
     <div class="gdg_loading" ng-show="loading"></div>
     <h1 class="span12" ng-hide="loading">{{ chapter_name }} News</h1>
     <ul class="span12" id="news-feed">
-        <li ng-repeat="article in news">
+        <li ng-repeat="article in news | orderBy:'date':true">
 
             <img class="icon" ng-src="{{ article.icon }}" alt="Article Icon" />
             <p ng-bind-html="article.body"></p>
