@@ -4,7 +4,7 @@ Boomerang is a template for a basic GDG web site.
 
 There are multiple forked versions for Google App Engine
 * Java - https://github.com/Splaktar/boomerang-gae
-* Python - https://github.com/neojato/boomerang-gdgkc
+* Python - https://github.com/neojato/boomerang-gae
 
 Using boomerang
 ---------------
