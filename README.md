@@ -44,9 +44,10 @@ From the boomerang directory, run the following:
 Testing locally
 ---------------
 If you aren't using App Engine, you should be able to test locally with Node.js using the following:
-* npm install http-server -g
-* cd boomerang
-* http-server -o
+
+1. npm install http-server -g
+2. cd boomerang
+3. http-server -o
 
 Deployment
 ---------------
