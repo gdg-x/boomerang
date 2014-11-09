@@ -7,11 +7,11 @@ boomerang.factory('Config', function () {
         'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
         'domain'        : 'http://www.gdgspacecoast.org',
         'cover' : {
-            title: 'Google I/O 2014',
-            subtitle: 'Google\'s yearly developer event is being held June 25-26th in San Francisco, CA.',
+            title: 'Chrome Dev Summit',
+            subtitle: 'Connecting you with Chrome Engineers. November 19-20th, 2014. Mountain View, CA and live stream.',
             button: {
                 text: 'Find out more',
-                url: 'https://www.google.com/events/io'
+                url: 'https://developer.chrome.com/devsummit/'
             }
         }
     };
