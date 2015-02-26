@@ -16,6 +16,7 @@
                 <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
             </div>
         </div>
+        <p class="span12" ng-if="upcomingError" ng-bind-html="upcomingError"></p>
     </div>
     <div class="row">
         <h3 ng-show="events.past.length" class="span12">Past Events</h3>
@@ -31,5 +32,6 @@
                 <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
             </div>
         </div>
+        <p class="span12" ng-if="pastError" ng-bind-html="pastError"></p>
     </div>
 </div>
