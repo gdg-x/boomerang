@@ -157,15 +157,25 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
             $scope.status = 'ready';
         });
 
-    url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?callback=JSON_CALLBACK';
-    $http.jsonp(url, headers)
-        .success(function (data) {
-            for (var i = data.items.length - 1; i >= 0; i--) {
-                $scope.events.past.push(data.items[i]);
-            }
-            $scope.loading = false;
-            $scope.status = 'ready';
-        });
+    var getPastEventsPage = function(page) {
+        var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?callback=JSON_CALLBACK&page=' + page;
+        var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
+        $http.jsonp(url, headers)
+            .success(function (data) {
+                var i;
+                for (i = data.items.length - 1; i >= 0; i--) {
+                    data.items[i].about = data.items[i].about.replace(/<br \/><br\/><br\/><br \/>/g, '<br/><br/>');
+                    $scope.events.past.push(data.items[i]);
+                }
+                if (data.pages === page) {
+                    $scope.loading = false;
+                    $scope.status = 'ready';
+                } else {
+                    getPastEventsPage(page + 1);
+                }
+            });
+    };
+    getPastEventsPage(1);
 });
 
 boomerang.controller("PhotosControl", function ($scope, $http, Config) {
