@@ -33,7 +33,7 @@ Update js/config.js with values appropriate for your group:
 
 Building
 ---------------
-Install dependencies and tooling, build, minify, run static analysis, and more.
+Here you will install dependencies and tooling, build, minify, run static analysis, and more.
 You must have Node.js installed to use the build tools. Download it [here](http://nodejs.org/download/).
 From the boomerang directory, run the following:
 

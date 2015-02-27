@@ -28,11 +28,6 @@ gulp.task('jshint', ['clean'], function () {
 
 gulp.task('concat', ['clean'], function () {
     return gulp.src([
-        './bower_components/angular/angular.js',
-        './bower_components/angular-route/angular-route.js',
-        './bower_components/angular-sanitize/angular-sanitize.js',
-        './bower_components/angular-ui/build/angular-ui.js',
-        './lib/angular.ui.min.js',
         './js/boomerang.js',
         './js/config.js'
     ])
