@@ -1,15 +1,15 @@
-var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ui.bootstrap'])
-    .config(function ($routeProvider, $locationProvider) {
+var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria', 'ui.bootstrap'])
+.config(function ($routeProvider, $locationProvider) {
 
-        $locationProvider.hashPrefix('!');
+    $locationProvider.hashPrefix('!');
 
-        $routeProvider.
-            when("/about", {templateUrl: 'views/about.html', controller: "AboutControl"}).
-            when("/news", {templateUrl: 'views/news.html', controller: "NewsControl"}).
-            when("/events", {templateUrl: 'views/events.html', controller: "EventsControl"}).
-            when("/photos", {templateUrl: 'views/photos.html', controller: "PhotosControl"}).
-            otherwise({ redirectTo: '/about' });
-    });
+    $routeProvider.
+        when("/about", {templateUrl: 'views/about.html', controller: "AboutControl"}).
+        when("/news", {templateUrl: 'views/news.html', controller: "NewsControl"}).
+        when("/events", {templateUrl: 'views/events.html', controller: "EventsControl"}).
+        when("/photos", {templateUrl: 'views/photos.html', controller: "PhotosControl"}).
+        otherwise({ redirectTo: '/about' });
+});
 
 boomerang.controller('MainControl', function ($rootScope, $scope, Config) {
     $scope.chapter_name = Config.name;
@@ -33,9 +33,10 @@ boomerang.controller('AboutControl', function ($scope, $http, $location, $sce, C
             }
             $scope.loading = false;
         })
-        .error(function (data) {
+        .error(function (response) {
             $scope.desc = "Sorry, we failed to retrieve the About text from the Google+ API.";
             $scope.loading = false;
+            $scope.status = 'ready';
         });
 });
 
@@ -155,6 +156,11 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
             }
             $scope.loading = false;
             $scope.status = 'ready';
+        })
+        .error(function (response) {
+            $scope.upcomingError = "Sorry, we failed to retrieve the upcoming events from the GDG-X Hub API.";
+            $scope.loading = false;
+            $scope.status = 'ready';
         });
 
     var getPastEventsPage = function(page) {
@@ -173,6 +179,11 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
                 } else {
                     getPastEventsPage(page + 1);
                 }
+            })
+            .error(function (response) {
+                $scope.pastError = "Sorry, we failed to retrieve the past events from the GDG-X Hub API.";
+                $scope.loading = false;
+                $scope.status = 'ready';
             });
     };
     getPastEventsPage(1);

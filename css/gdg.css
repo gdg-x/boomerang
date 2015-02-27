@@ -52,8 +52,6 @@
   border: 1px solid rgb(203, 203, 203);
   color: rgb(218, 87, 58);
   text-shadow: none;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
   border-radius: 2px;
   background: rgb(251,251,251); /* Old browsers */
   background: -moz-linear-gradient(top,  rgba(251,251,251,1) 0%, rgba(245,245,245,1) 5%, rgba(242,240,240,1) 19%, rgba(242,242,242,1) 24%, rgba(228,228,228,1) 100%); /* FF3.6+ */
@@ -77,9 +75,8 @@
 
 #news-feed li .thumbnails li {
   display: inline-block;
-  padding-right: 6px;
+  padding: 0 6px 0 0;
   border: 0;
-  padding: 0;
 }
 #news-feed li .thumbnails img {
   height: 100px;

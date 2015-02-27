@@ -1,12 +1,12 @@
 boomerang
 =========
-Boomerang is a template for a basic GDG web site.
+Boomerang is a template for a basic GDG web site that can be deployed within 30 minutes.
 
 There are multiple forked versions for Google App Engine
 * Java - https://github.com/Splaktar/boomerang-gae
 * Python - https://github.com/neojato/boomerang-gae
 
-Using boomerang
+Configuring
 ---------------
 Update js/config.js with values appropriate for your group:
 
@@ -31,11 +31,25 @@ Update js/config.js with values appropriate for your group:
    does not work with the default layout, you can specify a URL for a specific
    image instead.
 
-Then deploy on your web server of choice. If you need a web server, Google App
-Engine's free tier should be more than sufficient for your needs.
+Building
+---------------
+Here you will install dependencies and tooling, build, minify, run static analysis, and more.
+You must have Node.js installed to use the build tools. Download it [here](http://nodejs.org/download/).
+From the boomerang directory, run the following:
 
-If you aren't using App Engine, you should be able to test locally with
-node.js (installed separately) using the following:
-* npm install http-server -g
-* cd boomerang
-* http-server -o
+1. npm install
+2. bower install
+3. gulp
+
+Testing locally
+---------------
+If you aren't using App Engine, you should be able to test locally with Node.js using the following:
+
+1. npm install http-server -g
+2. cd boomerang
+3. http-server -o
+
+Deployment
+---------------
+Deploy on your web server of choice (Apache, Nginx, etc).
+If you need a web server, Google App Engine's free tier should be more than sufficient for your chapter's needs.

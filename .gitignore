@@ -13,7 +13,6 @@
 # git has its own built in compression methods
 *.7z
 *.dmg
-*.gz
 *.iso
 *.jar
 *.rar
@@ -103,3 +102,8 @@ local.properties
 war/WEB-INF/classes
 war/WEB-INF/lib
 war/WEB-INF/appengine-generated
+
+#JavaScript tooling
+node_modules
+bower_components
+dist/
