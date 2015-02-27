@@ -16,38 +16,18 @@
         <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
     </head>
     <body ng-controller="MainControl">
-        <!-- NAV -->
-        <div class="navbar navbar-static-top navbar-inverse">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button type="button" class="btn btn-navbar" ng-click="isNavCollapsed = !isNavCollapsed">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" ng-cloak id="gdg_chapter_name" href="#!/about">{{ chapter_name }}</a>
-
-                    <div class="nav-collapse" collapse="isNavCollapsed" ng-click="isNavCollapsed = true">
-                        <ul class="nav">
-                            <li ng-class="{ 'active' : activeTab=='about' }"><a href="#!/about">About</a></li>
-                            <li ng-class="{ 'active' : activeTab=='news' }"><a href="#!/news">News</a></li>
-                            <li ng-class="{ 'active' : activeTab=='events' }"><a href="#!/events">Events</a></li>
-                            <li ng-class="{ 'active' : activeTab=='photos' }"><a href="#!/photos">Photos</a></li>
-                            <li><a ng-href="{{ google_plus_link }}" rel="publisher" target="_blank">Google+</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
         <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-                <md-button ng-click='' class="md-primary md-raised" aria-label="Menu"
-                           style="padding: 15px; margin-right: 10px">
-                    <span class="fa fa-bars"></span>
-                </md-button>
-                <h2>{{ chapter_name }}</h2>
+                <h2 flex>{{ chapter_name }}</h2>
+                <a ng-href="{{ google_plus_link }}" rel="publisher" target="_blank">Google+</a>
             </div>
         </md-toolbar>
+        <md-tabs>
+            <a href="#!/about"><md-tab label="About" id="about-tab"></md-tab></a>
+            <a href="#!/news"><md-tab label="News" id="news-tab"></md-tab></a>
+            <a href="#!/events"><md-tab label="Events" id="events-tab"></md-tab></a>
+            <a href="#!/photos"><md-tab label="Photos" id="photos-tab"></md-tab></a>
+        </md-tabs>
         <div class="container">
             <div class="row" ng-view></div>
         </div>
