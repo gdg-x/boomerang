@@ -1,24 +1,41 @@
-<div class="span12">
+<div>
     <p>&nbsp;</p>
     <div class="gdg_loading" ng-show="loading"></div>
-    <div class="row">
-        <img ng-show="cover.url" class="span12" ng-src="{{cover.url}}" alt="Google+ Cover Image">
-        <div class="span12 hidden-phone" id="cover" ng-show="cover.url">
+    <md-card>
+        <img ng-show="cover.url" ng-src="{{cover.url}}" alt="Google+ Cover Image">
+        <div id="cover" ng-show="cover.url">
             <div id="cover-content">
-                <h1 class="span12">{{cover.title}}</h1>
-                <p class="span12">{{cover.subtitle}}</p>
-                <p class="span12">
-                    <a class="btn btn-primary btn-large" ng-href="{{cover.button.url}}" target="_blank">{{cover.button.text}}</a>
+                <h1>{{cover.title}}</h1>
+                <p>{{cover.subtitle}}</p>
+                <p>
+                    <a class="" ng-href="{{cover.button.url}}" target="_blank">
+                        <md-button class="md-raised md-accent">
+                            {{cover.button.text}}
+                        </md-button>
+                    </a>
                 </p>
             </div>
         </div>
-        <hr>
-        <p class="span12" ng-bind-html="desc"></p>
-        <h4>Sponsors:</h4>
-        <div>
-            <a href="https://developers.google.com/"><img class="sponsor" src="../images/Google-Developers.png" alt="Google Developers"></a>
-            <a href="http://www.jetbrains.com/"><img class="sponsor" src="../images/sponsor1.png" alt="Sponsor Image"></a>
-            <a href="http://www.oreilly.com/store/"><img class="sponsor" src="../images/sponsor2.gif" alt="Sponsor Image"></a>
+        <md-card-content>
+            <div ng-bind-html="desc"></div>
+        </md-card-content>
+    </md-card>
+    <md-whiteframe class="md-whiteframe-z2" layout="column">
+        <md-toolbar class="md-hue-2" flex>
+            <h2 class="md-toolbar-tools">
+                Sponsors
+            </h2>
+        </md-toolbar>
+        <div layout layout-wrap>
+            <md-card>
+                <a href="https://developers.google.com/"><img class="sponsor" src="../images/Google-Developers.png" alt="Google Developers"></a>
+            </md-card>
+            <md-card>
+                <a href="http://www.jetbrains.com/"><img class="sponsor" src="../images/sponsor1.png" alt="Sponsor Image"></a>
+            </md-card>
+            <md-card>
+                <a href="http://www.oreilly.com/store/"><img class="sponsor" src="../images/sponsor2.gif" alt="Sponsor Image"></a>
+            </md-card>
         </div>
-    </div>
+    </md-whiteframe>
 </div>

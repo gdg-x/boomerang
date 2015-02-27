@@ -1,5 +1,5 @@
-var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria', 'ui.bootstrap'])
-.config(function ($routeProvider, $locationProvider) {
+var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria', 'ui.bootstrap', 'ngMaterial'])
+.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
 
     $locationProvider.hashPrefix('!');
 
@@ -9,6 +9,10 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria
         when("/events", {templateUrl: 'views/events.html', controller: "EventsControl"}).
         when("/photos", {templateUrl: 'views/photos.html', controller: "PhotosControl"}).
         otherwise({ redirectTo: '/about' });
+
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue')
+        .accentPalette('orange');
 });
 
 boomerang.controller('MainControl', function ($rootScope, $scope, Config) {
