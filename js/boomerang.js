@@ -12,7 +12,7 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria
 
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
-        .accentPalette('orange');
+        .accentPalette('deep-orange');
 });
 
 boomerang.controller('MainControl', function ($rootScope, $scope, Config) {
