@@ -2,6 +2,8 @@ boomerang
 =========
 Boomerang is a template for a basic GDG web site that can be deployed within 30 minutes.
 
+See it in action: http://gdg-x.github.io/boomerang
+
 There are multiple forked versions for Google App Engine
 * Java - https://github.com/Splaktar/boomerang-gae
 * Python - https://github.com/neojato/boomerang-gae
