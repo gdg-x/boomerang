@@ -55,3 +55,8 @@ Deployment
 ---------------
 Deploy on your web server of choice (Apache, Nginx, etc).
 If you need a web server, Google App Engine's free tier should be more than sufficient for your chapter's needs.
+
+Example sites using this template
+---------------
+http://www.gdgfresno.com/
+http://gdgspacecoast.org/
