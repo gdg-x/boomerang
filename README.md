@@ -58,5 +58,5 @@ If you need a web server, Google App Engine's free tier should be more than suff
 
 Example sites using this template
 ---------------
-http://www.gdgfresno.com/
-http://gdgspacecoast.org/
+* http://www.gdgfresno.com/
+* http://gdgspacecoast.org/
