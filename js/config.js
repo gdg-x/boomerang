@@ -7,11 +7,11 @@ boomerang.factory('Config', function () {
         'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
         'domain'        : 'http://www.gdgspacecoast.org',
         'cover' : {
-            title: 'Chrome Dev Summit',
-            subtitle: 'Connecting you with Chrome Engineers. November 19-20th, 2014. Mountain View, CA and live stream.',
+            title: 'GDG Events Worldwide',
+            subtitle: 'Worldwide directory of developer events organized by tags and displayed on a map.',
             button: {
-                text: 'Find out more',
-                url: 'https://developer.chrome.com/devsummit/'
+                text: 'Find local events',
+                url: 'http://gdg.events/'
             }
         }
     };
