@@ -109,3 +109,6 @@ body {
 .sponsor {
     padding: 20px;
 }
+md-tabs .md-header {
+  border-bottom: 1px solid #D8D8D8;
+}
