@@ -1,7 +1,7 @@
 <div>
     <p>&nbsp;</p>
     <div class="gdg_loading" ng-show="loading"></div>
-    <md-card>
+    <md-card ng-hide="loading">
         <img ng-show="cover.url" ng-src="{{cover.url}}" alt="Google+ Cover Image">
         <div id="cover" ng-show="cover.url">
             <div id="cover-content">

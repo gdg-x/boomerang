@@ -29,7 +29,8 @@ gulp.task('jshint', ['clean'], function () {
 gulp.task('concat', ['clean'], function () {
     return gulp.src([
         './js/boomerang.js',
-        './js/config.js'
+        './js/config.js',
+        './js/*.js'
     ])
         .pipe(concat('boomerang.js'))
         .pipe(gulp.dest('./dist/'));

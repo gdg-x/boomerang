@@ -18,11 +18,13 @@
     <body ng-controller="MainControl">
         <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
-                <h2 flex>{{ chapter_name }}</h2>
+                <h2 flex>
+                    <span ng-cloak>{{ chapter_name }}</span>
+                </h2>
                 <a ng-href="{{ google_plus_link }}" rel="publisher" target="_blank">Google+</a>
             </div>
         </md-toolbar>
-        <md-tabs>
+        <md-tabs md-selected="navTab">
             <a href="#!/about"><md-tab label="About" id="about-tab"></md-tab></a>
             <a href="#!/news"><md-tab label="News" id="news-tab"></md-tab></a>
             <a href="#!/events"><md-tab label="Events" id="events-tab"></md-tab></a>
@@ -40,5 +42,5 @@
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
     <script src="bower_components/angular-material/angular-material.min.js"></script>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <script src="dist/boomerang.min.js.gz"></script>
+    <script src="dist/boomerang.js"></script>
 </html>
