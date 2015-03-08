@@ -1,6 +1,9 @@
-boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, $sce, Config) {
-    $scope.loading = true;
-    $scope.$parent.navTab = 1;
+boomerang.controller("NewsControl", function ($http, $timeout, $filter, $sce, Config) {
+    var vm = this;
+    vm.loading = true;
+    //vm.$parent.navTab = 1;
+    vm.chapter_name = Config.name;
+
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
         '/activities/public?callback=JSON_CALLBACK&maxResults=20&key=' + Config.google_api)
         .success(function (response) {
@@ -14,7 +17,8 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, 
                 object = item.object || {};
                 itemTitle = object.content;
                 published = $filter('date')(new Date(item.published), 'fullDate');
-                html = ['<p style="font-size:14px;">' + published + '</p>'];
+                //html = ['<p style="font-size:14px;">' + published + '</p>'];
+                html = [];
 
                 if(item.annotation) {
                     itemTitle = item.annotation;
@@ -76,6 +80,7 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, 
                         name: 'Google+',
                         url: item.url
                     },
+                    published: published,
                     body: html,
                     date: item.updated,
                     reshares: (object.resharers || {}).totalItems,
@@ -87,15 +92,15 @@ boomerang.controller("NewsControl", function ($scope, $http, $timeout, $filter, 
 
                 entries.push(entry);
             }
-            $scope.news = entries;
+            vm.news = entries;
             $timeout(function () {
                 gapi.plusone.go();
             });
-            $scope.loading = false;
+            vm.loading = false;
         })
         .error(function (response) {
-            $scope.desc = "Sorry, we failed to retrieve the News from the Google+ API.";
-            $scope.loading = false;
-            $scope.status = 'ready';
+            vm.desc = "Sorry, we failed to retrieve the News from the Google+ API.";
+            vm.loading = false;
+            vm.status = 'ready';
         });
 });
