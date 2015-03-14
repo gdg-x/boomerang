@@ -1,37 +1,47 @@
-<div class="span12">
-    <p>&nbsp;</p>
-    <div class="gdg_loading" ng-show="vm.loading"></div>
-    <h1 class="span12" ng-hide="vm.loading">{{ vm.chapter_name }} events</h1>
-    <div class="row">
-        <h3 ng-show="vm.events.future.length" class="span12">Upcoming Events</h3>
-        <div class="media span12" ng-repeat="event in vm.events.future | orderBy:'start'">
+<div class="gdg_loading" ng-show="vm.loading"></div>
+<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin ng-show="vm.events.future.length">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h3>Upcoming {{ vm.chapter_name }} Events</h3>
+        </div>
+    </md-toolbar>
+    <md-card class="media" ng-repeat="event in vm.events.future | orderBy:'start'">
+        <md-card-content>
             <a class="pull-left" ng-href="https://developers.google.com/events/{{event._id}}/" target="_blank">
                 <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}" alt="GDG Boomerang">
             </a>
             <div class="media-body">
                 <h4 class="media-heading">
-                    <a ng-href="{{event.eventUrl}}" target="_blank">{{event.title}}</a>
+                    <a ng-href="{{event.eventUrl || 'https://developers.google.com/events/'+event._id+'/'}}"
+                       target="_blank">{{event.title}}</a>
                 </h4>
                 <h5>{{event.location}}<br/>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
                 <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
             </div>
+        </md-card-content>
+    </md-card>
+    <p ng-if="vm.upcomingError" ng-bind-html="vm.upcomingError"></p>
+</md-whiteframe>
+<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin ng-show="vm.events.past.length">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h3>Past {{ vm.chapter_name }} Events</h3>
         </div>
-        <p class="span12" ng-if="vm.upcomingError" ng-bind-html="vm.upcomingError"></p>
-    </div>
-    <div class="row">
-        <h3 ng-show="vm.events.past.length" class="span12">Past Events</h3>
-        <div class="media span12" ng-repeat="event in vm.events.past | orderBy:'start':true">
+    </md-toolbar>
+    <md-card class="media" ng-repeat="event in vm.events.past | orderBy:'start':true">
+        <md-card-content>
             <a class="pull-left" ng-href="https://developers.google.com/events/{{event._id}}/" target="_blank">
                 <img class="media-object" ng-src="https://developers.google.com{{event.iconUrl}}" alt="GDG Boomerang">
             </a>
             <div class="media-body">
                 <h4 class="media-heading">
-                    <a ng-href="{{event.eventUrl}}" target="_blank">{{event.title}}</a>
+                    <a ng-href="{{event.eventUrl || 'https://developers.google.com/events/'+event._id+'/'}}"
+                       target="_blank">{{event.title}}</a>
                 </h4>
                 <h5>{{event.location}}<br/>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
                 <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
             </div>
-        </div>
-        <p class="span12" ng-if="vm.pastError" ng-bind-html="vm.pastError"></p>
-    </div>
-</div>
+        </md-card-content>
+    </md-card>
+    <p ng-if="vm.pastError" ng-bind-html="vm.pastError"></p>
+</md-whiteframe>
