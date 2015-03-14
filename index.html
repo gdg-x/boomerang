@@ -15,26 +15,26 @@
         <link href="css/gdg.css" rel="stylesheet" media="screen">
         <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
     </head>
-    <body ng-controller="MainControl">
+    <body ng-controller="MainController as mc">
         <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
                 <h2 flex>
-                    <span ng-cloak>{{ chapter_name }}</span>
+                    <span ng-cloak>{{ mc.chapter_name }}</span>
                 </h2>
-                <a ng-href="{{ google_plus_link }}" rel="publisher" target="_blank">Google+</a>
+                <a ng-href="{{ mc.google_plus_link }}" rel="publisher" target="_blank">Google+</a>
             </div>
         </md-toolbar>
-        <md-tabs md-selected="navTab">
+        <md-tabs md-selected="mc.navTab">
             <a href="#!/about"><md-tab label="About" id="about-tab"></md-tab></a>
             <a href="#!/news"><md-tab label="News" id="news-tab"></md-tab></a>
             <a href="#!/events"><md-tab label="Events" id="events-tab"></md-tab></a>
             <a href="#!/photos"><md-tab label="Photos" id="photos-tab"></md-tab></a>
         </md-tabs>
-        <div class="container">
-            <div class="row" ng-view></div>
+        <div layout layout-margin>
+            <div ng-view></div>
         </div>
     </body>
-    <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
+    <script src="bower_components/angular/angular.js" type="text/javascript"></script>
     <script src="bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
     <script src="bower_components/angular-aria/angular-aria.min.js" type="text/javascript"></script>
     <script src="bower_components/angular-animate/angular-animate.min.js"></script>

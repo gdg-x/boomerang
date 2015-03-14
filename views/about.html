@@ -1,26 +1,26 @@
 <div>
     <p>&nbsp;</p>
-    <div class="gdg_loading" ng-show="loading"></div>
-    <md-card ng-hide="loading">
-        <img ng-show="cover.url" ng-src="{{cover.url}}" alt="Google+ Cover Image">
-        <div id="cover" ng-show="cover.url">
+    <div class="gdg_loading" ng-show="vm.loading"></div>
+    <md-card ng-hide="vm.loading">
+        <img ng-show="vm.cover.url" ng-src="{{vm.cover.url}}" alt="Google+ Cover Image">
+        <div id="cover" ng-show="vm.cover.url">
             <div id="cover-content">
-                <h1>{{cover.title}}</h1>
-                <p>{{cover.subtitle}}</p>
+                <h1>{{vm.cover.title}}</h1>
+                <p>{{vm.cover.subtitle}}</p>
                 <p>
-                    <a class="" ng-href="{{cover.button.url}}" target="_blank">
+                    <a ng-href="{{vm.cover.button.url}}" target="_blank">
                         <md-button class="md-raised md-accent">
-                            {{cover.button.text}}
+                            {{vm.cover.button.text}}
                         </md-button>
                     </a>
                 </p>
             </div>
         </div>
         <md-card-content>
-            <div ng-bind-html="desc"></div>
+            <div ng-bind-html="vm.desc"></div>
         </md-card-content>
     </md-card>
-    <md-card class="md-whiteframe-z2" layout="column">
+    <md-card layout="column">
         <md-toolbar class="md-hue-2" flex>
             <h2 class="md-toolbar-tools">
                 Sponsors

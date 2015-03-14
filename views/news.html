@@ -1,4 +1,4 @@
-<div ng-controller="NewsControl as vm">
+<div>
     <p>&nbsp;</p>
     <div class="gdg_loading" ng-show="vm.loading"></div>
     <h1 ng-hide="vm.loading">{{ vm.chapter_name }} News</h1>
@@ -35,5 +35,5 @@
             </md-content>
         </md-whiteframe>
     </div>
-    <p ng-if="desc" ng-bind-html="desc"></p>
+    <p ng-if="vm.desc" ng-bind-html="vm.desc"></p>
 </div>

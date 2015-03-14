@@ -1,7 +1,9 @@
-boomerang.controller("PhotosControl", function ($scope, $http, Config) {
-    $scope.loading = true;
-    $scope.$parent.navTab = 3;
-    $scope.photos = [];
+boomerang.controller("PhotosController", function ($http, Config, NavService) {
+    var vm = this;
+    vm.loading = true;
+    NavService.setNavTab(3);
+    vm.chapter_name = Config.name;
+    vm.photos = [];
 
     var pwa = 'https://picasaweb.google.com/data/feed/api/user/' + Config.id + '/albumid/' + Config.pwa_id +
         '?access=public&alt=json-in-script&kind=photo&max-results=50&fields=entry(title,link/@href,summary,content/@src)&v=2.0&callback=JSON_CALLBACK';
@@ -16,12 +18,12 @@ boomerang.controller("PhotosControl", function ($scope, $http, Config) {
                     alt: p[x].title.$t,
                     title: p[x].summary.$t
                 };
-                $scope.photos.push(photo);
+                vm.photos.push(photo);
             }
-            $scope.loading = false;
+            vm.loading = false;
         })
         .error(function (data) {
-            $scope.error_msg = "Sorry, we failed to retrieve the Photos from the Picasa Web Albums API. Logging out of your Google Account and logging back in may resolve this issue.";
-            $scope.loading = false;
+            vm.error_msg = "Sorry, we failed to retrieve the Photos from the Picasa Web Albums API. Logging out of your Google Account and logging back in may resolve this issue.";
+            vm.loading = false;
         });
 });

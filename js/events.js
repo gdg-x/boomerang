@@ -1,23 +1,25 @@
-boomerang.controller("EventsControl", function ($scope, $http, Config) {
-    $scope.loading = true;
-    $scope.$parent.navTab = 2;
+boomerang.controller("EventsController", function ($http, Config, NavService) {
+    var vm = this;
+    vm.chapter_name = Config.name;
+    vm.loading = true;
+    NavService.setNavTab(2);
 
-    $scope.events = {past:[] ,future:[]};
+    vm.events = {past:[] ,future:[]};
     var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
     var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
     $http.jsonp(url, headers)
         .success(function (data) {
             for (var i = data.items.length - 1; i >= 0; i--) {
                 data.items[i].about = data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
-                $scope.events.future.push(data.items[i]);
+                vm.events.future.push(data.items[i]);
             }
-            $scope.loading = false;
-            $scope.status = 'ready';
+            vm.loading = false;
+            vm.status = 'ready';
         })
         .error(function (response) {
-            $scope.upcomingError = "Sorry, we failed to retrieve the upcoming events from the GDG-X Hub API.";
-            $scope.loading = false;
-            $scope.status = 'ready';
+            vm.upcomingError = "Sorry, we failed to retrieve the upcoming events from the GDG-X Hub API.";
+            vm.loading = false;
+            vm.status = 'ready';
         });
 
     var getPastEventsPage = function(page) {
@@ -28,19 +30,19 @@ boomerang.controller("EventsControl", function ($scope, $http, Config) {
                 var i;
                 for (i = data.items.length - 1; i >= 0; i--) {
                     data.items[i].about = data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
-                    $scope.events.past.push(data.items[i]);
+                    vm.events.past.push(data.items[i]);
                 }
                 if (data.pages === page) {
-                    $scope.loading = false;
-                    $scope.status = 'ready';
+                    vm.loading = false;
+                    vm.status = 'ready';
                 } else {
                     getPastEventsPage(page + 1);
                 }
             })
             .error(function (response) {
-                $scope.pastError = "Sorry, we failed to retrieve the past events from the GDG-X Hub API.";
-                $scope.loading = false;
-                $scope.status = 'ready';
+                vm.pastError = "Sorry, we failed to retrieve the past events from the GDG-X Hub API.";
+                vm.loading = false;
+                vm.status = 'ready';
             });
     };
     getPastEventsPage(1);

@@ -1,7 +1,8 @@
-boomerang.controller("NewsControl", function ($http, $timeout, $filter, $sce, Config) {
+boomerang.controller("NewsController", function ($http, $timeout, $filter, $sce, Config, NavService) {
     var vm = this;
     vm.loading = true;
-    //vm.$parent.navTab = 1;
+    vm.chapter_name = Config.name;
+    NavService.setNavTab(1);
     vm.chapter_name = Config.name;
 
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +

@@ -4,10 +4,10 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria
     $locationProvider.hashPrefix('!');
 
     $routeProvider.
-        when("/about", {templateUrl: 'views/about.html', controller: "AboutControl"}).
-        when("/news", {templateUrl: 'views/news.html', controller: "NewsControl"}).
-        when("/events", {templateUrl: 'views/events.html', controller: "EventsControl"}).
-        when("/photos", {templateUrl: 'views/photos.html', controller: "PhotosControl"}).
+        when("/about", {templateUrl: 'views/about.html', controller: "AboutController", controllerAs: 'vm'}).
+        when("/news", {templateUrl: 'views/news.html', controller: "NewsController", controllerAs: 'vm'}).
+        when("/events", {templateUrl: 'views/events.html', controller: "EventsController", controllerAs: 'vm'}).
+        when("/photos", {templateUrl: 'views/photos.html', controller: "PhotosController", controllerAs: 'vm'}).
         otherwise({ redirectTo: '/about' });
 
     $mdThemingProvider.theme('default')
@@ -15,11 +15,16 @@ var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria
         .accentPalette('deep-orange');
 });
 
-boomerang.controller('MainControl', function ($rootScope, $scope, Config) {
-    $scope.chapter_name = Config.name;
-    $scope.google_plus_link = 'https://plus.google.com/' + Config.id;
-    $scope.isNavCollapsed = true;
+boomerang.controller('MainController', function ($rootScope, Config, NavService) {
+    var mc = this;
+    mc.chapter_name = Config.name;
+    mc.google_plus_link = 'https://plus.google.com/' + Config.id;
+    mc.isNavCollapsed = true;
     $rootScope.canonical = Config.domain;
+
+    NavService.registerNavListener(function (tab) {
+        mc.navTab = tab;
+    });
 });
 
 // HTML-ified linky from http://plnkr.co/edit/IEpLfZ8gO2B9mJcTKuWY?p=preview

@@ -8,7 +8,7 @@ There are multiple forked versions for Google App Engine
 
 Configuring
 ---------------
-Update js/config.js with values appropriate for your group:
+Update js/configService.js with values appropriate for your group:
 
 1. **name**: The name of your GDG
 2. **id**: The ID of the Google+ page for your GDG; for example, if your page
