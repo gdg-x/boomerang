@@ -1,0 +1,21 @@
+<md-card>
+    <md-grid-list md-cols-sm="2" md-cols-md="4" md-cols-lg="5" md-cols-gt-lg="7"
+                  md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+        <md-grid-tile ng-repeat="thumbnail in attachment.thumbnails" md-rowspan="{{ $first ? 2: 1 }}"
+                      md-colspan="{{ $first ? 2: 1 }}">
+            <a class="fill" ng-href="{{ thumbnail.url }}" target="_blank">
+                <div class="fill" style="background-image: url({{ thumbnail.image.url }});"></div>
+            </a>
+        </md-grid-tile>
+    </md-grid-list>
+    <md-card-content>
+        <p ng-bind-html="article.body"></p>
+        <div layout>
+            <a ng-href="{{ article.via.url }}" target="_blank"><md-button>View</md-button></a>
+            <md-button ng-disabled="true"> {{ article.comments }} comment<span ng-show="article.comments != 1">s</span> </md-button>
+            <md-button ng-disabled="true"> {{ article.reshares }} share<span ng-show="article.reshares != 1">s</span> </md-button>
+            <span data-size="large" data-annotation="bubble" data-href="{{ article.via.url }}"
+                    style="vertical-align: middle"></span>
+        </div>
+    </md-card-content>
+</md-card>

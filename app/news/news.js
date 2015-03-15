@@ -38,7 +38,8 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $log,
                     plusones: (object.plusoners || {}).totalItems,
                     comments: (object.replies || {}).totalItems,
                     icon: actorImage,
-                    attachments: object.attachments || []
+                    item: item,
+                    object: object
                 };
 
                 entries.push(entry);

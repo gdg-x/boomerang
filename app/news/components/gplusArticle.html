@@ -1,0 +1,47 @@
+<md-card>
+    <a ng-if="attachment.fullImage" ng-href="{{ article.via.url }}" target="_blank">
+        <img ng-src="{{ attachment.fullImage.url }}" alt="Article Thumbnail"/>
+    </a>
+    <md-card-content>
+        <md-content>
+            <md-list>
+                <md-item>
+                    <md-item-content>
+                        <div class="md-tile-left" style="align-self: flex-start;">
+                            <a ng-href="{{ article.item.actor.url }}">
+                                <img ng-src="{{ article.item.actor.image.url }}" alt="{{ article.item.actor.displayName }}">
+                            </a>
+                        </div>
+                        <div class="md-tile-content">
+                            <p>{{ article.item.actor.displayName }}</p>
+                            <h3 ng-bind-html="article.item.annotation"></h3>
+                        </div>
+                    </md-item-content>
+                </md-item>
+                <md-divider md-inset></md-divider>
+                <md-item>
+                    <md-item-content>
+                        <div class="md-tile-left" style="align-self: flex-start;">
+                            <a ng-href="{{ article.object.actor.url }}">
+                                <img ng-src="{{ article.object.actor.image.url }}" alt="{{ article.object.actor.displayName }}">
+                            </a>
+                        </div>
+                        <div class="md-tile-content">
+                            <p>{{ article.object.actor.displayName }} originally shared: </p>
+                            <h3 ng-bind-html="article.body"></h3>
+                            <h4 style="margin-top: 15px; opacity: 0.8">Article Preview:</h4>
+                            <p style="opacity: 0.8">{{ attachment.content }}</p>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </md-content>
+        <div layout>
+            <a ng-href="{{ article.via.url }}" target="_blank"><md-button>View</md-button></a>
+            <md-button ng-disabled="true"> {{ article.comments }} comment<span ng-show="article.comments != 1">s</span> </md-button>
+            <md-button ng-disabled="true"> {{ article.reshares }} share<span ng-show="article.reshares != 1">s</span> </md-button>
+            <span data-size="large" data-annotation="bubble" data-href="{{ article.via.url }}"
+                    style="vertical-align: middle"></span>
+        </div>
+    </md-card-content>
+</md-card>
