@@ -1,4 +1,4 @@
-var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria', 'ui.bootstrap', 'ngMaterial'])
+var boomerang = angular.module('gdgBoomerang', ['ngSanitize', 'ngRoute', 'ngAria', 'ngAnimate', 'ngMaterial'])
 .config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
 
     $locationProvider.hashPrefix('!');
