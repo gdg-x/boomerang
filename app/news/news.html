@@ -1,7 +1,7 @@
 <div class="gdg_loading" ng-show="vm.loading"></div>
-<div layout="column" layout-margin>
+<div layout layout-wrap>
     <md-whiteframe class="md-whiteframe-z2" ng-repeat="article in vm.news"
-            style="margin-bottom: 10px">
+            style="margin: 4px" flex-sm="100" flex-gt-lg="45">
         <md-toolbar>
             <div class="md-toolbar-tools">
                 <img ng-src="{{ article.icon }}" alt="Article Icon" />
@@ -10,7 +10,6 @@
         </md-toolbar>
         <md-content layout="column" layout-padding>
             <div ng-repeat="attachment in article.object.attachments" layout="column">
-                {{ attachment.objectType | json }}
                 <gplus-album ng-if="attachment.objectType === 'album'" article="article" attachment="attachment">
                 </gplus-album>
                 <gplus-photo-video ng-if="attachment.objectType === 'photo' || attachment.objectType === 'video'"
