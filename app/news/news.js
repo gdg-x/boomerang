@@ -11,6 +11,11 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $log,
             var item, actor, object, itemTitle, html;
             var published, actorImage, entry;
 
+            if (!response.items) {
+                handleError('Response from server contained no news items.');
+                return;
+            }
+
             for (i = 0; i < response.items.length; i++) {
                 item = response.items[i];
                 actor = item.actor || {};
@@ -49,11 +54,14 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $log,
                 gapi.plusone.go();
             });
             vm.loading = false;
-        })
-        .error(function (response) {
-            vm.desc = "Sorry, we failed to retrieve the News from the Google+ API.";
-            vm.loading = false;
             vm.status = 'ready';
-            $log.debug('Sorry, we failed to retrieve the News from the Google+ API: ' + response);
-        });
+        })
+        .error(handleError);
+
+    function handleError(error) {
+        vm.desc = "Sorry, we failed to retrieve the news from the Google+ API.";
+        vm.loading = false;
+        vm.status = 'ready';
+        $log.debug('Sorry, we failed to retrieve the news from the Google+ API: ' + error);
+    }
 });

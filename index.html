@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="gdgXBoomerang">
+<html ng-app="gdgXBoomerang" itemscope itemtype="http://schema.org/Organization">
     <head>
         <title>Google Developer Group</title>
         <link rel="canonical" ng-href="{{ canonical }}" />
@@ -47,6 +47,9 @@
         <div layout layout-margin layout-align="center start">
             <div ng-view flex-sm="100" flex-md="90" flex-lg="80" flex-gt-lg="75"></div>
         </div>
+        <span itemprop="name" style="display: none;">{{ mc.snippet.name }}</span>
+        <span itemprop="description" style="display: none;">{{ mc.snippet.description }}</span>
+        <img itemprop="image" style="display: none;" ng-src="{{ mc.snippet.image }}">
     </body>
     <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
     <script src="bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
