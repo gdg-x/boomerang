@@ -106,4 +106,3 @@ war/WEB-INF/appengine-generated
 #JavaScript tooling
 node_modules
 bower_components
-dist/
