@@ -1,7 +1,24 @@
 <md-card>
     <md-card-content>
-        <a ng-href="{{ article.object.attachments[0].url }}"><h3>{{ article.object.attachments[0].displayName }}</h3></a>
-        <p ng-bind-html="article.body"></p>
+        <md-content>
+            <md-list>
+                <md-item>
+                    <md-item-content>
+                        <div class="md-tile-left" style="align-self: flex-start; padding-top: 8px;">
+                            <a ng-href="{{ article.item.actor.url }}">
+                                <img ng-src="{{ article.item.actor.image.url }}" alt="{{ article.item.actor.displayName }}">
+                            </a>
+                        </div>
+                        <div class="md-tile-content">
+                            <a ng-href="{{ article.object.attachments[0].url }}">
+                                <h2 style="margin-top: 0;">{{ article.object.attachments[0].displayName }}</h2>
+                            </a>
+                            <h3 ng-bind-html="article.body"></h3>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </md-content>
         <div layout>
             <a ng-href="{{ article.object.attachments[0].url }}" target="_blank"><md-button>View</md-button></a>
             <md-button ng-disabled="true"> {{ article.comments }} comment<span ng-show="article.comments != 1">s</span> </md-button>
