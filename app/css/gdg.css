@@ -6,7 +6,7 @@ body {
     letter-spacing: -0.01em;
 }
 .gdg_loading {
-    background: url('/app/images/gdg_loading.gif') no-repeat 0 0 rgb(255, 255, 255);
+    background: url('/boomerang/app/images/gdg_loading.gif') no-repeat 0 0 rgb(255, 255, 255);
     width: 64px;
     height: 64px;
 }
