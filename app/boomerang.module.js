@@ -1,4 +1,4 @@
-var boomerang = angular.module('gdgBoomerang', ['ngRoute', 'ngSanitize', 'ngAria', 'ngAnimate', 'ngMaterial']);
+var boomerang = angular.module('gdgXBoomerang', ['ngRoute', 'ngSanitize', 'ngAria', 'ngAnimate', 'ngMaterial']);
 
 boomerang.controller('MainController', function ($rootScope, Config, NavService) {
     var mc = this;
