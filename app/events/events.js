@@ -3,6 +3,7 @@ boomerang.controller("EventsController", function ($http, $log, $filter, Config,
     NavService.setNavTab(2);
     vm.chapter_name = Config.name;
     vm.loading = true;
+    vm.dateFormat = Config.dateFormat;
     vm.events = { past:[], future:[] };
 
     var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';

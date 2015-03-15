@@ -16,6 +16,8 @@ boomerang.factory('Config', function () {
                 text: 'Find local events',
                 url: 'http://gdg.events/'
             }
-        }
+        },
+        // Change to 'EEEE, MMMM d, y - H:mm' for 24 hour time format.
+        'dateFormat'    : 'EEEE, MMMM d, y - h:mm a'
     };
 });
