@@ -8,9 +8,17 @@
     <p ng-show="vm.error_msg">{{ vm.error_msg }}</p>
     <div layout layout-wrap>
         <md-card ng-repeat="photo in vm.photos">
-            <a ng-href="{{photo.link}}" target="_blank">
-                <img ng-src="{{photo.src}}?sz=260" alt="{{photo.alt}}" title="{{photo.title}}">
+            <a ng-href="{{ photo.link }}" target="_blank">
+                <img ng-src="{{ photo.src }}?sz=260" alt="{{ photo.alt }}" title="{{ photo.title }}">
             </a>
+            <md-card-content >
+                <div ng-if="photo.title && photo.title.length" style="font-size: 12px;">
+                    {{ photo.title | limitTo:35 }}{{ photo.title.length > 35 ? '...': '' }}
+                </div>
+                <div ng-if="!photo.title || !photo.title.length" style="font-size: 12px; opacity: 0.3">
+                    No caption
+                </div>
+            </md-card-content>
         </md-card>
     </div>
 </md-whiteframe>

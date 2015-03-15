@@ -10,8 +10,8 @@ boomerang.factory('Config', function () {
         'facebook'      : 'gdgspacecoast',
         'meetup'        : 'gdgspacecoast',
         'cover' : {
-            title: 'GDG Events Worldwide',
-            subtitle: 'Worldwide directory of developer events organized by tags and displayed on a map.',
+            title: 'Worldwide GDG Events',
+            subtitle: 'Directory of developer events organized by tags and displayed on a global map.',
             button: {
                 text: 'Find local events',
                 url: 'http://gdg.events/'
