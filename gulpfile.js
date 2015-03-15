@@ -14,14 +14,14 @@ var getBundleName = function () {
   return name + '.' + 'min';
 };
 
-var outputPath = './dist/';
+var outputPath = './app/dist/';
 
 gulp.task('clean', function (cb) {
     del([outputPath + '**'], cb);
 });
 
 gulp.task('jshint', ['clean'], function () {
-    return gulp.src(['gulpfile.js', './js/**.js', './tests/**.js'])
+    return gulp.src(['./**.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(jshint.reporter('fail'));
@@ -29,9 +29,10 @@ gulp.task('jshint', ['clean'], function () {
 
 gulp.task('concat', ['clean'], function () {
     return gulp.src([
-        './js/boomerang.js',
-        './js/*Service.js',
-        './js/*.js'
+        './app/boomerang.module.js',
+        './app/boomerang.config.js',
+        './app/services/*.js',
+        './app/**/**.js'
     ])
         .pipe(concat('boomerang.js'))
         .pipe(gulp.dest(outputPath));

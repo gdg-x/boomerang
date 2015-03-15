@@ -10,7 +10,6 @@
         </md-toolbar>
         <md-content layout="column" layout-padding>
             <div ng-repeat="attachment in article.attachments" layout="column">
-                {{ attachment.objectType | json }}
                 <md-card ng-if="attachment.objectType === 'album'">
                     <md-grid-list md-cols-sm="2" md-cols-md="4" md-cols-lg="5" md-cols-gt-lg="7"
                                   md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">

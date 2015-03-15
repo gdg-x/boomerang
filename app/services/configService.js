@@ -1,10 +1,10 @@
 boomerang.factory('Config', function () {
     return {
-        //modify these
+        // Modify these to configure your app
         'name'          : 'GDG Space Coast',
         'id'            : '103959793061819610212',
         'google_api'    : '<insert your API key here>',
-        'pwa_id'        : '5915725140705884785', //picasa web album id, must belong to google+ id above
+        'pwa_id'        : '5915725140705884785', // Picasa Web Album id, must belong to Google+ id above
         'domain'        : 'http://www.gdgspacecoast.org',
         'cover' : {
             title: 'GDG Events Worldwide',
