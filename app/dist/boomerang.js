@@ -8,6 +8,7 @@ boomerang.controller('MainController', function ($rootScope, Config, NavService)
     mc.twitter_link = Config.twitter ? 'https://twitter.com/' + Config.twitter: null;
     mc.facebook_link = Config.facebook ? 'https://www.facebook.com/' + Config.facebook: null;
     mc.meetup_link = Config.meetup ? 'http://www.meetup.com/' + Config.meetup: null;
+    mc.snippet = Config.snippet;
     $rootScope.canonical = Config.domain;
 
     NavService.registerNavListener(function (tab) {
@@ -42,13 +43,20 @@ boomerang.factory('Config', function () {
         'twitter'       : 'gdgspacecoast',
         'facebook'      : 'gdgspacecoast',
         'meetup'        : 'gdgspacecoast',
+        // Change to 'EEEE, MMMM d, y - H:mm' for 24 hour time format.
+        'dateFormat'    : 'EEEE, MMMM d, y - h:mm a',
         'cover' : {
-            title: 'GDG Events Worldwide',
-            subtitle: 'Worldwide directory of developer events organized by tags and displayed on a map.',
+            title: 'Worldwide GDG Events',
+            subtitle: 'Directory of developer events organized by tags and displayed on a global map.',
             button: {
                 text: 'Find local events',
                 url: 'http://gdg.events/'
             }
+        },
+        'snippet' : {
+            name: 'GDG Space Coast - Brevard County, FL, USA.',
+            description: 'Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs. The focus is on learning about the broad spectrum of technologies provided by Google and finding ways that these technologies can be applied. This includes discussions of the technologies from a number of angles (start ups, corporations, and individuals).',
+            image: 'app/images/GDG-X-Boomerang-snippet.png'
         }
     };
 });
@@ -180,6 +188,7 @@ boomerang.controller("EventsController", function ($http, $log, $filter, Config,
     NavService.setNavTab(2);
     vm.chapter_name = Config.name;
     vm.loading = true;
+    vm.dateFormat = Config.dateFormat;
     vm.events = { past:[], future:[] };
 
     var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
@@ -242,6 +251,11 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $log,
             var item, actor, object, itemTitle, html;
             var published, actorImage, entry;
 
+            if (!response.items) {
+                handleError('Response from server contained no news items.');
+                return;
+            }
+
             for (i = 0; i < response.items.length; i++) {
                 item = response.items[i];
                 actor = item.actor || {};
@@ -280,13 +294,16 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $log,
                 gapi.plusone.go();
             });
             vm.loading = false;
-        })
-        .error(function (response) {
-            vm.desc = "Sorry, we failed to retrieve the News from the Google+ API.";
-            vm.loading = false;
             vm.status = 'ready';
-            $log.debug('Sorry, we failed to retrieve the News from the Google+ API: ' + response);
-        });
+        })
+        .error(handleError);
+
+    function handleError(error) {
+        vm.desc = "Sorry, we failed to retrieve the news from the Google+ API.";
+        vm.loading = false;
+        vm.status = 'ready';
+        $log.debug('Sorry, we failed to retrieve the news from the Google+ API: ' + error);
+    }
 });
 
 boomerang.controller("PhotosController", function ($http, Config, NavService) {
@@ -355,5 +372,23 @@ boomerang.directive('gplusPhotoVideo', function () {
             attachment: '='
         },
         templateUrl: 'app/news/components/gplusPhotoVideo.html'
+    }
+});
+boomerang.directive('gplusPostContent', function () {
+    return {
+        transclude: true,
+        templateUrl: '/app/news/components/gplusPostContent.html'
+    }
+});
+
+boomerang.directive('gplusPostImage', function () {
+    return {
+        templateUrl: '/app/news/components/gplusPostImage.html'
+    }
+});
+
+boomerang.directive('newsItemFooter', function () {
+    return {
+        templateUrl: '/app/news/components/newsItemFooter.html'
     }
 });
