@@ -1,18 +1,19 @@
-boomerang.controller("EventsController", function ($http, Config, NavService) {
+boomerang.controller("EventsController", function ($http, $log, $filter, Config, NavService) {
     var vm = this;
+    NavService.setNavTab(2);
     vm.chapter_name = Config.name;
     vm.loading = true;
-    NavService.setNavTab(2);
+    vm.events = { past:[], future:[] };
 
-    vm.events = {past:[] ,future:[]};
     var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
-    var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
+    var headers = { 'headers': { 'Accept': 'application/json;' }, 'timeout': 2000 };
     $http.jsonp(url, headers)
         .success(function (data) {
             for (var i = data.items.length - 1; i >= 0; i--) {
                 data.items[i].about = data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
                 vm.events.future.push(data.items[i]);
             }
+            vm.events.future = $filter('orderBy')(vm.events.future, 'start', false);
             vm.loading = false;
             vm.status = 'ready';
         })
@@ -20,6 +21,7 @@ boomerang.controller("EventsController", function ($http, Config, NavService) {
             vm.upcomingError = "Sorry, we failed to retrieve the upcoming events from the GDG-X Hub API.";
             vm.loading = false;
             vm.status = 'ready';
+            $log.debug('Sorry, we failed to retrieve the upcoming events from the GDG-X Hub API: ' + response);
         });
 
     var getPastEventsPage = function(page) {
@@ -33,6 +35,7 @@ boomerang.controller("EventsController", function ($http, Config, NavService) {
                     vm.events.past.push(data.items[i]);
                 }
                 if (data.pages === page) {
+                    vm.events.past = $filter('orderBy')(vm.events.past, 'start', true);
                     vm.loading = false;
                     vm.status = 'ready';
                 } else {
@@ -43,6 +46,7 @@ boomerang.controller("EventsController", function ($http, Config, NavService) {
                 vm.pastError = "Sorry, we failed to retrieve the past events from the GDG-X Hub API.";
                 vm.loading = false;
                 vm.status = 'ready';
+                $log.debug('Sorry, we failed to retrieve the past events from the GDG-X Hub API: ' + response);
             });
     };
     getPastEventsPage(1);

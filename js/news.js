@@ -1,14 +1,14 @@
-boomerang.controller("NewsController", function ($http, $timeout, $filter, $sce, Config, NavService) {
+boomerang.controller("NewsController", function ($http, $timeout, $filter, $log, $sce, Config, NavService) {
     var vm = this;
-    vm.loading = true;
     NavService.setNavTab(1);
+    vm.loading = true;
     vm.chapter_name = Config.name;
 
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
         '/activities/public?callback=JSON_CALLBACK&maxResults=20&key=' + Config.google_api)
         .success(function (response) {
             var entries = [], i;
-            var item, actor, object, itemTitle, html, thumbnails, attachments;
+            var item, actor, object, itemTitle, html;
             var published, actorImage, entry;
 
             for (i = 0; i < response.items.length; i++) {
@@ -20,10 +20,6 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $sce,
                 html = [];
 
                 html.push(itemTitle.replace(new RegExp('\n', 'g'), '<br />').replace('<br><br>', '<br />'));
-
-                thumbnails = [];
-                attachments = object.attachments || [];
-
                 html = html.join('');
                 html = $sce.trustAsHtml(html);
 
@@ -42,12 +38,12 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $sce,
                     plusones: (object.plusoners || {}).totalItems,
                     comments: (object.replies || {}).totalItems,
                     icon: actorImage,
-                    attachments: attachments
+                    attachments: object.attachments || []
                 };
 
                 entries.push(entry);
             }
-            vm.news = entries;
+            vm.news = $filter('orderBy')(entries, 'date', true);
             $timeout(function () {
                 gapi.plusone.go();
             });
@@ -57,5 +53,6 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $sce,
             vm.desc = "Sorry, we failed to retrieve the News from the Google+ API.";
             vm.loading = false;
             vm.status = 'ready';
+            $log.debug('Sorry, we failed to retrieve the News from the Google+ API: ' + response);
         });
 });

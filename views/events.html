@@ -5,7 +5,7 @@
             <h3>Upcoming {{ vm.chapter_name }} Events</h3>
         </div>
     </md-toolbar>
-    <md-card ng-repeat="event in vm.events.future | orderBy:'start'">
+    <md-card ng-repeat="event in vm.events.future">
         <md-card-content>
             <div layout layout-align="start center">
                 <a ng-href="https://developers.google.com/events/{{event._id}}/" target="_blank">
@@ -16,7 +16,7 @@
                        target="_blank">{{event.title}}</a>
                 </h4>
             </div>
-            <h5>{{event.location}}<br/>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
+            <h5>{{event.location}}<br>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
             <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
         </md-card-content>
     </md-card>
@@ -28,7 +28,7 @@
             <h3>Past {{ vm.chapter_name }} Events</h3>
         </div>
     </md-toolbar>
-    <md-card ng-repeat="event in vm.events.past | orderBy:'start':true">
+    <md-card ng-repeat="event in vm.events.past">
         <md-card-content>
             <div layout layout-align="start center">
                 <a ng-href="https://developers.google.com/events/{{event._id}}/" target="_blank">
@@ -39,7 +39,7 @@
                        target="_blank">{{event.title}}</a>
                 </h4>
             </div>
-            <h5>{{event.location}}<br/>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
+            <h5>{{event.location}}<br>{{event.start | date:'EEEE, MMMM d, y - h:mm a'}}</h5>
             <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
             </div>
         </md-card-content>
