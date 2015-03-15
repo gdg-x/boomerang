@@ -34,3 +34,26 @@ md-tabs .md-header {
     height: 100%;
     background-size: cover;
 }
+md-icon {
+    margin: 8px;
+}
+.png-icon {
+    background-repeat: no-repeat no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    height: 26px;
+    width: 26px;
+    font-size: 1.33333333em;
+    line-height: .75em;
+    margin: 8px;
+}
+.gdg-icon {
+    height: 24px;
+    width: 24px;
+}
+.invert {
+    -webkit-filter: invert(100%);
+}
+.grayscale {
+    -webkit-filter: grayscale(100%);
+}

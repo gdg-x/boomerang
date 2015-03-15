@@ -8,9 +8,10 @@
         <meta name="description" content="Google Developer Groups (GDG) are technology user groups that meet to discuss the latest Technologies, Tools, SDKs, & APIs like Android, GWT, GAE, & GCP.">
         <meta name="application-name" content="GDG Boomerang">
         <meta name="fragment" content="!" />
-        <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700,400italic" rel="stylesheet" >
+        <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,300,500,700,400italic" rel="stylesheet" >
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet'>
         <link href="bower_components/angular-material/angular-material.min.css" rel="stylesheet">
+        <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
         <link href="/app/css/gdg.css" rel="stylesheet" media="screen">
         <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
     </head>
@@ -20,7 +21,21 @@
                 <h2 flex>
                     <span ng-cloak>{{ mc.chapter_name }}</span>
                 </h2>
-                <a ng-href="{{ mc.google_plus_link }}" rel="publisher" target="_blank">Google+</a>
+                <a ng-href="{{ mc.google_plus_link }}" rel="publisher" target="_blank">
+                    <md-icon md-font-icon="fa fa-lg fa-google-plus-square" alt="Google+"></md-icon>
+                </a>
+                <a ng-if="mc.twitter_link" ng-href="{{ mc.twitter_link }}" target="_blank">
+                    <md-icon md-font-icon="fa fa-lg fa-twitter-square" alt="Twitter"></md-icon>
+                </a>
+                <a ng-if="mc.facebook_link" ng-href="{{ mc.facebook_link }}" target="_blank">
+                    <md-icon md-font-icon="fa fa-lg fa-facebook-square" alt="Facebook"></md-icon>
+                </a>
+                <a ng-if="mc.meetup_link" ng-href="{{ mc.meetup_link }}" target="_blank">
+                    <img src="app/images/meetup.png" alt="Meetup" class="png-icon invert">
+                </a>
+                <a ng-if="mc.gdg_link" ng-href="{{ mc.gdg_link }}" target="_blank">
+                    <img src="app/images/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
+                </a>
             </div>
         </md-toolbar>
         <md-tabs md-selected="mc.navTab">
