@@ -318,7 +318,7 @@ boomerang.directive('gplusAlbum', function () {
             article: '=',
             attachment: '='
         },
-        templateUrl: '/boomerang/app/news/components/gplusAlbum.html'
+        templateUrl: 'app/news/components/gplusAlbum.html'
     }
 });
 boomerang.directive('gplusArticle', function () {
@@ -327,19 +327,19 @@ boomerang.directive('gplusArticle', function () {
             article: '=',
             attachment: '='
         },
-        templateUrl: '/boomerang/app/news/components/gplusArticle.html'
+        templateUrl: 'app/news/components/gplusArticle.html'
     }
 });
 boomerang.directive('gplusEvent', function () {
     return {
         scope: { article: '=' },
-        templateUrl: '/boomerang/app/news/components/gplusEvent.html'
+        templateUrl: 'app/news/components/gplusEvent.html'
     }
 });
 boomerang.directive('gplusNoAttachments', function () {
     return {
         scope: { article: '=' },
-        templateUrl: '/boomerang/app/news/components/gplusNoAttachments.html'
+        templateUrl: 'app/news/components/gplusNoAttachments.html'
     }
 });
 boomerang.directive('gplusPhotoVideo', function () {
@@ -348,6 +348,6 @@ boomerang.directive('gplusPhotoVideo', function () {
             article: '=',
             attachment: '='
         },
-        templateUrl: '/boomerang/app/news/components/gplusPhotoVideo.html'
+        templateUrl: 'app/news/components/gplusPhotoVideo.html'
     }
 });
