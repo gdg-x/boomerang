@@ -23,10 +23,10 @@ Update app/services/configService.js with values appropriate for your group:
    drawn. If you do not have a Picasa web album for your group, you will want
    to comment out the photos tab in **index.html**.
 5. **domain**: Your custom domain name (or base appspot URL).
-6. **cover.title**: A notice that will appear on the landing page for desktop.
-7. **cover.subtitle**: More text to support the landing page notice.
-8. **cover.button.text**: Text for the button.
-9. **cover.button.url**: The URL that the button links to.
+6. **cover.title**: An announcement that will appear on the landing page.
+7. **cover.subtitle**: More text to support the landing page announcement.
+8. **cover.button.text**: Text for the announcement button.
+9. **cover.button.url**: The URL that the announcement button will open in another window.
 10. **cover.url**: _Optional_: If the cover image drawn from your Google+ page
    does not work with the default layout, you can specify a URL for a specific
    image instead.
