@@ -30,6 +30,7 @@ Update app/services/configService.js with values appropriate for your group:
 10. **cover.url**: _Optional_: If the cover image drawn from your Google+ page
    does not work with the default layout, you can specify a URL for a specific
    image instead.
+11. Edit the snippet details in the index.html to change how your page looks when it is shared.
 
 Building
 ---------------

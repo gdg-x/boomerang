@@ -8,7 +8,6 @@ boomerang.controller('MainController', function ($rootScope, Config, NavService)
     mc.twitter_link = Config.twitter ? 'https://twitter.com/' + Config.twitter: null;
     mc.facebook_link = Config.facebook ? 'https://www.facebook.com/' + Config.facebook: null;
     mc.meetup_link = Config.meetup ? 'http://www.meetup.com/' + Config.meetup: null;
-    mc.snippet = Config.snippet;
     $rootScope.canonical = Config.domain;
 
     NavService.registerNavListener(function (tab) {

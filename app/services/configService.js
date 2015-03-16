@@ -1,6 +1,6 @@
 boomerang.factory('Config', function () {
     return {
-        // Modify these to configure your app
+        // TODO Modify these to configure your app
         'name'          : 'GDG Space Coast',
         'id'            : '103959793061819610212',
         'google_api'    : '<insert your API key here>',
@@ -18,11 +18,7 @@ boomerang.factory('Config', function () {
                 text: 'Find local events',
                 url: 'http://gdg.events/'
             }
-        },
-        'snippet' : {
-            name: 'GDG Space Coast - Brevard County, FL, USA.',
-            description: 'Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs. The focus is on learning about the broad spectrum of technologies provided by Google and finding ways that these technologies can be applied. This includes discussions of the technologies from a number of angles (start ups, corporations, and individuals).',
-            image: 'app/images/GDG-X-Boomerang-snippet.png'
         }
+        // To update the snippet which is used for sharing, see the TODO in the index.html.
     };
 });
