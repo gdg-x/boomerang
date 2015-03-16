@@ -1,23 +1,6 @@
 body {
   overflow-y: scroll;
 }
-#cover {
-  margin-top: -300px;
-  margin-bottom: 20px;
-  color: hsl(0, 100%, 100%);
-  height: 300px;
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.8))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#cc000000',GradientType=0 ); /* IE6-9 */
-}
-#cover-content {
-  margin-top: 140px;
-  margin-left: 20px;
-}
 .gdg_loading {
     background: url('/app/images/gdg_loading.gif') no-repeat 0 0 rgb(255, 255, 255);
     width: 64px;
