@@ -8,7 +8,6 @@ boomerang.controller('MainController', function ($rootScope, Config, NavService)
     mc.twitter_link = Config.twitter ? 'https://twitter.com/' + Config.twitter: null;
     mc.facebook_link = Config.facebook ? 'https://www.facebook.com/' + Config.facebook: null;
     mc.meetup_link = Config.meetup ? 'http://www.meetup.com/' + Config.meetup: null;
-    mc.snippet = Config.snippet;
     $rootScope.canonical = Config.domain;
 
     NavService.registerNavListener(function (tab) {
@@ -34,7 +33,7 @@ boomerang.config(function ($routeProvider, $locationProvider, $mdThemingProvider
 
 boomerang.factory('Config', function () {
     return {
-        // Modify these to configure your app
+        // TODO Modify these to configure your app
         'name'          : 'GDG Space Coast',
         'id'            : '103959793061819610212',
         'google_api'    : 'AIzaSyA9ALjr2iWvhf3Rsz9-bH0cEcDcrdkpuAg',
@@ -52,12 +51,8 @@ boomerang.factory('Config', function () {
                 text: 'Find local events',
                 url: 'http://gdg.events/'
             }
-        },
-        'snippet' : {
-            name: 'GDG Space Coast - Brevard County, FL, USA.',
-            description: 'Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs. The focus is on learning about the broad spectrum of technologies provided by Google and finding ways that these technologies can be applied. This includes discussions of the technologies from a number of angles (start ups, corporations, and individuals).',
-            image: 'app/images/GDG-X-Boomerang-snippet.png'
         }
+        // To update the snippet which is used for sharing, see the TODO in the index.html.
     };
 });
 
