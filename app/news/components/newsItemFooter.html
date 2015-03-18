@@ -1,0 +1,13 @@
+<div layout layout-wrap>
+    <a ng-href="{{ article.via.url }}" target="_blank"><md-button class="md-accent">View</md-button></a>
+    <md-button ng-disabled="true" class="md-accent">
+        {{ article.comments }} comment<span ng-show="article.comments != 1">s</span>
+    </md-button>
+    <a ng-href="{{ 'https://plus.google.com/ripples/details?activityid=' + article.item.id }}" target="_blank">
+        <md-button ng-disabled="!article.reshares" class="md-accent">
+            {{ article.reshares }} share<span ng-show="article.reshares != 1">s</span>
+        </md-button>
+    </a>
+    <span class="g-plusone" data-size="large" data-annotation="bubble" data-href="{{ article.via.url }}"
+            style="vertical-align: middle; padding-left: 5px"></span>
+</div>

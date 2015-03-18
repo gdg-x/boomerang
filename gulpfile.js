@@ -8,19 +8,20 @@ var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var ngAnnotate = require('gulp-ng-annotate');
-var gzip = require('gulp-gzip');
 
 var getBundleName = function () {
   var name = require('./package.json').name;
   return name + '.' + 'min';
 };
 
+var outputPath = './app/dist/';
+
 gulp.task('clean', function (cb) {
-    del(['./dist/**'], cb);
+    del([outputPath + '**'], cb);
 });
 
 gulp.task('jshint', ['clean'], function () {
-    return gulp.src(['gulpfile.js', './js/**.js', './tests/**.js'])
+    return gulp.src(['./**.js'])
         .pipe(jshint())
         .pipe(jshint.reporter('default'))
         .pipe(jshint.reporter('fail'));
@@ -28,16 +29,18 @@ gulp.task('jshint', ['clean'], function () {
 
 gulp.task('concat', ['clean'], function () {
     return gulp.src([
-        './js/boomerang.js',
-        './js/config.js'
+        './app/boomerang.module.js',
+        './app/boomerang.config.js',
+        './app/services/*.js',
+        './app/**/**.js'
     ])
         .pipe(concat('boomerang.js'))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest(outputPath));
 });
 
 gulp.task('javascript', ['clean', 'concat'], function() {
   var bundler = browserify({
-    entries: ['./dist/boomerang.js'],
+    entries: [outputPath + 'boomerang.js'],
     debug: true
   });
 
@@ -49,9 +52,8 @@ gulp.task('javascript', ['clean', 'concat'], function() {
         .pipe(sourcemaps.init({loadMaps: true}))
         // Add transformation tasks to the pipeline here.
         .pipe(uglify())
-        .pipe(gzip())
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest(outputPath));
   };
 
   return bundle();

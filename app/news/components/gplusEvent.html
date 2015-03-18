@@ -1,0 +1,24 @@
+<md-card>
+    <md-card-content>
+        <md-content>
+            <md-list>
+                <md-item>
+                    <md-item-content>
+                        <div class="md-tile-left" style="align-self: flex-start; padding-top: 8px;">
+                            <a ng-href="{{ article.item.actor.url }}">
+                                <img ng-src="{{ article.item.actor.image.url }}" alt="{{ article.item.actor.displayName }}">
+                            </a>
+                        </div>
+                        <div class="md-tile-content">
+                            <a ng-href="{{ article.object.attachments[0].url }}">
+                                <h2 style="margin-top: 0;">{{ article.object.attachments[0].displayName }}</h2>
+                            </a>
+                            <h3 ng-bind-html="article.body"></h3>
+                        </div>
+                    </md-item-content>
+                </md-item>
+            </md-list>
+        </md-content>
+        <news-item-footer></news-item-footer>
+    </md-card-content>
+</md-card>

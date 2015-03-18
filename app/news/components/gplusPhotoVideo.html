@@ -1,0 +1,8 @@
+<md-card>
+    <gplus-post-image ng-if="attachment.objectType === 'photo'"></gplus-post-image>
+    <gplus-post-video ng-if="attachment.objectType === 'video'"></gplus-post-video>
+    <md-card-content>
+        <gplus-post-content></gplus-post-content>
+        <news-item-footer></news-item-footer>
+    </md-card-content>
+</md-card>

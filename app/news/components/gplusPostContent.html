@@ -1,0 +1,32 @@
+<md-content>
+    <md-list>
+        <md-item>
+            <md-item-content>
+                <div class="md-tile-left" style="align-self: flex-start;">
+                    <a ng-href="{{ article.item.actor.url }}">
+                        <img ng-src="{{ article.item.actor.image.url }}" alt="{{ article.item.actor.displayName }}">
+                    </a>
+                </div>
+                <div class="md-tile-content">
+                    <p>{{ article.item.actor.displayName }}</p>
+                    <h3 ng-bind-html="article.item.annotation"></h3>
+                </div>
+            </md-item-content>
+        </md-item>
+        <md-divider md-inset></md-divider>
+        <md-item>
+            <md-item-content>
+                <div class="md-tile-left" style="align-self: flex-start;">
+                    <a ng-href="{{ article.object.actor.url }}">
+                        <img ng-src="{{ article.object.actor.image.url }}" alt="{{ article.object.actor.displayName }}">
+                    </a>
+                </div>
+                <div class="md-tile-content">
+                    <p ng-if="article.object.actor">{{ article.object.actor.displayName }} originally shared: </p>
+                    <h3 ng-bind-html="article.body"></h3>
+                    <ng-transclude></ng-transclude>
+                </div>
+            </md-item-content>
+        </md-item>
+    </md-list>
+</md-content>

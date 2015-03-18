@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="gdgBoomerang">
+<html ng-app="gdgXBoomerang" itemscope itemtype="http://schema.org/Organization">
     <head>
         <title>Google Developer Group</title>
         <link rel="canonical" ng-href="{{ canonical }}" />
@@ -8,44 +8,58 @@
         <meta name="description" content="Google Developer Groups (GDG) are technology user groups that meet to discuss the latest Technologies, Tools, SDKs, & APIs like Android, GWT, GAE, & GCP.">
         <meta name="application-name" content="GDG Boomerang">
         <meta name="fragment" content="!" />
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet' type='text/css'>
-        <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
-        <link href="css/gdg.css" rel="stylesheet" media="screen">
+        <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,300,500,700,400italic" rel="stylesheet" >
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet'>
+        <link href="bower_components/angular-material/angular-material.min.css" rel="stylesheet">
+        <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen">
+        <link href="/app/css/gdg.css" rel="stylesheet" media="screen">
         <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
     </head>
-    <body ng-controller="MainControl">
-        <!-- NAV -->
-        <div class="navbar navbar-static-top navbar-inverse">
-            <div class="navbar-inner">
-                <div class="container">
-                    <button type="button" class="btn btn-navbar" ng-click="isNavCollapsed = !isNavCollapsed">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="brand" ng-cloak id="gdg_chapter_name" href="#!/about">{{ chapter_name }}</a>
+    <body ng-controller="MainController as mc">
 
-                    <div class="nav-collapse" collapse="isNavCollapsed" ng-click="isNavCollapsed = true">
-                        <ul class="nav">
-                            <li ng-class="{ 'active' : activeTab=='about' }"><a href="#!/about">About</a></li>
-                            <li ng-class="{ 'active' : activeTab=='news' }"><a href="#!/news">News</a></li>
-                            <li ng-class="{ 'active' : activeTab=='events' }"><a href="#!/events">Events</a></li>
-                            <li ng-class="{ 'active' : activeTab=='photos' }"><a href="#!/photos">Photos</a></li>
-                            <li><a ng-href="{{ google_plus_link }}" rel="publisher" target="_blank">Google+</a></li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- TODO Edit here to update your snippet for sharing. -->
+        <span itemprop="name" style="display: none;">GDG Space Coast - Brevard County, FL, USA.</span>
+        <span itemprop="description" style="display: none;">Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs.</span>
+        <img itemprop="image" style="display: none;" src="app/images/GDG-X-Boomerang-snippet.png">
+
+        <md-toolbar class="md-hue-2">
+            <div class="md-toolbar-tools">
+                <h2 flex>
+                    <span ng-cloak>{{ mc.chapter_name }}</span>
+                </h2>
+                <a ng-href="{{ mc.google_plus_link }}" rel="publisher" target="_blank">
+                    <md-icon md-font-icon="fa fa-lg fa-google-plus-square" alt="Google+"></md-icon>
+                </a>
+                <a ng-if="mc.twitter_link" ng-href="{{ mc.twitter_link }}" target="_blank">
+                    <md-icon md-font-icon="fa fa-lg fa-twitter-square" alt="Twitter"></md-icon>
+                </a>
+                <a ng-if="mc.facebook_link" ng-href="{{ mc.facebook_link }}" target="_blank">
+                    <md-icon md-font-icon="fa fa-lg fa-facebook-square" alt="Facebook"></md-icon>
+                </a>
+                <a ng-if="mc.meetup_link" ng-href="{{ mc.meetup_link }}" target="_blank">
+                    <img src="app/images/meetup.png" alt="Meetup" class="png-icon invert">
+                </a>
+                <a ng-if="mc.gdg_link" ng-href="{{ mc.gdg_link }}" target="_blank">
+                    <img src="app/images/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
+                </a>
             </div>
-        </div>
-        <div class="container">
-            <div class="row" ng-view></div>
+        </md-toolbar>
+        <md-tabs md-selected="mc.navTab">
+            <a href="#!/about"><md-tab label="About" id="about-tab"></md-tab></a>
+            <a href="#!/news"><md-tab label="News" id="news-tab"></md-tab></a>
+            <a href="#!/events"><md-tab label="Events" id="events-tab"></md-tab></a>
+            <a href="#!/photos"><md-tab label="Photos" id="photos-tab"></md-tab></a>
+        </md-tabs>
+        <div layout layout-margin layout-align="center start">
+            <div ng-view flex-sm="100" flex-md="90" flex-lg="80" flex-gt-lg="75"></div>
         </div>
     </body>
     <script src="bower_components/angular/angular.min.js" type="text/javascript"></script>
     <script src="bower_components/angular-route/angular-route.min.js" type="text/javascript"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
     <script src="bower_components/angular-aria/angular-aria.min.js" type="text/javascript"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <script src="dist/boomerang.min.js.gz"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js" type="text/javascript"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js" type="text/javascript"></script>
+    <script src="bower_components/angular-material/angular-material.min.js" type="text/javascript"></script>
+    <script src="https://apis.google.com/js/plusone.js" type="text/javascript"></script>
+    <script src="/app/dist/boomerang.min.js" type="text/javascript"></script>
 </html>

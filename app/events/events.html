@@ -1,0 +1,50 @@
+<div class="gdg_loading" ng-show="vm.loading"></div>
+<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin ng-show="vm.events.future.length">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h3>Upcoming {{ vm.chapter_name }} Events</h3>
+        </div>
+    </md-toolbar>
+    <md-card ng-repeat="event in vm.events.future">
+        <md-card-content>
+            <div layout layout-align="start center">
+                <a ng-href="https://developers.google.com/events/{{ event._id }}/" target="_blank">
+                    <img ng-src="https://developers.google.com{{ event.iconUrl || '/_static/images/gdg-icon.png'}}"
+                         alt="GDG Boomerang">
+                </a>
+                <h4>
+                    <a ng-href="{{ event.eventUrl || 'https://developers.google.com/events/'+event._id+'/' }}"
+                       target="_blank">{{ event.title }}</a>
+                </h4>
+            </div>
+            <h5>{{ event.location }}<br>{{ event.start | date:vm.dateFormat }}</h5>
+            <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
+        </md-card-content>
+    </md-card>
+    <p ng-if="vm.upcomingError" ng-bind-html="vm.upcomingError"></p>
+</md-whiteframe>
+<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin ng-show="vm.events.past.length">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h3>Past {{ vm.chapter_name }} Events</h3>
+        </div>
+    </md-toolbar>
+    <md-card ng-repeat="event in vm.events.past">
+        <md-card-content>
+            <div layout layout-align="start center">
+                <a ng-href="https://developers.google.com/events/{{ event._id }}/" target="_blank">
+                    <img ng-src="https://developers.google.com{{ event.iconUrl || '/_static/images/gdg-icon.png' }}"
+                         alt="GDG Boomerang">
+                </a>
+                <h4>
+                    <a ng-href="{{ event.eventUrl || 'https://developers.google.com/events/'+event._id+'/' }}"
+                       target="_blank">{{ event.title }}</a>
+                </h4>
+            </div>
+            <h5>{{ event.location }}<br>{{ event.start | date:vm.dateFormat }}</h5>
+            <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
+            </div>
+        </md-card-content>
+    </md-card>
+    <p ng-if="vm.pastError" ng-bind-html="vm.pastError"></p>
+</md-whiteframe>

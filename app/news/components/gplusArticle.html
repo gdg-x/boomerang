@@ -1,0 +1,12 @@
+<md-card>
+    <gplus-post-image></gplus-post-image>
+    <md-card-content>
+        <gplus-post-content>
+            <div ng-if="attachment.content">
+                <h4 style="margin-top: 15px; opacity: 0.8">Article Preview:</h4>
+                <p style="opacity: 0.8">{{ attachment.content }}</p>
+            </div>
+        </gplus-post-content>
+        <news-item-footer></news-item-footer>
+    </md-card-content>
+</md-card>

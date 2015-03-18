@@ -1,0 +1,15 @@
+<md-card>
+    <md-grid-list md-cols-sm="2" md-cols-md="4" md-cols-lg="5" md-cols-gt-lg="7"
+                  md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+        <md-grid-tile ng-repeat="thumbnail in attachment.thumbnails" md-rowspan="{{ $first ? 2: 1 }}"
+                      md-colspan="{{ $first ? 2: 1 }}">
+            <a class="fill" ng-href="{{ thumbnail.url }}" target="_blank">
+                <div class="fill" style="background-image: url({{ thumbnail.image.url }});"></div>
+            </a>
+        </md-grid-tile>
+    </md-grid-list>
+    <md-card-content>
+        <gplus-post-content></gplus-post-content>
+        <news-item-footer></news-item-footer>
+    </md-card-content>
+</md-card>

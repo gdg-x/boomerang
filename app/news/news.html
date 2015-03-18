@@ -1,0 +1,25 @@
+<div class="gdg_loading" ng-show="vm.loading"></div>
+<div layout layout-wrap>
+    <md-whiteframe class="md-whiteframe-z2" ng-repeat="article in vm.news"
+            style="margin: 4px" flex-sm="100" flex-gt-lg="45">
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <img ng-src="{{ article.icon }}" alt="Article Icon" />
+                <h2 style="padding-left: 10px">{{ article.published }}</h2>
+            </div>
+        </md-toolbar>
+        <md-content layout="column" layout-padding>
+            <div ng-repeat="attachment in article.object.attachments" layout="column">
+                <gplus-album ng-if="attachment.objectType === 'album'" article="article" attachment="attachment">
+                </gplus-album>
+                <gplus-photo-video ng-if="attachment.objectType === 'photo' || attachment.objectType === 'video'"
+                                   article="article" attachment="attachment"></gplus-photo-video>
+                <gplus-article ng-if="attachment.objectType === 'article'" article="article" attachment="attachment">
+                </gplus-article>
+                <gplus-event ng-if="attachment.objectType === 'event'" article="article"></gplus-event>
+            </div>
+            <gplus-no-attachments ng-if="!article.object.attachments.length" article="article"></gplus-no-attachments>
+        </md-content>
+    </md-whiteframe>
+</div>
+<p ng-if="vm.desc" ng-bind-html="vm.desc"></p>

@@ -1,0 +1,50 @@
+<md-whiteframe class="md-whiteframe-z1" layout="column" style="margin: 8px">
+    <md-toolbar flex>
+        <h2 class="md-toolbar-tools">
+            Announcement: {{ vm.cover.title }}
+        </h2>
+    </md-toolbar>
+    <div layout="column" layout-padding layout-align="center center">
+        <p>{{ vm.cover.subtitle }}</p>
+        <a ng-href="{{ vm.cover.button.url }}" target="_blank">
+            <md-button class="md-raised md-accent">
+                {{ vm.cover.button.text }}
+            </md-button>
+        </a>
+    </div>
+</md-whiteframe>
+<div class="gdg_loading" ng-show="vm.loading"></div>
+<md-card ng-hide="vm.loading">
+    <img ng-show="vm.cover.url" ng-src="{{ vm.cover.url }}" alt="Google+ Cover Image">
+    <div id="cover" ng-show="vm.cover.url">
+
+    </div>
+    <md-card-content>
+        <div ng-bind-html="vm.desc"></div>
+    </md-card-content>
+</md-card>
+<md-card layout="column">
+    <md-toolbar flex>
+        <h2 class="md-toolbar-tools">
+            Sponsors
+        </h2>
+    </md-toolbar>
+    <div layout layout-wrap>
+        <md-card>
+            <a href="https://developers.google.com/">
+                <img class="sponsor" src="/app/images/Google-Developers.png" alt="Google Developers"
+                     title="Google Developers">
+            </a>
+        </md-card>
+        <md-card>
+            <a href="http://www.jetbrains.com/">
+                <img class="sponsor" src="/app/images/sponsor1.png" alt="Sponsor Image" title="Sponsor Image">
+            </a>
+        </md-card>
+        <md-card>
+            <a href="http://www.oreilly.com/store/">
+                <img class="sponsor" src="/app/images/sponsor2.gif" alt="Sponsor Image" title="Sponsor Image">
+            </a>
+        </md-card>
+    </div>
+</md-card>
