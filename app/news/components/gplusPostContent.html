@@ -22,7 +22,7 @@
                     </a>
                 </div>
                 <div class="md-tile-content">
-                    <p>{{ article.object.actor.displayName }} originally shared: </p>
+                    <p ng-if="article.object.actor">{{ article.object.actor.displayName }} originally shared: </p>
                     <h3 ng-bind-html="article.body"></h3>
                     <ng-transclude></ng-transclude>
                 </div>
