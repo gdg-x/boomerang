@@ -1,4 +1,5 @@
-boomerang.controller('NewsController', function ($http, $timeout, $filter, $log, $sce, Config, NavService) {
+angular.module('gdgXBoomerang')
+.controller('NewsController', function ($http, $timeout, $filter, $log, $sce, Config, NavService) {
     var vm = this;
     NavService.setNavTab(1);
     vm.loading = true;

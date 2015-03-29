@@ -1,4 +1,5 @@
-boomerang.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
+angular.module('gdgXBoomerang')
+.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
 
     $locationProvider.hashPrefix('!');
 

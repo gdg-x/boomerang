@@ -1,9 +1,10 @@
-boomerang.factory('Config', function () {
+angular.module('gdgXBoomerang')
+.factory('Config', function () {
     return {
         // TODO Modify these to configure your app
         'name'          : 'GDG Space Coast',
         'id'            : '103959793061819610212',
-        'googleApi'     : '<insert your API key here>',
+        'googleApi'     : 'AIzaSyA9ALjr2iWvhf3Rsz9-bH0cEcDcrdkpuAg',
         'pwaId'         : '5915725140705884785', // Picasa Web Album id, must belong to Google+ id above
         'domain'        : 'http://www.gdgspacecoast.org',
         'twitter'       : 'gdgspacecoast',

@@ -1,4 +1,5 @@
-boomerang.factory('NavService', function () {
+angular.module('gdgXBoomerang')
+.factory('NavService', function () {
     var navTab = '0';
     var navListener;
 

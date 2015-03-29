@@ -1,4 +1,5 @@
-boomerang.controller('AboutController', function ($http, $sce, Config, NavService) {
+angular.module('gdgXBoomerang')
+.controller('AboutController', function ($http, $sce, Config, NavService) {
     var vm = this;
     vm.loading = true;
     NavService.setNavTab(0);

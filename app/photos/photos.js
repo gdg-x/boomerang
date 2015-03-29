@@ -1,4 +1,5 @@
-boomerang.controller('PhotosController', function ($http, Config, NavService) {
+angular.module('gdgXBoomerang')
+.controller('PhotosController', function ($http, Config, NavService) {
     var vm = this;
     vm.loading = true;
     NavService.setNavTab(3);
@@ -11,19 +12,22 @@ boomerang.controller('PhotosController', function ($http, Config, NavService) {
 
     $http.jsonp(pwa).
         success(function (data) {
-            var p = data.feed.entry;
-            for (var x in p) {
-                var photo = {
-                    link: p[x].link[1].href,
-                    src: p[x].content.src,
-                    alt: p[x].title.$t,
-                    title: p[x].summary.$t
-                };
-                vm.photos.push(photo);
+            var photoList = data.feed.entry;
+            var i;
+            if (photoList) {
+                for (i = 0; i < photoList.length; i++) {
+                    var photo = {
+                        link: photoList[i].link[1].href,
+                        src: photoList[i].content.src,
+                        alt: photoList[i].title.$t,
+                        title: photoList[i].summary.$t
+                    };
+                    vm.photos.push(photo);
+                }
             }
             vm.loading = false;
         })
-        .error(function (data) {
+        .error(function () {
             vm.errorMsg = 'Sorry, we failed to retrieve the Photos from the Picasa Web Albums API. ' +
                 'Logging out of your Google Account and logging back in may resolve this issue.';
             vm.loading = false;

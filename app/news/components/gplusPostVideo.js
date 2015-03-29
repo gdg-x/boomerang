@@ -1,4 +1,5 @@
-boomerang.directive('gplusPostVideo', function ($sce) {
+angular.module('gdgXBoomerang')
+.directive('gplusPostVideo', function ($sce) {
     return {
         link: function (scope, element) {
             scope.videoUrl = $sce.trustAsResourceUrl(scope.attachment.embed.url);

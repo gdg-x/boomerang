@@ -1,6 +1,5 @@
-var boomerang = angular.module('gdgXBoomerang', ['ngRoute', 'ngSanitize', 'ngAria', 'ngAnimate', 'ngMaterial']);
-
-boomerang.controller('MainController', function ($rootScope, Config, NavService) {
+angular.module('gdgXBoomerang', ['ngRoute', 'ngSanitize', 'ngAria', 'ngAnimate', 'ngMaterial'])
+.controller('MainController', function ($rootScope, Config, NavService) {
     var mc = this;
     mc.chapterName = Config.name;
     mc.googlePlusLink = 'https://plus.google.com/' + Config.id;

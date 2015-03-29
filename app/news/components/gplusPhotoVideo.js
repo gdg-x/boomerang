@@ -1,4 +1,5 @@
-boomerang.directive('gplusPhotoVideo', function () {
+angular.module('gdgXBoomerang')
+.directive('gplusPhotoVideo', function () {
     return {
         scope: {
             article: '=',

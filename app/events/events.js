@@ -1,4 +1,4 @@
-boomerang.controller('EventsController', function ($http, $log, $filter, Config, NavService) {
+angular.module('gdgXBoomerang').controller('EventsController', function ($http, $log, $filter, Config, NavService) {
     var vm = this;
     NavService.setNavTab(2);
     vm.chapterName = Config.name;
