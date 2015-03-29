@@ -5,5 +5,5 @@ boomerang.directive('gplusPhotoVideo', function () {
             attachment: '='
         },
         templateUrl: '/app/news/components/gplusPhotoVideo.html'
-    }
+    };
 });

@@ -1,11 +1,11 @@
 <div class="gdg_loading" ng-show="vm.loading"></div>
-<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin ng-show="vm.events.future.length">
+<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin>
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h3>Upcoming {{ vm.chapter_name }} Events</h3>
         </div>
     </md-toolbar>
-    <md-card ng-repeat="event in vm.events.future">
+    <md-card ng-repeat="event in vm.events.future" ng-show="vm.events.future.length">
         <md-card-content>
             <div layout layout-align="start center">
                 <a ng-href="https://developers.google.com/events/{{ event._id }}/" target="_blank">
@@ -21,15 +21,15 @@
             <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
         </md-card-content>
     </md-card>
-    <p ng-if="vm.upcomingError" ng-bind-html="vm.upcomingError"></p>
+    <p ng-if="vm.upcomingError" ng-bind-html="vm.upcomingError" style="margin: 8px"></p>
 </md-whiteframe>
-<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin ng-show="vm.events.past.length">
+<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin>
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h3>Past {{ vm.chapter_name }} Events</h3>
         </div>
     </md-toolbar>
-    <md-card ng-repeat="event in vm.events.past">
+    <md-card ng-repeat="event in vm.events.past" ng-show="vm.events.past.length">
         <md-card-content>
             <div layout layout-align="start center">
                 <a ng-href="https://developers.google.com/events/{{ event._id }}/" target="_blank">
@@ -43,8 +43,7 @@
             </div>
             <h5>{{ event.location }}<br>{{ event.start | date:vm.dateFormat }}</h5>
             <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
-            </div>
         </md-card-content>
     </md-card>
-    <p ng-if="vm.pastError" ng-bind-html="vm.pastError"></p>
+    <p ng-if="vm.pastError" ng-bind-html="vm.pastError" style="margin: 8px"></p>
 </md-whiteframe>

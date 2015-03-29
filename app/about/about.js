@@ -5,7 +5,7 @@ boomerang.controller('AboutController', function ($http, $sce, Config, NavServic
     vm.cover = Config.cover;
 
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
-            '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.google_api).
+            '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.googleApi).
         success(function (data) {
             vm.desc = data.aboutMe;
             $sce.trustAsHtml(vm.desc);
@@ -17,7 +17,7 @@ boomerang.controller('AboutController', function ($http, $sce, Config, NavServic
             vm.status = 'ready';
         })
         .error(function (error) {
-            vm.desc = "Sorry, we failed to retrieve the About text from the Google+ API.";
+            vm.desc = 'Sorry, we failed to retrieve the About text from the Google+ API.';
             vm.loading = false;
             vm.status = 'ready';
         });

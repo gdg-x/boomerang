@@ -48,6 +48,15 @@ From the boomerang directory, run the following:
 2. bower install
 3. gulp
 
+Automated Testing
+---------------
+1. Unit tests can be run once via `gulp karma` or constantly via `gulp karma-watch`.
+2. Integration tests can be run via:
+  1. `node node_modules/protractor/bin/webdriver-manager update`
+  2. `node node_modules/protractor/bin/webdriver-manager start`
+  3. Then in a separate terminal: `node node_modules/protractor/bin/protractor test/e2e/conf.js`
+3. WebStorm or IntelliJ IDEA can make this testing a lot easier if you configure the idea to do it for you.
+
 Testing locally
 ---------------
 If you aren't using App Engine, you should be able to test locally with Node.js using the following:

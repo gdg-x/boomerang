@@ -5,5 +5,5 @@ boomerang.directive('gplusAlbum', function () {
             attachment: '='
         },
         templateUrl: '/app/news/components/gplusAlbum.html'
-    }
+    };
 });

@@ -1,11 +1,11 @@
-boomerang.controller("NewsController", function ($http, $timeout, $filter, $log, $sce, Config, NavService) {
+boomerang.controller('NewsController', function ($http, $timeout, $filter, $log, $sce, Config, NavService) {
     var vm = this;
     NavService.setNavTab(1);
     vm.loading = true;
-    vm.chapter_name = Config.name;
+    vm.chapterName = Config.name;
 
     $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
-        '/activities/public?callback=JSON_CALLBACK&maxResults=20&key=' + Config.google_api)
+        '/activities/public?callback=JSON_CALLBACK&maxResults=20&key=' + Config.googleApi)
         .success(function (response) {
             var entries = [], i;
             var item, actor, object, itemTitle, html;
@@ -59,7 +59,7 @@ boomerang.controller("NewsController", function ($http, $timeout, $filter, $log,
         .error(handleError);
 
     function handleError(error) {
-        vm.desc = "Sorry, we failed to retrieve the news from the Google+ API.";
+        vm.desc = 'Sorry, we failed to retrieve the news from the Google+ API.';
         vm.loading = false;
         vm.status = 'ready';
         $log.debug('Sorry, we failed to retrieve the news from the Google+ API: ' + error);

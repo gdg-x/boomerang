@@ -10,7 +10,9 @@ boomerang.factory('NavService', function () {
 
     function setNavTab(tabValue) {
         navTab = tabValue;
-        navListener(navTab);
+        if (navListener) {
+            navListener(navTab);
+        }
     }
 
     function getNavTab() {

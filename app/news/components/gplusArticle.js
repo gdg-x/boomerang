@@ -5,5 +5,5 @@ boomerang.directive('gplusArticle', function () {
             attachment: '='
         },
         templateUrl: '/app/news/components/gplusArticle.html'
-    }
+    };
 });
