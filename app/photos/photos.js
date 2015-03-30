@@ -15,7 +15,8 @@ angular.module('gdgXBoomerang')
             var photoList = data.feed.entry;
             var i;
             if (photoList) {
-                for (i = 0; i < photoList.length; i++) {
+                // Use reverse ordering newest first
+                for (i = photoList.length - 1; i >= 0; i--) {
                     var photo = {
                         link: photoList[i].link[1].href,
                         src: photoList[i].content.src,
