@@ -1,5 +1,6 @@
 // Google+ hashtag linky from http://plnkr.co/edit/IEpLfZ8gO2B9mJcTKuWY?p=preview
-boomerang.filter('hashLinky', function() {
+angular.module('gdgXBoomerang')
+.filter('hashLinky', function() {
     var ELEMENT_NODE = 1;
     var TEXT_NODE = 3;
     var linkifiedDOM = document.createElement('div');

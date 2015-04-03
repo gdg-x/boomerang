@@ -25,21 +25,21 @@
         <md-toolbar class="md-hue-2">
             <div class="md-toolbar-tools">
                 <h2 flex>
-                    <span ng-cloak>{{ mc.chapter_name }}</span>
+                    <span ng-cloak>{{ mc.chapterName }}</span>
                 </h2>
-                <a ng-href="{{ mc.google_plus_link }}" rel="publisher" target="_blank">
+                <a ng-if="mc.googlePlusLink" ng-href="{{ mc.googlePlusLink }}" rel="publisher" target="_blank">
                     <md-icon md-font-icon="fa fa-lg fa-google-plus-square" alt="Google+"></md-icon>
                 </a>
-                <a ng-if="mc.twitter_link" ng-href="{{ mc.twitter_link }}" target="_blank">
+                <a ng-if="mc.twitterLink" ng-href="{{ mc.twitterLink }}" target="_blank">
                     <md-icon md-font-icon="fa fa-lg fa-twitter-square" alt="Twitter"></md-icon>
                 </a>
-                <a ng-if="mc.facebook_link" ng-href="{{ mc.facebook_link }}" target="_blank">
+                <a ng-if="mc.facebookLink" ng-href="{{ mc.facebookLink }}" target="_blank">
                     <md-icon md-font-icon="fa fa-lg fa-facebook-square" alt="Facebook"></md-icon>
                 </a>
-                <a ng-if="mc.meetup_link" ng-href="{{ mc.meetup_link }}" target="_blank">
+                <a ng-if="mc.meetupLink" ng-href="{{ mc.meetupLink }}" target="_blank">
                     <img src="app/images/meetup.png" alt="Meetup" class="png-icon invert">
                 </a>
-                <a ng-if="mc.gdg_link" ng-href="{{ mc.gdg_link }}" target="_blank">
+                <a ng-if="mc.gdgLink" ng-href="{{ mc.gdgLink }}" target="_blank">
                     <img src="app/images/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
                 </a>
             </div>

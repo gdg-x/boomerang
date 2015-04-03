@@ -1,5 +1,6 @@
 // HTML-ified linky from http://plnkr.co/edit/IEpLfZ8gO2B9mJcTKuWY?p=preview
-boomerang.filter('htmlLinky', function($filter) {
+angular.module('gdgXBoomerang')
+.filter('htmlLinky', function($filter) {
     var ELEMENT_NODE = 1;
     var TEXT_NODE = 3;
     var linkifiedDOM = document.createElement('div');
