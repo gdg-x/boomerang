@@ -12,8 +12,12 @@ angular.module('gdgXBoomerang')
     $http.jsonp(url, headers)
         .success(function (data) {
             for (var i = data.items.length - 1; i >= 0; i--) {
-                data.items[i].about =
-                    data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
+                if (data.items[i].about) {
+                    data.items[i].about =
+                        data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
+                } else {
+                    data.items[i].about = '';
+                }
                 vm.events.future.push(data.items[i]);
             }
             vm.events.future = $filter('orderBy')(vm.events.future, 'start', false);
@@ -35,8 +39,12 @@ angular.module('gdgXBoomerang')
             .success(function (data) {
                 var i;
                 for (i = data.items.length - 1; i >= 0; i--) {
-                    data.items[i].about =
-                        data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
+                    if (data.items[i].about) {
+                        data.items[i].about =
+                            data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
+                    } else {
+                        data.items[i].about = '';
+                    }
                     vm.events.past.push(data.items[i]);
                 }
                 if (data.pages === page) {
