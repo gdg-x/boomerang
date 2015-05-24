@@ -6,9 +6,6 @@ body {
     width: 64px;
     height: 64px;
 }
-.sponsor {
-    padding: 20px;
-}
 md-tabs .md-header {
   border-bottom: 1px solid #D8D8D8;
 }
@@ -39,4 +36,17 @@ md-icon {
 }
 .grayscale {
     -webkit-filter: grayscale(100%);
+}
+.navTabs md-tab-item {
+    padding: 0;
+}
+.navTabLink {
+    padding: 12px 24px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+span.md-font.fa {
+    font-size: 1.33333333em;
 }
