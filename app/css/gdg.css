@@ -14,7 +14,7 @@ md-tabs .md-header {
     height: 100%;
     background-size: cover;
 }
-md-icon {
+.socialIcon {
     margin: 8px;
 }
 .png-icon {
@@ -49,4 +49,44 @@ md-icon {
 }
 span.md-font.fa {
     font-size: 1.33333333em;
+}
+md-grid-list {
+    margin: 8px;
+}
+md-grid-tile.gray {
+    background: #f5f5f5;
+}
+md-grid-tile.green {
+    background: #b9f6ca;
+}
+md-grid-tile.yellow {
+    background: #ffff8d;
+}
+md-grid-tile.blue {
+    background: #84ffff;
+}
+md-grid-tile.darkBlue {
+    background: #80d8ff;
+}
+md-grid-tile.deepBlue {
+    background: #448aff;
+}
+md-grid-tile.purple {
+    background: #b388ff;
+}
+md-grid-tile.lightPurple {
+    background: #8c9eff;
+}
+md-grid-tile.red {
+    background: #ff8a80;
+}
+md-grid-tile.pink {
+    background: #ff80ab;
+}
+md-grid-tile {
+    transition: all 400ms ease-out 50ms;
+}
+.activityIcon {
+    height: 120px;
+    width: 120px;
 }

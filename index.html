@@ -18,6 +18,16 @@
         <link rel="stylesheet" href="/app/css/gdg.css">
         <!-- endinject -->
         <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-41029375-2', 'auto');
+            ga('require', 'displayfeatures');
+            ga('require', 'linkid', 'linkid.js');
+            ga('send', 'pageview');
+        </script>
     </head>
     <body ng-controller="MainController as mc">
 
@@ -31,27 +41,31 @@
                 <h2 flex>
                     <span ng-cloak>{{ mc.chapterName }}</span>
                 </h2>
+                <div hide-sm>
+                    <div class="g-plusone" data-size="large"></div>
+                </div>
                 <a ng-if="mc.googlePlusLink" ng-href="{{ mc.googlePlusLink }}" rel="publisher" target="_blank">
-                    <md-icon md-font-icon="fa fa-google-plus-square" alt="Google+"></md-icon>
+                    <md-icon class="socialIcon" md-font-icon="fa fa-google-plus-square" alt="Google+"></md-icon>
                 </a>
                 <a ng-if="mc.twitterLink" ng-href="{{ mc.twitterLink }}" target="_blank">
-                    <md-icon md-font-icon="fa fa-twitter-square" alt="Twitter"></md-icon>
+                    <md-icon class="socialIcon" md-font-icon="fa fa-twitter-square" alt="Twitter"></md-icon>
                 </a>
                 <a ng-if="mc.facebookLink" ng-href="{{ mc.facebookLink }}" target="_blank">
-                    <md-icon md-font-icon="fa fa-facebook-square" alt="Facebook"></md-icon>
+                    <md-icon class="socialIcon" md-font-icon="fa fa-facebook-square" alt="Facebook"></md-icon>
                 </a>
                 <a ng-if="mc.meetupLink" ng-href="{{ mc.meetupLink }}" target="_blank">
-                    <img src="app/images/meetup.png" alt="Meetup" class="png-icon invert">
+                    <img src="app/images/icons/meetup.png" alt="Meetup" class="png-icon invert">
                 </a>
                 <a ng-if="mc.gdgLink" ng-href="{{ mc.gdgLink }}" target="_blank">
-                    <img src="app/images/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
+                    <img src="app/images/icons/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
                 </a>
             </div>
         </md-toolbar>
-        <md-tabs class="navTabs" md-selected="mc.navTab" md-stretch-tabs="always">
+        <md-tabs class="navTabs" md-selected="mc.navTab" md-stretch-tabs="never">
             <md-tab id="about-tab"><a class="navTabLink" href="#!/about">About</a></md-tab>
             <md-tab id="news-tab"><a class="navTabLink" href="#!/news">News</a></md-tab>
             <md-tab id="events-tab"><a class="navTabLink" href="#!/events">Events</a></md-tab>
+            <md-tab id="activities-tab"><a class="navTabLink" href="#!/activities">What We Do</a></md-tab>
             <md-tab id="photos-tab"><a class="navTabLink" href="#!/photos">Photos</a></md-tab>
         </md-tabs>
         <div layout layout-margin layout-align="center start">

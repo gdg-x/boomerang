@@ -7,9 +7,9 @@ describe('Boomerang About page', function () {
     var chapterDescription = element(by.binding('vm.desc'));
     var chapterName = element(by.binding('mc.chapterName'));
 
-    var googlePlusLink = element(by.css('.fa.fa-lg.fa-google-plus-square'));
-    var twitterLink = element(by.css('.fa.fa-lg.fa-twitter-square'));
-    var facebookLink = element(by.css('.fa.fa-lg.fa-facebook-square'));
+    var googlePlusLink = element(by.css('.fa.fa-google-plus-square'));
+    var twitterLink = element(by.css('.fa.fa-twitter-square'));
+    var facebookLink = element(by.css('.fa.fa-facebook-square'));
     var meetupLink = element(by.css('.png-icon.invert'));
     var gdgLink = element(by.css('.png-icon.grayscale'));
 
