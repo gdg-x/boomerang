@@ -97,8 +97,6 @@ md-grid-tile {
 .activityIcon {
     height: 120px;
     width: 120px;
-    opacity: 0.54;
-    margin: auto;
 }
 md-toolbar.md-default-theme:not(.navBar) {
     border-top-right-radius: 3px;
