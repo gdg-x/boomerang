@@ -11,8 +11,8 @@
         <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,300,500,700,400italic" rel="stylesheet" >
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet'>
         <!-- bower:css -->
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+        <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css">
         <!-- endinject -->
         <!-- inject:css -->
         <link rel="stylesheet" href="/app/css/gdg.css">
@@ -32,26 +32,27 @@
                     <span ng-cloak>{{ mc.chapterName }}</span>
                 </h2>
                 <a ng-if="mc.googlePlusLink" ng-href="{{ mc.googlePlusLink }}" rel="publisher" target="_blank">
-                    <md-icon md-font-icon="fa fa-google-plus-square" alt="Google+"></md-icon>
+                    <md-icon class="socialIcon" md-font-icon="fa fa-google-plus-square" alt="Google+"></md-icon>
                 </a>
                 <a ng-if="mc.twitterLink" ng-href="{{ mc.twitterLink }}" target="_blank">
-                    <md-icon md-font-icon="fa fa-twitter-square" alt="Twitter"></md-icon>
+                    <md-icon class="socialIcon" md-font-icon="fa fa-twitter-square" alt="Twitter"></md-icon>
                 </a>
                 <a ng-if="mc.facebookLink" ng-href="{{ mc.facebookLink }}" target="_blank">
-                    <md-icon md-font-icon="fa fa-facebook-square" alt="Facebook"></md-icon>
+                    <md-icon class="socialIcon" md-font-icon="fa fa-facebook-square" alt="Facebook"></md-icon>
                 </a>
                 <a ng-if="mc.meetupLink" ng-href="{{ mc.meetupLink }}" target="_blank">
-                    <img src="app/images/meetup.png" alt="Meetup" class="png-icon invert">
+                    <img src="app/images/icons/meetup.png" alt="Meetup" class="png-icon invert">
                 </a>
                 <a ng-if="mc.gdgLink" ng-href="{{ mc.gdgLink }}" target="_blank">
-                    <img src="app/images/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
+                    <img src="app/images/icons/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
                 </a>
             </div>
         </md-toolbar>
-        <md-tabs class="navTabs" md-selected="mc.navTab" md-stretch-tabs="always">
+        <md-tabs class="navTabs" md-selected="mc.navTab" md-stretch-tabs="never">
             <md-tab id="about-tab"><a class="navTabLink" href="#!/about">About</a></md-tab>
             <md-tab id="news-tab"><a class="navTabLink" href="#!/news">News</a></md-tab>
             <md-tab id="events-tab"><a class="navTabLink" href="#!/events">Events</a></md-tab>
+            <md-tab id="activities-tab"><a class="navTabLink" href="#!/activities">What We Do</a></md-tab>
             <md-tab id="photos-tab"><a class="navTabLink" href="#!/photos">Photos</a></md-tab>
         </md-tabs>
         <div layout layout-margin layout-align="center start">
@@ -60,14 +61,33 @@
     </body>
     <script src="https://apis.google.com/js/plusone.js" type="text/javascript"></script>
     <!-- bower:js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-sanitize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
     <!-- endinject -->
     <!-- inject:js -->
-    <script src="/app/dist/boomerang.min.js"></script>
+    <script src="/app/boomerang.module.js"></script>
+    <script src="/app/news/components/newsItemFooter.js"></script>
+    <script src="/app/news/components/gplusPostVideo.js"></script>
+    <script src="/app/news/components/gplusPostImage.js"></script>
+    <script src="/app/news/components/gplusPostContent.js"></script>
+    <script src="/app/news/components/gplusPhotoVideo.js"></script>
+    <script src="/app/news/components/gplusNoAttachments.js"></script>
+    <script src="/app/news/components/gplusEvent.js"></script>
+    <script src="/app/news/components/gplusArticle.js"></script>
+    <script src="/app/news/components/gplusAlbum.js"></script>
+    <script src="/app/services/navService.js"></script>
+    <script src="/app/services/configService.js"></script>
+    <script src="/app/photos/photos.js"></script>
+    <script src="/app/news/news.js"></script>
+    <script src="/app/filters/htmlLinkyFilter.js"></script>
+    <script src="/app/filters/hashLinkyFilter.js"></script>
+    <script src="/app/events/events.js"></script>
+    <script src="/app/activities/activities.js"></script>
+    <script src="/app/about/about.js"></script>
+    <script src="/app/boomerang.config.js"></script>
     <!-- endinject -->
 </html>

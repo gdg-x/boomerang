@@ -1,0 +1,25 @@
+<md-whiteframe class="md-whiteframe-z1" layout="column" style="margin: 8px">
+    <md-toolbar flex>
+        <h2 class="md-toolbar-tools">
+            Types of Events We Run
+        </h2>
+    </md-toolbar>
+    <md-grid-list
+        md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
+        md-row-height-gt-md="1:1" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px" >
+        <md-grid-tile class="{{ activity.color }}" ng-repeat="activity in vm.activities"
+            md-rowspan="1" md-colspan="1">
+            <div layout="column">
+                <md-icon md-svg-icon="{{ activity.icon }}" class="activityIcon">
+                </md-icon>
+                <p style="padding: 8px">
+                    {{ activity.description }}
+                </p>
+            </div>
+          <md-grid-tile-footer>
+              <h3>{{ activity.name }}</h3>
+          </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
+</md-whiteframe>
