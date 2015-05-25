@@ -18,6 +18,16 @@
         <link rel="stylesheet" href="/app/css/gdg.css">
         <!-- endinject -->
         <link rel="icon" sizes="16x16 32x32" href="/favicon.ico">
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+            ga('create', 'UA-41029375-2', 'auto');
+            ga('require', 'displayfeatures');
+            ga('require', 'linkid', 'linkid.js');
+            ga('send', 'pageview');
+        </script>
     </head>
     <body ng-controller="MainController as mc">
 
@@ -31,6 +41,9 @@
                 <h2 flex>
                     <span ng-cloak>{{ mc.chapterName }}</span>
                 </h2>
+                <div hide-sm>
+                    <div class="g-plusone" data-size="large"></div>
+                </div>
                 <a ng-if="mc.googlePlusLink" ng-href="{{ mc.googlePlusLink }}" rel="publisher" target="_blank">
                     <md-icon class="socialIcon" md-font-icon="fa fa-google-plus-square" alt="Google+"></md-icon>
                 </a>
