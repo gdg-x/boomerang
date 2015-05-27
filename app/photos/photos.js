@@ -2,7 +2,7 @@ angular.module('gdgXBoomerang')
 .controller('PhotosController', function ($http, Config, NavService) {
     var vm = this;
     vm.loading = true;
-    NavService.setNavTab(4);
+    NavService.setNavTab(5);
     vm.chapterName = Config.name;
     vm.photos = [];
 
@@ -18,7 +18,7 @@ angular.module('gdgXBoomerang')
                 // Use reverse ordering newest first
                 for (i = photoList.length - 1; i >= 0; i--) {
                     var photo = {
-                        link: photoList[i].link[1].href,
+                        link: photoList[i].link[2].href,
                         src: photoList[i].content.src,
                         alt: photoList[i].title.$t,
                         title: photoList[i].summary.$t

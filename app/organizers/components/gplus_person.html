@@ -1,0 +1,10 @@
+<md-card layout-fill>
+    <img ng-src="{{person.image.url}}" alt="Profile Photo"/>
+    <md-card-content layout="column" layout-fill>
+        <h3>{{person.displayName}}</h3>
+        <md-content>
+            <div ng-bind-html="person.aboutMe" style="max-height: 205px"></div>
+        </md-content>
+        <md-button href="https://plus.google.com/{{gplusId}}" class="md-accent">Profile</md-button>
+    </md-card-content>
+</md-card>

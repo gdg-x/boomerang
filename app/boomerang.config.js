@@ -10,9 +10,13 @@ angular.module('gdgXBoomerang')
         when('/photos', {templateUrl: 'app/photos/photos.html', controller: 'PhotosController', controllerAs: 'vm'}).
         when('/activities', {templateUrl: 'app/activities/activities.html',
             controller: 'ActivitiesController', controllerAs: 'vm'}).
+        when('/organizers', {templateUrl: 'app/organizers/organizers.html',
+            controller: 'OrganizersController', controllerAs: 'vm'}).
         otherwise({ redirectTo: '/about' });
 
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
-        .accentPalette('deep-orange');
+        .accentPalette('green', {
+            'default': 'A700'
+        });
 });

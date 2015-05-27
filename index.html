@@ -36,7 +36,7 @@
         <span itemprop="description" style="display: none;">Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs.</span>
         <img itemprop="image" style="display: none;" src="app/images/GDG-X-Boomerang-snippet.png">
 
-        <md-toolbar class="md-hue-2">
+        <md-toolbar class="md-hue-2 navBar">
             <div class="md-toolbar-tools">
                 <h2 flex>
                     <span ng-cloak>{{ mc.chapterName }}</span>
@@ -66,13 +66,14 @@
             <md-tab id="news-tab"><a class="navTabLink" href="#!/news">News</a></md-tab>
             <md-tab id="events-tab"><a class="navTabLink" href="#!/events">Events</a></md-tab>
             <md-tab id="activities-tab"><a class="navTabLink" href="#!/activities">What We Do</a></md-tab>
+            <md-tab id="organizers-tab"><a class="navTabLink" href="#!/organizers">Organizers</a></md-tab>
             <md-tab id="photos-tab"><a class="navTabLink" href="#!/photos">Photos</a></md-tab>
         </md-tabs>
         <div layout layout-margin layout-align="center start">
             <div ng-view flex-sm="100" flex-md="90" flex-lg="80" flex-gt-lg="75"></div>
         </div>
     </body>
-    <script src="https://apis.google.com/js/plusone.js" type="text/javascript"></script>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- bower:js -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-rc.2/angular-animate.min.js"></script>

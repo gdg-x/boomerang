@@ -6,19 +6,19 @@
         </div>
     </md-toolbar>
     <p ng-show="vm.errorMsg">{{ vm.errorMsg }}</p>
-    <div layout layout-wrap>
-        <md-card ng-repeat="photo in vm.photos">
-            <a ng-href="{{ photo.link }}" target="_blank">
-                <img ng-src="{{ photo.src }}?sz=260" alt="{{ photo.alt }}" title="{{ photo.title }}">
+    <md-grid-list
+            md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
+            md-row-height-gt-md="1:1" md-row-height="2:2"
+            md-gutter="12px" md-gutter-gt-sm="8px">
+        <md-grid-tile ng-repeat="photo in vm.photos" md-rowspan="1" md-colspan="1" layout>
+            <a ng-href="{{ photo.link }}" target="_blank" layout-fill>
+                <img ng-src="{{ photo.src }}?sz=260" alt="{{ photo.alt }}" title="{{ photo.title }}" layout-fill>
             </a>
-            <md-card-content >
-                <div ng-if="photo.title && photo.title.length" style="font-size: 12px;">
+            <md-grid-tile-footer ng-if="photo.title && photo.title.length">
+                <h3 style="font-size: 12px;">
                     {{ photo.title | limitTo:35 }}{{ photo.title.length > 35 ? '...': '' }}
-                </div>
-                <div ng-if="!photo.title || !photo.title.length" style="font-size: 12px; opacity: 0.3">
-                    No caption
-                </div>
-            </md-card-content>
-        </md-card>
-    </div>
+                </h3>
+            </md-grid-tile-footer>
+        </md-grid-tile>
+    </md-grid-list>
 </md-whiteframe>

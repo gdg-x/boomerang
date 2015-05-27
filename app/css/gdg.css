@@ -1,5 +1,9 @@
 body {
-  overflow-y: scroll;
+    overflow-y: scroll;
+    color: #424242;
+    font-family: 'Roboto', sans-serif;
+    line-height: 24px;
+    letter-spacing: -0.01em;
 }
 .gdg_loading {
     background: url('/app/images/gdg_loading.gif') no-repeat 0 0 rgb(255, 255, 255);
@@ -7,7 +11,7 @@ body {
     height: 64px;
 }
 md-tabs .md-header {
-  border-bottom: 1px solid #D8D8D8;
+    border-bottom: 1px solid #D8D8D8;
 }
 .fill {
     width: 100%;
@@ -46,6 +50,9 @@ md-tabs .md-header {
     color: inherit;
     display: flex;
     flex-direction: column;
+}
+.navTabLink:hover {
+    text-decoration: none;
 }
 span.md-font.fa {
     font-size: 1.33333333em;
@@ -89,4 +96,52 @@ md-grid-tile {
 .activityIcon {
     height: 120px;
     width: 120px;
+}
+md-toolbar.md-default-theme:not(.navBar) {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+md-toolbar .md-toolbar-tools h2 {
+    font-weight: 700;
+}
+md-card.md-default-theme,
+md-grid-list md-grid-tile {
+    border-radius: 3px;
+}
+md-card-content div[layout] {
+    border-bottom: 1px solid #E0E0E0;
+}
+md-grid-list md-grid-tile md-grid-tile-footer {
+    background: rgba(0, 0, 0, 0.3);
+}
+md-grid-list md-grid-tile md-grid-tile-footer figcaption {
+    width: 100%;
+}
+md-grid-list md-grid-tile md-grid-tile-footer h3 {
+    margin: 0;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+}
+md-card > img {
+    border-radius: 3px;
+}
+md-card a {
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+    color: #1565C0;
+    text-decoration: initial;
+}
+a:hover {
+    text-decoration: underline;
+}
+news-item-footer [id*="___plusone"] {
+    padding-top: 12px !important;
+}
+md-toolbar [id*="___plusone"] {
+    padding-top: 5px !important;
 }
