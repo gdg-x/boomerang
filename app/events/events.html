@@ -21,7 +21,7 @@
             <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
         </md-card-content>
     </md-card>
-    <p ng-if="vm.upcomingError" ng-bind-html="vm.upcomingError" style="margin: 8px"></p>
+    <h4 ng-if="vm.upcomingError" ng-bind-html="vm.upcomingError" style="margin: 8px"></h4>
 </md-whiteframe>
 <md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin>
     <md-toolbar>
@@ -45,5 +45,5 @@
             <p ng-bind-html="event.about | htmlLinky | hashLinky"></p>
         </md-card-content>
     </md-card>
-    <p ng-if="vm.pastError" ng-bind-html="vm.pastError" style="margin: 8px"></p>
+    <h4 ng-if="vm.pastError" ng-bind-html="vm.pastError" style="margin: 8px"></h4>
 </md-whiteframe>
