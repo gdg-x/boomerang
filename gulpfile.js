@@ -149,9 +149,9 @@ function injectCdn() {
                 transform: function (filePath) {
                     var tags = '';
                     if (filePath.indexOf('.js') !== -1) {
-                        tags += '<script src="' + '/app/dist/' + getBundleName() + '.js' + '"></script>\n';
+                        tags += '<script src="' + 'app/dist/' + getBundleName() + '.js' + '"></script>\n';
                     } else {
-                        tags += '<link rel="stylesheet" href="' + '/app/css/gdg.css' + '">\n';
+                        tags += '<link rel="stylesheet" href="' + 'app/css/gdg.css' + '">\n';
                     }
                     return tags.substring(0, tags.length - 1);
                 }
