@@ -1,12 +1,12 @@
 <div class="gdg_loading" ng-show="vm.loading"></div>
-<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin ng-show="vm.photos.length">
+<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin>
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h3>{{ vm.chapterName }} Images</h3>
         </div>
     </md-toolbar>
-    <p ng-show="vm.errorMsg">{{ vm.errorMsg }}</p>
-    <md-grid-list
+    <h4 ng-show="vm.errorMsg" style="padding: 0 8px 0 8px">{{ vm.errorMsg }}</h4>
+    <md-grid-list ng-show="vm.photos.length"
             md-cols-sm="1" md-cols-md="2" md-cols-gt-md="3"
             md-row-height-gt-md="1:1" md-row-height="2:2"
             md-gutter="12px" md-gutter-gt-sm="8px">

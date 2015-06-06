@@ -29,7 +29,7 @@ angular.module('gdgXBoomerang')
             vm.loading = false;
         })
         .error(function () {
-            vm.errorMsg = 'Sorry, we failed to retrieve the Photos from the Picasa Web Albums API. ' +
+            vm.errorMsg = 'Sorry, we failed to retrieve the photos from the Picasa Web Albums API. ' +
                 'Logging out of your Google Account and logging back in may resolve this issue.';
             vm.loading = false;
         });
