@@ -1,5 +1,5 @@
 angular.module('gdgXBoomerang')
-.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
+.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
 
     $locationProvider.hashPrefix('!');
 
@@ -19,4 +19,6 @@ angular.module('gdgXBoomerang')
         .accentPalette('green', {
             'default': 'A700'
         });
+
+    $mdIconProvider.fontSet('fa', 'fontawesome');
 });
