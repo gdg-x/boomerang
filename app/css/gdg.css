@@ -19,7 +19,7 @@ md-tabs .md-header {
     background-size: cover;
 }
 .socialIcon {
-    margin: 8px;
+    margin: 12px 10px 8px 10px;
 }
 .png-icon {
     background-repeat: no-repeat no-repeat;
@@ -29,11 +29,12 @@ md-tabs .md-header {
     width: 26px;
     font-size: 1.33333333em;
     line-height: .75em;
-    margin: 8px;
+    margin: 9px;
 }
 .gdg-icon {
     height: 24px;
     width: 24px;
+    margin: 10px;
 }
 .invert {
     -webkit-filter: invert(100%);
