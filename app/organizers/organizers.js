@@ -4,7 +4,7 @@ angular.module('gdgXBoomerang')
     vm.loading = false;
     NavService.setNavTab(4);
 
-    var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '?callback=JSON_CALLBACK';
+    var url = 'https://hub.gdgx.io/api/v1/chapters/' + Config.id + '?callback=JSON_CALLBACK';
     var headers = { 'headers': { 'Accept': 'application/json;' }, 'timeout': 2000 };
     $http.jsonp(url, headers).success(function (data) {
         if (data.organizers) {
