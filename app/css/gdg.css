@@ -127,6 +127,10 @@ md-grid-list md-grid-tile md-grid-tile-footer h3 {
 md-card > img {
     border-radius: 3px;
 }
+gplus-person md-card > img,
+.description-card > img {
+    border-radius: 3px 3px 0 0;
+}
 md-card a {
     font-size: 14px;
     font-weight: 500;

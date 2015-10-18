@@ -1,16 +1,16 @@
 {
     "js":
     [
-        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js",
-        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.min.js",
-        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-aria.min.js",
-        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.min.js",
-        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-sanitize.min.js",
-        "https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.js"
+        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js",
+        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-animate.min.js",
+        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js",
+        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js",
+        "https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js",
+        "https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js"
     ],
     "css":
     [
-        "https://ajax.googleapis.com/ajax/libs/angular_material/0.10.0/angular-material.min.css",
+        "https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css",
         "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
     ]
 }
