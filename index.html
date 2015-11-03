@@ -11,8 +11,9 @@
         <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,300,500,700,400italic" rel="stylesheet" >
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet'>
         <!-- bower:css -->
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc1/angular-material.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!-- endinject -->
         <!-- inject:css -->
         <link rel="stylesheet" href="app/css/gdg.css">
@@ -36,12 +37,16 @@
         <span itemprop="description" style="display: none;">Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs.</span>
         <img itemprop="image" style="display: none;" src="app/images/GDG-X-Boomerang-snippet.png">
 
-        <md-toolbar class="md-hue-2 navBar">
+        <md-toolbar class="md-hue-2 navBar" ng-class="{ 'md-tall': $mdMedia('sm') }">
             <div class="md-toolbar-tools">
-                <h2 flex>
+                <md-button class="md-icon-button" hide-gt-sm ng-click="$mdSidenav('left').open()" flex="none">
+                    <md-icon>menu</md-icon>
+                </md-button>
+                <h2 hide-sm>
                     <span ng-cloak>{{ mc.chapterName }}</span>
                 </h2>
-                <div hide-sm>
+                <span flex></span>
+                <div>
                     <div class="g-plusone" data-size="large"></div>
                 </div>
                 <a ng-if="mc.googlePlusLink" ng-href="{{ mc.googlePlusLink }}" rel="publisher" target="_blank">
@@ -60,8 +65,12 @@
                     <img src="app/images/icons/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
                 </a>
             </div>
+            <h2 class="md-toolbar-tools md-toolbar-tools-bottom" hide-gt-sm ng-cloak>
+                {{ mc.chapterName }}
+            </h2>
         </md-toolbar>
-        <md-tabs class="navTabs" md-selected="mc.navTab" md-stretch-tabs="never">
+
+        <md-tabs class="navTabs" md-selected="mc.navTab" md-stretch-tabs="never" hide-sm>
             <md-tab id="about-tab"><a class="navTabLink" href="#!/about">About</a></md-tab>
             <md-tab id="news-tab"><a class="navTabLink" href="#!/news">News</a></md-tab>
             <md-tab id="events-tab"><a class="navTabLink" href="#!/events">Events</a></md-tab>
@@ -69,6 +78,32 @@
             <md-tab id="organizers-tab"><a class="navTabLink" href="#!/organizers">Organizers</a></md-tab>
             <md-tab id="photos-tab"><a class="navTabLink" href="#!/photos">Photos</a></md-tab>
         </md-tabs>
+
+        <md-sidenav class="md-sidenav-left md-whiteframe-2dp" md-component-id="left">
+          <md-content>
+            <md-list>
+                <md-list-item href="#!/about" ng-click="$mdSidenav('left').close()">
+                  About
+                </md-list-item>
+                <md-list-item href="#!/news" ng-click="$mdSidenav('left').close()">
+                  News
+                </md-list-item>
+                <md-list-item href="#!/events" ng-click="$mdSidenav('left').close()">
+                  Events
+                </md-list-item>
+                <md-list-item href="#!/activities" ng-click="$mdSidenav('left').close()">
+                  What We Do
+                </md-list-item>
+                <md-list-item href="#!/organizers" ng-click="$mdSidenav('left').close()">
+                  Organizers
+                </md-list-item>
+                <md-list-item href="#!/photos" ng-click="$mdSidenav('left').close()">
+                  Photos
+                </md-list-item>
+            </md-list>
+          </md-content>
+        </md-sidenav>
+
         <div layout layout-margin layout-align="center start">
             <div ng-view flex-sm="100" flex-md="90" flex-lg="80" flex-gt-lg="75"></div>
         </div>
@@ -80,7 +115,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.11.2/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc1/angular-material.min.js"></script>
     <!-- endinject -->
     <!-- inject:js -->
     <script src="app/dist/boomerang.min.js"></script>
