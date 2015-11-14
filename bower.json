@@ -1,6 +1,6 @@
 {
     "name": "boomerang",
-    "version": "2.0.6",
+    "version": "2.1.5",
     "homepage": "https://github.com/gdg-x/boomerang.git",
     "authors": [
         "GDG-X"
@@ -29,7 +29,7 @@
         "angular-aria": "1.4.7",
         "angular-animate": "1.4.7",
         "angular-material": "1.0.0-rc3",
-        "google-material-icons": "0.1.0",
+        "google-material-icons": "2.0.0",
         "font-awesome": "~4.3.0"
     },
     "devDependencies": {
