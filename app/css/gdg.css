@@ -150,3 +150,6 @@ news-item-footer [id*="___plusone"] {
 md-toolbar [id*="___plusone"] {
     padding-top: 5px !important;
 }
+md-toolbar {
+    margin: 0 !important;
+}
