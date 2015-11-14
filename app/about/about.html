@@ -1,4 +1,5 @@
-<md-whiteframe class="md-whiteframe-z1" layout="column" style="margin: 8px">
+<md-whiteframe class="md-whiteframe-1dp" layout="column"
+               ng-style="{ 'margin': $mdMedia('gt-md') ? '8px' : '0 0 4px 0' }">
     <md-toolbar flex>
         <h2 class="md-toolbar-tools">
             Announcement: {{ vm.cover.title }}
@@ -14,7 +15,8 @@
     </div>
 </md-whiteframe>
 <div class="gdg_loading" ng-show="vm.loading"></div>
-<md-card class="description-card" ng-hide="vm.loading">
+<md-card class="description-card" ng-hide="vm.loading"
+         ng-style="{ 'margin': $mdMedia('gt-md') ? '8px' : '0 0 4px 0' }">
     <img ng-show="vm.cover.url" ng-src="{{ vm.cover.url }}" alt="Google+ Cover Image">
     <div id="cover" ng-show="vm.cover.url">
 
@@ -23,34 +25,28 @@
         <div ng-bind-html="vm.desc"></div>
     </md-card-content>
 </md-card>
-<md-card layout="column">
-    <md-toolbar flex>
+<md-card layout="column" ng-style="{ 'margin': $mdMedia('gt-md') ? '4px' : '0 0 4px 0' }">
+    <md-toolbar>
         <h2 class="md-toolbar-tools">
             Sponsors
         </h2>
     </md-toolbar>
     <div layout layout-wrap>
-        <md-card>
-            <md-card-content>
+        <div flex-sm="100" flex-gt-sm="33" layout="column" layout-align="center center" layout-padding>
             <a href="https://developers.google.com/">
                 <img class="sponsor" src="/app/images/Google-Developers.png" alt="Google Developers"
                      title="Google Developers">
             </a>
-            </md-card-content>
-        </md-card>
-        <md-card>
-            <md-card-content>
+        </div>
+        <div flex-sm="100" flex-gt-sm="33" layout="column" layout-align="center center" layout-padding>
             <a href="http://www.jetbrains.com/">
                 <img class="sponsor" src="/app/images/sponsor1.png" alt="Sponsor Image" title="Sponsor Image">
             </a>
-            </md-card-content>
-        </md-card>
-        <md-card>
-            <md-card-content>
+        </div>
+        <div flex-sm="100" flex-gt-sm="33" layout="column" layout-align="center center" layout-padding>
             <a href="http://www.oreilly.com/store/">
                 <img class="sponsor" src="/app/images/sponsor2.gif" alt="Sponsor Image" title="Sponsor Image">
             </a>
-            </md-card-content>
-        </md-card>
+        </div>
     </div>
 </md-card>

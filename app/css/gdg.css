@@ -153,3 +153,6 @@ md-toolbar [id*="___plusone"] {
 md-toolbar {
     margin: 0 !important;
 }
+.newsContent md-card {
+    margin: 0;
+}
