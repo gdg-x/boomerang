@@ -1,5 +1,6 @@
 <div class="gdg_loading" ng-show="vm.loading"></div>
-<md-whiteframe class="md-whiteframe-z1" layout="column" layout-margin>
+<md-whiteframe class="md-whiteframe-1dp" layout="column"
+               ng-style="{ 'margin': $mdMedia('gt-md') ? '8px' : '0 0 4px 0' }">
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h3>{{ vm.chapterName }} Images</h3>

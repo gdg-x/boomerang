@@ -11,7 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,300,500,700,400italic" rel="stylesheet" >
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet'>
         <!-- bower:css -->
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc1/angular-material.min.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc3/angular-material.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!-- endinject -->
@@ -104,8 +104,8 @@
           </md-content>
         </md-sidenav>
 
-        <div layout layout-margin layout-align="center start">
-            <div ng-view flex-sm="100" flex-md="90" flex-lg="80" flex-gt-lg="75"></div>
+        <div layout layout-align="center start" ng-style="{ 'margin': $mdMedia('gt-md') ? '8px' : '0' }">
+            <div ng-view flex-sm="100" flex-md="100" flex-lg="90" flex-gt-lg="85"></div>
         </div>
     </body>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -115,7 +115,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-sanitize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc1/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc3/angular-material.min.js"></script>
     <!-- endinject -->
     <!-- inject:js -->
     <script src="app/dist/boomerang.min.js"></script>
