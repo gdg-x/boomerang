@@ -96,7 +96,7 @@ Sites using this template
 ###Contributors
 See [list of contributors](https://github.com/gdg-x/boomerang/graphs/contributors)
 
-Maintainer: [@Splaktar](https://github.com/Splaktar).
+Maintainer: [Splaktar](https://github.com/Splaktar).
 
 ######GDG Apps, GDG[x] are not endorsed and/or supported by Google, the corporation.
 
