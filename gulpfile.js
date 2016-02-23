@@ -9,7 +9,7 @@ var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var ngAnnotate = require('gulp-ng-annotate');
 var gulpJscs = require('gulp-jscs');
-var karmaServer = require('karma').server;
+var Server = require('karma').Server;
 var gulpInject = require('gulp-inject');
 var mainBowerFiles = require('main-bower-files');
 var angularFilesort = require('gulp-angular-filesort');
@@ -72,18 +72,18 @@ function jscs() {
  * Run test once and exit
  */
 function karma(done) {
-    karmaServer.start({
+    new Server({
         configFile: __dirname + '/test/unit/karma.conf.js',
         singleRun: true
-    }, done);
+    }, done).start();
 }
 
 function karmaWatch(done) {
-    karmaServer.start({
+    new Server({
         configFile: __dirname + '/test/unit/karma.conf.js',
         singleRun: false,
         autoWatch: true
-    }, done);
+    }, done).start();
 }
 
 function concat() {
