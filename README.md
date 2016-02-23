@@ -91,3 +91,4 @@ Sites using this template
 * http://gdg-brussels.org/
 * http://www.gdgschaumburg.com/
 * http://gdgdubai.com/
+* http://gdga-site.appspot.com/
