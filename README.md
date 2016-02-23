@@ -92,3 +92,27 @@ Sites using this template
 * http://www.gdgschaumburg.com/
 * http://gdgdubai.com/
 * http://gdga-site.appspot.com/
+
+###Contributors
+See [list of contributors](https://github.com/gdg-x/boomerang/graphs/contributors)
+
+Maintainer: [Splaktar](https://github.com/Splaktar).
+
+######GDG Apps, GDG[x] are not endorsed and/or supported by Google, the corporation.
+
+License
+--------
+
+    © 2013-2016 GDG[x]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
