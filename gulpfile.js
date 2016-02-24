@@ -9,7 +9,7 @@ var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var ngAnnotate = require('gulp-ng-annotate');
 var gulpJscs = require('gulp-jscs');
-var Server = require('karma').Server;
+var karma = require('karma');
 var gulpInject = require('gulp-inject');
 var mainBowerFiles = require('main-bower-files');
 var angularFilesort = require('gulp-angular-filesort');
@@ -34,8 +34,8 @@ gulp.task('jscs', jscs);
 gulp.task('dev', ['clean'], devBuild);
 gulp.task('inject-cdn', injectCdn);
 gulp.task('prod', ['jshint', 'jscs', 'concat', 'inject-cdn'], productionBuild);
-gulp.task('karma', karma);
-gulp.task('karma-watch', karmaWatch);
+gulp.task('karma', unitTests);
+gulp.task('karma-watch', unitTestsWatch);
 
 /**
  * Functions
@@ -71,15 +71,15 @@ function jscs() {
 /**
  * Run test once and exit
  */
-function karma(done) {
-    new Server({
+function unitTests(done) {
+    new karma.Server({
         configFile: __dirname + '/test/unit/karma.conf.js',
         singleRun: true
     }, done).start();
 }
 
-function karmaWatch(done) {
-    new Server({
+function unitTestsWatch(done) {
+    new karma.Server({
         configFile: __dirname + '/test/unit/karma.conf.js',
         singleRun: false,
         autoWatch: true
