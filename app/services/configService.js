@@ -9,6 +9,7 @@ angular.module('gdgXBoomerang')
         'domain'        : 'http://www.gdgspacecoast.org',
         'twitter'       : 'gdgspacecoast',
         'facebook'      : 'gdgspacecoast',
+        'youtube'       : 'UCkiYHK3IZMk5XsYZ626b9Rw',
         'meetup'        : 'gdgspacecoast',
         // Change to 'EEEE, MMMM d, y - H:mm' for 24 hour time format.
         'dateFormat'    : 'EEEE, MMMM d, y - h:mm a',
