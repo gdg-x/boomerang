@@ -6,6 +6,7 @@ angular.module('gdgXBoomerang', ['ngRoute', 'ngSanitize', 'ngAria', 'ngAnimate',
     mc.gdgLink = 'https://developers.google.com/groups/chapter/' + Config.id + '/';
     mc.twitterLink = Config.twitter ? 'https://twitter.com/' + Config.twitter : null;
     mc.facebookLink = Config.facebook ? 'https://www.facebook.com/' + Config.facebook : null;
+    mc.youtubeLink = Config.youtube ? 'https://www.youtube.com/channel/' + Config.youtube : null;
     mc.meetupLink = Config.meetup ? 'http://www.meetup.com/' + Config.meetup : null;
     $rootScope.$mdMedia = $mdMedia;
     $rootScope.$mdSidenav = $mdSidenav;
