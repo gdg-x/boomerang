@@ -49,8 +49,7 @@ You must have Node.js installed to use the build tools. Download it [here](http:
 From the boomerang directory, run the following:
 
 1. `npm install`
-2. `bower install`
-3. `gulp`
+1. `gulp`
 
 Automated Testing
 ---------------
