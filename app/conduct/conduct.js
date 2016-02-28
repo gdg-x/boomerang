@@ -4,5 +4,4 @@ angular.module('gdgXBoomerang')
     vm.loading = true;
     NavService.setNavTab(6);
     vm.chapter = Config.name;
-    vm.lead = Config.lead;  
 });
