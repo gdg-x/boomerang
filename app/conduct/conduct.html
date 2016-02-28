@@ -5,11 +5,17 @@
             <h3>{{ vm.chapter }} Code of Conduct</h3>
         </div>
     </md-toolbar>
-    <md-card> 
-        <md-card-content>       
-            <p>{{ vm.chapter }} is a chapter of the larger Google Developer community, as such we follow and enforce the <a href="https://developers.google.com/groups/guidelines/">Google Developer Community Guidelines</a>. We, the group organizers and/or event organizers, reserve the right to take any action that we see fit against any person or persons that are found to be in breach of these guidelines including; issueing a warning (verbal or written), asking the offending person or persons to leave the event, or expulsion from the group. </p>
-        </md-card-content>
-    </md-card>
+    <md-whiteframe class="md-whiteframe-1dp" layout="column" layout-padding>
+        <p>
+            {{ vm.chapter }} is a chapter of the larger Google Developer community, as such we follow and enforce
+            the <a href="https://developers.google.com/groups/guidelines/" style="text-transform: uppercase">
+            Google Developer Community Guidelines</a>.
+            We, the group organizers and/or event organizers, reserve the right to take any action that we see fit
+            against any person or persons that are found to be in breach of these guidelines including; issuing a
+            warning (verbal or written), asking the offending person or persons to leave the event, or expulsion
+            from the group.
+        </p>
+    </md-whiteframe>
 </md-whiteframe>
 <md-whiteframe class="md-whiteframe-1dp" layout="column"
                ng-style="{ 'margin': $mdMedia('gt-md') ? '8px' : '0 0 4px 0' }">
@@ -18,12 +24,19 @@
             <h3>Don't be a Jerk</h3>
         </div>
     </md-toolbar>
-    <md-card>
-        <md-card-content>            
-            <p> {{ vm.chapter }} prides itself on being an open, respectful, and inclusive community. That means jerky behavior isn't allowed at GDG meetings. Because we know that it's not obvious to everyone, here's a reminder of things we don't allow: jokes or offensive comments about sex/sexuality/race/religion/nationality/body size, showing port in public, touching people uninvited, or continuing to interact with someone after they've asked you to stop. Continuous jerky behavior may result in getting expelled from the meeting or GDG Chapter.<br><br>
-            If someone is bothering you, please tell the GDG Organizers or event host and they will take care of it. We want to maintian {{ vm.chapter }}'s awesomness. </p>
-        </md-card-content>
-    </md-card>
+    <md-whiteframe class="md-whiteframe-1dp" layout="column" layout-padding>
+        <p>
+            {{ vm.chapter }} prides itself on being an open, respectful, and inclusive community.
+            That means jerky behavior isn't allowed at GDG meetings. Because we know that it's not obvious to
+            everyone, here's a reminder of things we don't allow: jokes or offensive comments about
+            sex/sexuality/race/religion/nationality/body size, showing port in public, touching people uninvited,
+            or continuing to interact with someone after they've asked you to stop. Continuous jerky behavior may
+            result in getting expelled from the meeting or GDG Chapter.
+            <br><br>
+            If someone is bothering you, please tell the GDG Organizers or event host and they will take care of it.
+            We want to maintain {{ vm.chapter }}'s awesomeness.
+        </p>
+    </md-whiteframe>
 </md-whiteframe>
 <md-whiteframe class="md-whiteframe-1dp" layout="column"
                ng-style="{ 'margin': $mdMedia('gt-md') ? '8px' : '0 0 4px 0' }">
@@ -32,55 +45,70 @@
             <h3>Anti-Harassment Policy</h3>
         </div>
     </md-toolbar>
-    <md-card>
-        <md-card-content>            
-            <p>
-                <h5>Why do we have an official Anti-Harassment policy for {{ vm.chapter }} events?</h5>
-                <ul>
-                    <li>It sets expectations for behavior at the event. Simply having an anti-harassment policy can prevent harassment.</li>
-                    <li>It encourages people to attend who have had bad experiences at other events</li>
-                    <li>It gives event staff/volunteers instructions on how to handle harassment quickly, with minimum amount of disruption for the event.</li>
-                </ul><br>
+    <md-whiteframe class="md-whiteframe-1dp" layout="column" layout-padding>
+        <div>
+            <h5>Why do we have an official Anti-Harassment policy for {{ vm.chapter }} events?</h5>
+            <ul>
+                <li>
+                    It sets expectations for behavior at the event. Simply having an anti-harassment policy can prevent
+                    harassment.
+                </li>
+                <li>It encourages people to attend who have had bad experiences at other events</li>
+                <li>
+                    It gives event staff/volunteers instructions on how to handle harassment quickly, with minimum
+                    amount of disruption for the event.
+                </li>
+            </ul>
+            <br>
+            {{ vm.chapter }} is dedicated to providing a harassment-free event experience for everyone, regardless of:
+            <ul>
+                <li>gender</li>
+                <li>sexual orientation</li>
+                <li>disability</li>
+                <li>gender identity</li>
+                <li>age</li>
+                <li>race</li>
+                <li>religion</li>
+                <li>nationality</li>
+            </ul>
 
-                {{ vm.chapter }} is dedicated to providing a harassment-free event experience for everyone, regardless of:
-                <ul>
-                    <li>gender</li>
-                    <li>sexual orentation</li>
-                    <li>disability</li>
-                    <li>gender identity</li>
-                    <li>age</li>
-                    <li>race</li>
-                    <li>religion</li>
-                    <li>nationality</li>
-                </ul>
+            The above is not an exhaustive list -- we do not tolerate harassment of event participants in any form.
+            <br><br>
+            Sexual language and imagery is not appropriate for any event venue, including talks. Event participants
+            violating these rules may be expelled from the event, and event banned from future events at the discretion
+            of the event organizers/management.
+            <br><br>
+            Harassment includes (but is not limited to):
+            <ul>
+                <li>offensive verbal comments related to gender, sexual orientation, disability, gender identity, age,
+                    race, religion
+                </li>
+                <li>the use or display of sexual images in public spaces</li>
+                <li>deliberate intimidation</li>
+                <li>stalking</li>
+                <li>harassing photography or recording</li>
+                <li>sustained disruption of talks or other events</li>
+                <li>inappropriate physical contact</li>
+                <li>unwelcome sexual attention</li>
+            </ul>
 
-                The above is not an exhaustive list -- we do not tolerate harassment of event participants in any form.<br><br>
-
-                Sexual language and imagery is not appropriate for any event venue, including talks. Event participants violating these rules may be expelled from the event, and event banned from future events at the discretion of the event organizers/management.<br><br>
-
-                Harassment includes (but is not limited to):
-                <ul>
-                    <li>offensive verbal comments related to gender, sexual orentation, disability, gender identity, age, race, religion</li>
-                    <li>the use or display of sexual images in public spaces</li>
-                    <li>deliberate intimidation</li>
-                    <li>stalking</li>
-                    <li>harassing photography or recording</li>
-                    <li>sustained disruption of talks or other events</li>
-                    <li>inappropriate physical contact</li>
-                    <li>unwelcome sexual attention</li>
-                </ul>
-
-                Participants asked to stop any harassing behavior are expected to comply immediately.<br><br>
-
-                Exhibiting partners and guests are also subject to the anti-harassment policy. In particular, exhibitors and speakers should not use sexualized images, activities, or other material, or otherwise create a sexualized environment in their slide decks, exhibit material, exhibt staffing, promotional items or demo material.<br><br>
-
-                If you are being harassed, notice that someone else is being harassed, or have any other concerns, please contact an organizer or event volunteer immediatly. Organizers and event volunteers may be identified by t-shirts or special badges/lanyands. Organizers will investigate the issue and take approprite action. This may include helping participants contact venue security or local law enforcement, provide escorts, or otherwise assist these experiencing harassment to fell safe for the duration of the event.<br><br>
-
-                Though we hope that we never have to invoke this policy, we believe that having this document helps everyone think a little more about how their actions and words affect the whole community, as well as individuals in the community.
-            </p>
-        </md-card-content>
-    </md-card>
-    <h4 ng-if="vm.upcomingError" ng-bind-html="vm.upcomingError" style="margin: 8px"></h4>
+            Participants asked to stop any harassing behavior are expected to comply immediately.
+            <br><br>
+            Exhibiting partners and guests are also subject to the anti-harassment policy. In particular, exhibitors and
+            speakers should not use sexualized images, activities, or other material, or otherwise create a sexualized
+            environment in their slide decks, exhibit material, exhibit staffing, promotional items or demo material.
+            <br><br>
+            If you are being harassed, notice that someone else is being harassed, or have any other concerns, please
+            contact an organizer or event volunteer immediately. Organizers and event volunteers may be identified by
+            t-shirts or special badges/lanyards. Organizers will investigate the issue and take appropriate action. This
+            may include helping participants contact venue security or local law enforcement, provide escorts, or
+            otherwise assist these experiencing harassment to fell safe for the duration of the event.
+            <br><br>
+            Though we hope that we never have to invoke this policy, we believe that having this document helps everyone
+            think a little more about how their actions and words affect the whole community, as well as individuals in
+            the community.
+        </div>
+    </md-whiteframe>
 </md-whiteframe>
 <md-whiteframe class="md-whiteframe-1dp" layout="column"
                ng-style="{ 'margin': $mdMedia('gt-md') ? '8px' : '0 0 4px 0' }">
@@ -89,11 +117,13 @@
             <h3>Values</h3>
         </div>
     </md-toolbar>
-    <md-card>
-        <md-card-content>            
-            <p>
-               {{ vm.chapter }} is an inclusive community where developers, designers, and entrepreneurs of all skill levels, genders, religions, and backgrounds are welcome to learn, practice, and share Google technologies, services, and platforms. Our motto is “Be excellent to each other;” if you see or experience anything different please contact <a href="#!/organizers">our organizers.</a>
-            </p>
-        </md-card-content>
-    </md-card>
+    <md-whiteframe class="md-whiteframe-1dp" layout="column" layout-padding>
+        <p>
+            {{ vm.chapter }} is an inclusive community where developers, designers, and entrepreneurs of all skill
+            levels, genders, religions, and backgrounds are welcome to learn, practice, and share Google
+            technologies, services, and platforms. Our motto is “Be excellent to each other;” if you see or
+            experience anything different please contact
+            <a href="#!/organizers" style="text-transform: uppercase">our organizers.</a>
+        </p>
+    </md-whiteframe>
 </md-whiteframe>
