@@ -52,10 +52,6 @@ module.exports = function (config) {
         // start these browsers
         // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
         browsers: [
-            'Chrome',
-            'ChromeCanary',
-            'Firefox',
-            'Safari',
             'PhantomJS'
         ],
 
@@ -63,4 +59,12 @@ module.exports = function (config) {
         // if true, Karma captures browsers, runs the tests and exits
         singleRun: false
     });
+
+    var browsers = process.env.TRAVIS ? [] : [
+        'Chrome',
+        'ChromeCanary',
+        'Firefox',
+        'Safari'
+    ];
+    config.browsers = browsers.concat(config.browsers);
 };

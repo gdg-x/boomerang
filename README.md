@@ -1,7 +1,7 @@
 GDG-X Boomerang
 =========
 
-[![Join the chat at https://gitter.im/gdg-x/boomerang](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gdg-x/boomerang?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/gdg-x/boomerang.svg)](https://travis-ci.org/gdg-x/boomerang) [![Join the chat at https://gitter.im/gdg-x/boomerang](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gdg-x/boomerang?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Boomerang is a template for a dynamic material design GDG chapter web site that can be deployed
 within 30 minutes. It pulls data from [GDG-X Hub](https://github.com/gdg-x/hub) and 
@@ -49,8 +49,7 @@ You must have Node.js installed to use the build tools. Download it [here](http:
 From the boomerang directory, run the following:
 
 1. `npm install`
-2. `bower install`
-3. `gulp`
+1. `gulp`
 
 Automated Testing
 ---------------
