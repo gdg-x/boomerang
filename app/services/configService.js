@@ -30,7 +30,8 @@ angular.module('gdgXBoomerang')
             panels: true,
             designSprints: true,
             roundTables: true
-        }
+        },
+        'HUB_IP': 'http://localhost:9000'
         // To update the snippet which is used for sharing, see the TODO in the index.html.
     };
 });
