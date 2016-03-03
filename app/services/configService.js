@@ -31,7 +31,7 @@ angular.module('gdgXBoomerang')
             designSprints: true,
             roundTables: true
         },
-        'HUB_IP': 'http://localhost:9000'
+        'HUB_IP': 'https://hub.gdgx.io'
         // To update the snippet which is used for sharing, see the TODO in the index.html.
     };
 });
