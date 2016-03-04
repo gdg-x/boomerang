@@ -30,7 +30,8 @@ angular.module('gdgXBoomerang')
             panels: true,
             designSprints: true,
             roundTables: true
-        }
+        },
+        'HUB_IP': 'https://hub.gdgx.io'
         // To update the snippet which is used for sharing, see the TODO in the index.html.
     };
 });

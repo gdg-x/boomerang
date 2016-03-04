@@ -7,7 +7,7 @@ angular.module('gdgXBoomerang')
     vm.dateFormat = Config.dateFormat;
     vm.events = { past:[], future:[] };
 
-    var url = 'https://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
+    var url = Config.HUB_IP + '/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
     var headers = { 'headers': { 'Accept': 'application/json;' }, 'timeout': 10000 };
     $http.jsonp(url, headers)
         .success(function (data) {
@@ -32,7 +32,7 @@ angular.module('gdgXBoomerang')
         });
 
     var getPastEventsPage = function(page) {
-        var url = 'https://hub.gdgx.io/api/v1/chapters/' + Config.id +
+        var url = Config.HUB_IP + '/api/v1/chapters/' + Config.id +
             '/events/past?callback=JSON_CALLBACK&page=' + page;
         var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 10000 };
         $http.jsonp(url, headers)
