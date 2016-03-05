@@ -6,7 +6,8 @@
     "scripts": {
         "start": "http-server -o",
         "test": "gulp karma",
-        "postinstall": "bower install"
+        "postinstall": "bower install",
+        "buildProd": "gulp prod"
     },
     "repository": {
         "type": "git",
