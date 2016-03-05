@@ -109,9 +109,6 @@ md-card.md-default-theme,
 md-grid-list md-grid-tile {
     border-radius: 3px;
 }
-md-card-content div[layout] {
-    border-bottom: 1px solid #E0E0E0;
-}
 md-grid-list md-grid-tile md-grid-tile-footer {
     background: rgba(0, 0, 0, 0.3);
 }
