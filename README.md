@@ -91,6 +91,7 @@ Sites using this template
 * http://www.gdgschaumburg.com/
 * http://gdgdubai.com/
 * http://gdga-site.appspot.com/
+* http://gdg.nz/
 
 ###Contributors
 See [list of contributors](https://github.com/gdg-x/boomerang/graphs/contributors)
