@@ -23,17 +23,20 @@
         "tests"
     ],
     "dependencies": {
-        "angular": "1.5.0",
-        "angular-route": "1.5.0",
-        "angular-sanitize": "1.5.0",
-        "angular-aria": "1.5.0",
-        "angular-animate": "1.5.0",
+        "angular": "1.5.6",
+        "angular-route": "1.5.6",
+        "angular-sanitize": "1.5.6",
+        "angular-aria": "1.5.6",
+        "angular-animate": "1.5.6",
         "angular-material": "1.0.5",
         "google-material-icons": "2.0.0",
         "font-awesome": "4.3.0"
     },
     "devDependencies": {
-        "angular-mocks": "1.5.0",
+        "angular-mocks": "1.5.6",
         "jasmine-sinon": "0.4.0"
+    },
+    "resolutions": {
+        "angular": "1.5.6"
     }
 }
