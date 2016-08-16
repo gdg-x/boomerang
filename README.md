@@ -21,9 +21,10 @@ Update app/services/configService.js with values appropriate for your group:
 1. **name**: The name of your GDG
 2. **id**: The ID of the Google+ page for your GDG; for example, if your page
    URL is https://plus.google.com/u/0/b/115803993493374365281/, then the ID is '115803993493374365281'.
-3. **google_api**: The API key for your project, available from the [Cloud Console](https://cloud.google.com/console)
-  1. Create a new project then go to APIs & Auth->APIs, activate Google+ API.
-  2. Go to APIs & Auth->Credentials and under Public API access 'Create new Key' of BrowserKey with `Any referrer allowed`.
+3. **google_api**: The API key for your project, available from the [Cloud Console](https://console.developers.google.com/apis)
+  1. Create a new project
+  2. Go to Dashboard, click `Enable API` and select `Google+`
+  3. Go to Credentials, click `Create credentials` -> `API Key` -> `Browser Key` and create with `Any referrer allowed`.
 4. **pwa_id**: The ID for a Picasa web album from which pictures will be drawn. If you do not have a Picasa web album
    for your group, you will want to comment out the photos tab in **index.html**.
 5. **twitter**, **facebook**, **meetup**: Update these with your chapter's social network handles. Setting them to '' will hide the icon.
