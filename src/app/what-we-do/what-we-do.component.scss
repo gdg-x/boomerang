@@ -1,0 +1,45 @@
+md-card {
+	.event-image {
+		height: 256px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.icon-large {
+			font-size: 128px;
+			width: 128px;
+			height: 128px;
+		}
+
+		&.purple {
+			background-color: #ba68c8;
+		}
+
+		&.light-blue {
+			background-color: #b3e5fc;
+		}
+
+		&.green {
+			background-color: #c8e6c9;
+		}
+
+		&.blue {
+			background-color: #42a5f5;
+		}
+
+		&.yellow {
+			background-color: #fff59d;
+		}
+
+		&.indigo {
+			background-color: #7986cb;
+		}
+
+		&.deep-orange {
+			background-color: #ffab91;
+		}
+
+		&.pink {
+			background-color: #f48fb1;
+		}
+	}
+}

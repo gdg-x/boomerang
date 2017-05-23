@@ -1,0 +1,69 @@
+<section class="container top-space">
+  <div class="row">
+    <div class="col-12">
+      <md-toolbar color="accent">
+        <span>Upcoming Events</span>
+      </md-toolbar>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let event of upcoming | async" class="col-12 col-md-6">
+      <md-card>
+        <md-card-header>
+          <div md-card-avatar class="card-header-image"></div>
+          <md-card-title>
+            <a [href]="event.link" target="_blank">{{event.name}}</a>
+          </md-card-title>
+          <md-card-subtitle>
+            {{event.time | date:'fullDate'}} at {{event.time | date:'jm'}}
+            <span *ngIf="event.venue">
+            <br>
+            {{address(event.venue)}}
+            </span>
+          </md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <div [innerHTML]="event.description"></div>
+        </md-card-content>
+        <md-card-actions>
+          <a md-button [href]="event.link" target="_blank">REGISTER</a>
+          <a md-button *ngIf="event.venue" [href]="gmapsURL(event.venue)" target="_blank">DIRECTIONS</a>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</section>
+
+<section class="container">
+  <div class="row">
+    <div class="col-12">
+      <md-toolbar color="accent">
+        <span>Past Events</span>
+      </md-toolbar>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let event of past | async" class="col-12 col-md-6">
+      <md-card>
+        <md-card-header>
+          <div md-card-avatar class="card-header-image"></div>
+          <md-card-title>
+            <a [href]="event.link" target="_blank">{{event.name}}</a>
+          </md-card-title>
+          <md-card-subtitle>
+            {{event.time | date:'fullDate'}} at {{event.time | date:'jm'}}
+            <span *ngIf="event.venue">
+            <br>
+            {{address(event.venue)}}
+            </span>
+          </md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <div [innerHTML]="event.description"></div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</section>

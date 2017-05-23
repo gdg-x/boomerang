@@ -1,0 +1,36 @@
+@import './mixins';
+@import './theme';
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: $background;
+    color: $primary-text;
+    word-wrap: break-word;
+    .mat-sidenav-container {
+        color: $primary-text;
+    }
+}
+
+md-card {
+	margin: 16px 8px;
+}
+
+md-chip {
+    &.mat-chip {
+        margin-top: 8px !important;
+    }
+}
+
+md-sidenav-container {
+    @include bp-min-height;
+    
+    md-sidenav {
+        width: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    md-tab-header {
+        display: none !important;
+    }
+}

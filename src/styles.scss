@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+.card-header-image {
+  background-image: url('https://developers.google.com/_static/images/gdg-icon.png');
+  background-size: cover;
+}
+
+.top-space {
+    margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+    .show-small {
+        display: block !important;
+    }
+
+    .hide-small {
+        display: none !important;
+    }
+}
+
+@media (min-width: 601px) {
+    .show-small {
+        display: none !important;
+    }
+
+    .hide-small {
+        display: block !important;
+    }
+}

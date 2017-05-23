@@ -1,0 +1,26 @@
+<md-toolbar color="primary">
+  <button md-button class="show-small" (click)="toggleNav()">
+    <md-icon>menu</md-icon>
+  </button>
+  <span>{{chapter}}</span>
+  <span class="navbar-spacer"></span>
+  <span class="hide-small">
+    <md-icon *ngIf="environment.googlePlus" (click)="goToURL('https://plus.google.com/'+environment.googlePlus)" class="social fa fa-google-plus-official"></md-icon>
+    <md-icon *ngIf="environment.twitter" (click)="goToURL('https://twitter.com/'+environment.twitter)" class="social fa fa-twitter"></md-icon>
+    <md-icon *ngIf="environment.facebook" (click)="goToURL('https://www.facebook.com/'+environment.facebook)" class="social fa fa-facebook-official"></md-icon>
+    <md-icon *ngIf="environment.youtube" (click)="goToURL('https://www.youtube.com/channel/'+environment.youtube)" class="social fa fa-youtube-play"></md-icon>
+    <md-icon *ngIf="environment.meetup" (click)="goToURL('http://www.meetup.com/'+environment.meetup)" class="social fa fa-meetup"></md-icon>
+    <md-icon *ngIf="environment.googlePlus" (click)="goToURL('https://developers.google.com/groups/chapter/'+environment.googlePlus)"
+      class="social fa fa-google"></md-icon>
+  </span>
+</md-toolbar>
+<md-sidenav-container>
+  <md-sidenav #sidenav>
+    <md-nav-list>
+      <a md-list-item *ngFor="let tab of tabs" [routerLink]="['/', tab]" (click)="sidenav.close()" class="side-nav">{{tab}}</a>
+    </md-nav-list>
+  </md-sidenav>
+  <section id="content-section">
+    <ng-content></ng-content>
+  </section>
+</md-sidenav-container>

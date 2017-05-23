@@ -1,0 +1,30 @@
+<section class="container top-space">
+  <div class="row">
+    <div class="col-12">
+      <md-toolbar color="accent">
+        <span>News</span>
+      </md-toolbar>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let item of news | async" class="col-12 col-md-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <div md-card-avatar class="card-header-image"></div>
+          <md-card-title>{{title(item.provider.title)}}</md-card-title>
+          <md-card-subtitle>{{item.published | date:'fullDate'}}</md-card-subtitle>
+        </md-card-header>
+        <md-card-content>
+          <div [innerHTML]="item.object.content"></div>
+        </md-card-content>
+        <md-card-actions>
+          <a md-button [href]="item.url" target="_blank">VIEW</a>
+          <button md-button disabled>+{{item.object.plusoners.totalItems}}</button>
+          <button md-button disabled>{{item.object.replies.totalItems}} COMMENTS</button>
+          <button md-button disabled>{{item.object.resharers.totalItems}} SHARES</button>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</section>

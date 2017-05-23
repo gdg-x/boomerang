@@ -1,0 +1,28 @@
+<section class="container top-space">
+  <div class="row">
+    <div class="col-12">
+      <md-toolbar color="accent">
+        <span>Organizers</span>
+      </md-toolbar>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let organizer of organizers" class="col-12 col-md-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <div md-card-avatar class="card-header-image"></div>
+          <md-card-title>{{organizer.displayName}}</md-card-title>
+          <md-card-subtitle>{{organizer.tagline}}</md-card-subtitle>
+        </md-card-header>
+        <img md-card-image *ngIf="organizer.image" [src]="organizer.image.url" [alt]="organizer.displayName">
+        <md-card-content>
+          <div [innerHTML]="organizer.aboutMe"></div>
+        </md-card-content>
+        <md-card-actions>
+          <a md-button [href]="'https://plus.google.com/'+organizer.id" target="_blank">VIEW ON G+</a>
+        </md-card-actions>
+      </md-card>
+    </div>
+  </div>
+</section>

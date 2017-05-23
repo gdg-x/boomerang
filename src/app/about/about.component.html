@@ -1,0 +1,63 @@
+<section id="about">
+	<img id="about-banner" [src]="(coverPhoto) ? coverPhoto : 'assets/banner.png'" alt="GDG Banner Image">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+				<md-card id="about-card">
+					<md-card-content>
+						<div [innerHTML]="description"></div>
+					</md-card-content>
+				</md-card>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="about-gdgs" class="container">
+	<div class="row">
+		<div class="col-12">
+			<md-toolbar color="accent">
+				<span>What Is a GDG?</span>
+			</md-toolbar>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-12">
+			<md-card>
+				<md-card-content>
+					<p>Google Developer Groups (GDGs) are for developers who are interested in Google's developer technology; everything from
+						the <a href="https://developer.android.com" target="_blank">Android</a>, <a href="https://developers.google.com/chrome/"
+						 target="_blank">Chrome</a>, <a href="https://developers.google.com/drive/" target="_blank">Drive</a>, and <a href="https://developers.google.com/cloud/"
+						 target="_blank">Google Cloud</a> platforms, to product APIs like the <a href="https://developers.google.com/cast/"
+						 target="_blank">Cast API</a>, <a href="https://developers.google.com/maps/" target="_blank">Maps API</a>, and <a href="https://developers.google.com/youtube/"
+						 target="_blank">YouTube API</a>.</p>
+					<p>A GDG can take many forms -- from just a few people getting together to watch our <a href="http://www.youtube.com/user/GoogleDevelopers"
+						 target="_blank">latest video</a>, to large gatherings with demos and tech talks, to events like code sprints and hackathons.
+						However, at the core, GDGs are focused on <em>developers and technical content</em>, and the core audience should be
+						developers. </p>
+				</md-card-content>
+			</md-card>
+		</div>
+	</div>
+</section>
+
+<section *ngIf="this.sponsors && this.sponsors.length > 0">
+	<div class="container">
+		<md-toolbar color="accent">
+			<span>Sponsors</span>
+		</md-toolbar>
+	</div>
+	<div class="sponsors">
+		<div *ngFor="let sponsor of sponsors" class="sponsor">
+			<md-card>
+				<md-card-header>
+					<md-card-title>{{sponsor.name}}</md-card-title>
+				</md-card-header>
+				<img md-card-image [src]="sponsor.img">
+				<md-card-actions>
+					<a md-button [href]="sponsor.url">VIEW {{sponsor.name | uppercase}}</a>
+				</md-card-actions>
+			</md-card>
+		</div>
+	</div>
+</section>
