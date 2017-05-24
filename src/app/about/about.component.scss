@@ -1,0 +1,20 @@
+#about-banner {
+	width: 100%;
+	height: auto;
+	max-height: 400px;
+	object-fit: cover;
+}
+
+#about-card {
+	margin-top: -64px;
+}
+
+.sponsors {
+	width: auto;
+	overflow: auto;
+	text-align: center;
+  white-space: nowrap;
+	.sponsor {
+		display: inline-block;
+	}
+}

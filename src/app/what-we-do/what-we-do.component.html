@@ -1,0 +1,146 @@
+<section class="container top-space">
+  <div class="row">
+    <div class="col-12">
+      <md-toolbar color="accent">
+        <span>Types of Events We Run</span>
+      </md-toolbar>
+    </div>
+  </div>
+
+  <div class="row">
+    <div *ngIf="activities.techTalks" class="col-12 col-sm-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Tech Talks</md-card-title>
+        </md-card-header>
+        <div md-card-image class="event-image purple">
+          <md-icon class="icon-large">mic</md-icon>
+        </div>
+        <md-card-content>
+          <p>
+            These talks are a grassroots-style series of presentation given by various technical experts spanning a wide spectrum of
+            topics in technology and related areas.
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div *ngIf="activities.roundTables" class="col-12 col-sm-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Round Tables</md-card-title>
+        </md-card-header>
+        <div md-card-image class="event-image light-blue">
+          <md-icon class="icon-large">network_wifi</md-icon>
+        </div>
+        <md-card-content>
+          <p>
+            Free-form, community-focused events where all attendees can raise topics for discussion.
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div *ngIf="activities.codeLabs" class="col-12 col-sm-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Code Labs</md-card-title>
+        </md-card-header>
+        <div md-card-image class="event-image green">
+          <md-icon class="icon-large">code</md-icon>
+        </div>
+        <md-card-content>
+          <p>
+            Specially prepared to provide step-by-step instructions, these events focus on introducing new technology and maximizing
+            hands-on learning.
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div *ngIf="activities.devFests" class="col-12 col-sm-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Dev Fests</md-card-title>
+        </md-card-header>
+        <div md-card-image class="event-image blue">
+          <md-icon class="icon-large">event</md-icon>
+        </div>
+        <md-card-content>
+          <p>
+            GDG Dev Fests are large scale, community-run events that offer speaker sessions across single or multiple product areas,
+            hackathons, code labs, and more..
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div *ngIf="activities.appClinics" class="col-12 col-sm-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>App Clinics</md-card-title>
+        </md-card-header>
+        <div md-card-image class="event-image yellow">
+          <md-icon class="icon-large">local_hospital</md-icon>
+        </div>
+        <md-card-content>
+          <p>
+            These community events bring together developers, designers, testers, and usability experts to evaluate specific apps with
+            a focus on constructive criticism, problem solving, and collaboration.
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div *ngIf="activities.panels" class="col-12 col-sm-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Panels</md-card-title>
+        </md-card-header>
+        <div md-card-image class="event-image indigo">
+          <md-icon class="icon-large">people</md-icon>
+        </div>
+        <md-card-content>
+          <p>
+            These events bring together multiple experts on a topic. The formats can vary from moderator-led Q&A, debate, focused or
+            free-form discussion, to audience Q&A.
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div *ngIf="activities.hackathons" class="col-12 col-sm-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Hackathons</md-card-title>
+        </md-card-header>
+        <div md-card-image class="event-image deep-orange">
+          <md-icon class="icon-large">timer</md-icon>
+        </div>
+        <md-card-content>
+          <p>
+            Events where cross-disciplined teams collaborate intensively on specific projects or challenges. They often involve timed
+            demonstrations and competition for prizes.
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+
+    <div *ngIf="activities.designSprints" class="col-12 col-sm-6 col-lg-4">
+      <md-card>
+        <md-card-header>
+          <md-card-title>Design Sprints</md-card-title>
+        </md-card-header>
+        <div md-card-image class="event-image pink">
+          <md-icon class="icon-large">directions_walk</md-icon>
+        </div>
+        <md-card-content>
+          <p>
+            Intense, focused, collaborative brainstorming events where product design is key. Iterate through the various phases of understanding,
+            sketching, deciding, prototyping, and testing.
+          </p>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</section>

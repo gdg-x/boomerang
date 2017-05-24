@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import '~@angular/material/theming';
+@include mat-core();
+
+$primary: mat-palette($mat-indigo, A400, A100, A700);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+$warn: mat-palette($mat-red);
+$theme: mat-light-theme($primary, $accent, $warn);
+@include angular-material-theme($theme);
+
+$primary-text: #212121;
+$secondary-text: #757575;
+$white: #FFFFFF;
+$background: #F5F5F5;
+
+h1, h2 {
+    color: mat-color($primary);
+    text-decoration: none;
+}
+
+a {
+    &:not(.mat-button), &:not(.side-nav) {
+        color: mat-color($primary);
+        text-decoration: none;
+    }
+}
+
+.active {
+    color: mat-color($accent) !important;
+}
+
+.background-white {
+    background-color: $white;
+}
+
+.background-grey {
+    background-color: #ebeef1;
+    color: #9d9d9d;
+}
+
+.text-accent {
+    color: mat-color($accent);
+}

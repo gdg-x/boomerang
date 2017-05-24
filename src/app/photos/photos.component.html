@@ -1,0 +1,23 @@
+<section class="container top-space">
+  <div class="row">
+    <div class="col-12">
+      <md-toolbar color="accent">
+        <span>Photos From Events</span>
+      </md-toolbar>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <ngb-carousel>
+        <ng-template ngbSlide *ngFor="let photo of photos | async">
+          <img class="carousel-image" [src]="photo.photo_link" [alt]="photo.photo_album.title+' Photo'" (click)="goToURL(photo.link)">
+          <div class="carousel-caption">
+            <h3>{{photo.photo_album.title}}</h3>
+            <p>Taken by {{photo.member.name}} on {{photo.created | date:'shortDate'}}</p>
+          </div>
+        </ng-template>
+      </ngb-carousel>
+    </div>
+  </div>
+</section>
