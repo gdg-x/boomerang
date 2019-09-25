@@ -11,7 +11,7 @@ See it in action: http://gdg-x.github.io/boomerang
 
 Configuration
 ---------------
-Update app/services/configService.js with values appropriate for your group:
+Update `app/services/configService.js` with values appropriate for your group:
 
 1. **name**: The name of your GDG
 1. **twitter**, **facebook**, **meetup**: Update these with your chapter's social network handles. Setting them to '' will hide the icon.
