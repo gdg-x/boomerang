@@ -1,13 +1,13 @@
-var boomerang = angular.module('gdgXBoomerang', ['ngRoute', 'ngSanitize', 'ngAria', 'ngAnimate', 'ngMaterial']);
-
-boomerang.controller('MainController', function ($rootScope, Config, NavService) {
+angular.module('gdgXBoomerang', ['ngRoute', 'ngSanitize', 'ngAria', 'ngAnimate', 'ngMaterial'])
+.controller('MainController', function ($rootScope, $mdMedia, $mdSidenav, Config, NavService) {
     var mc = this;
-    mc.chapter_name = Config.name;
-    mc.google_plus_link = 'https://plus.google.com/' + Config.id;
-    mc.gdg_link = 'https://developers.google.com/groups/chapter/' + Config.id + '/';
-    mc.twitter_link = Config.twitter ? 'https://twitter.com/' + Config.twitter: null;
-    mc.facebook_link = Config.facebook ? 'https://www.facebook.com/' + Config.facebook: null;
-    mc.meetup_link = Config.meetup ? 'http://www.meetup.com/' + Config.meetup: null;
+    mc.chapterName = Config.name;
+    mc.twitterLink = Config.twitter ? 'https://twitter.com/' + Config.twitter : null;
+    mc.facebookLink = Config.facebook ? 'https://www.facebook.com/' + Config.facebook : null;
+    mc.youtubeLink = Config.youtube ? 'https://www.youtube.com/channel/' + Config.youtube : null;
+    mc.meetupLink = Config.meetup ? 'http://www.meetup.com/' + Config.meetup : null;
+    $rootScope.$mdMedia = $mdMedia;
+    $rootScope.$mdSidenav = $mdSidenav;
     $rootScope.canonical = Config.domain;
 
     NavService.registerNavListener(function (tab) {
@@ -15,33 +15,40 @@ boomerang.controller('MainController', function ($rootScope, Config, NavService)
     });
 });
 
-boomerang.config(function ($routeProvider, $locationProvider, $mdThemingProvider) {
+angular.module('gdgXBoomerang')
+.config(function ($routeProvider, $locationProvider, $mdThemingProvider, $mdIconProvider) {
 
     $locationProvider.hashPrefix('!');
 
     $routeProvider.
-        when("/about", {templateUrl: 'app/about/about.html', controller: "AboutController", controllerAs: 'vm'}).
-        when("/news", {templateUrl: 'app/news/news.html', controller: "NewsController", controllerAs: 'vm'}).
-        when("/events", {templateUrl: 'app/events/events.html', controller: "EventsController", controllerAs: 'vm'}).
-        when("/photos", {templateUrl: 'app/photos/photos.html', controller: "PhotosController", controllerAs: 'vm'}).
+        when('/about', {templateUrl: 'app/about/about.html',
+            controller: 'AboutController', controllerAs: 'vm'}).
+        when('/conduct', {templateUrl: 'app/conduct/conduct.html',
+            controller: 'ConductController', controllerAs: 'vm'}).
+        when('/activities', {templateUrl: 'app/activities/activities.html',
+            controller: 'ActivitiesController', controllerAs: 'vm'}).
         otherwise({ redirectTo: '/about' });
 
     $mdThemingProvider.theme('default')
         .primaryPalette('blue')
-        .accentPalette('deep-orange');
+        .accentPalette('green', {
+            'default': 'A700'
+        });
+
+    $mdIconProvider.fontSet('fa', 'fontawesome');
 });
 
-boomerang.factory('Config', function () {
+angular.module('gdgXBoomerang')
+.factory('Config', function () {
     return {
         // TODO Modify these to configure your app
         'name'          : 'GDG Space Coast',
-        'id'            : '103959793061819610212',
-        'google_api'    : 'AIzaSyA9ALjr2iWvhf3Rsz9-bH0cEcDcrdkpuAg',
-        'pwa_id'        : '5915725140705884785', // Picasa Web Album id, must belong to Google+ id above
         'domain'        : 'http://www.gdgspacecoast.org',
         'twitter'       : 'gdgspacecoast',
         'facebook'      : 'gdgspacecoast',
+        'youtube'       : 'UCkiYHK3IZMk5XsYZ626b9Rw',
         'meetup'        : 'gdgspacecoast',
+        'chapterDesc'  : 'Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs. We focus on learning about the broad spectrum of technologies provided by Google and finding ways that these technologies can be applied. This includes discussions of the technologies from a number of angles (startups, corporations, and individuals).', // jshint ignore:line
         // Change to 'EEEE, MMMM d, y - H:mm' for 24 hour time format.
         'dateFormat'    : 'EEEE, MMMM d, y - h:mm a',
         'cover' : {
@@ -49,14 +56,25 @@ boomerang.factory('Config', function () {
             subtitle: 'Directory of developer events organized by tags and displayed on a global map.',
             button: {
                 text: 'Find local events',
-                url: 'http://gdg.events/'
+                url: 'https://www.meetup.com/pro/gdg'
             }
+        },
+        'activities': {
+            techTalks: true,
+            codeLabs: true,
+            hackathons: true,
+            devFests: true,
+            appClinics: true,
+            panels: true,
+            designSprints: true,
+            roundTables: true
         }
         // To update the snippet which is used for sharing, see the TODO in the index.html.
     };
 });
 
-boomerang.factory('NavService', function () {
+angular.module('gdgXBoomerang')
+.factory('NavService', function () {
     var navTab = '0';
     var navListener;
 
@@ -68,7 +86,9 @@ boomerang.factory('NavService', function () {
 
     function setNavTab(tabValue) {
         navTab = tabValue;
-        navListener(navTab);
+        if (navListener) {
+            navListener(navTab);
+        }
     }
 
     function getNavTab() {
@@ -80,86 +100,117 @@ boomerang.factory('NavService', function () {
     }
 });
 
-boomerang.controller('AboutController', function ($http, $sce, Config, NavService) {
+angular.module('gdgXBoomerang')
+.controller('AboutController', function ($http, $sce, Config, NavService) {
     var vm = this;
-    vm.loading = true;
     NavService.setNavTab(0);
-    vm.cover = Config.cover;
-    $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
-            '?callback=JSON_CALLBACK&fields=aboutMe%2Ccover%2Cimage%2CplusOneCount&key=' + Config.google_api).
-        success(function (data) {
-            vm.desc = data.aboutMe;
-            $sce.trustAsHtml(vm.desc);
-
-            if (data.cover && data.cover.coverPhoto.url) {
-                vm.cover.url = data.cover.coverPhoto.url;
-            }
-            vm.loading = false;
-        })
-        .error(function (response) {
-            vm.desc = "Sorry, we failed to retrieve the About text from the Google+ API.";
-            vm.loading = false;
-            vm.status = 'ready';
-        });
+    vm.config = Config;
 });
 
-boomerang.controller("EventsController", function ($http, $log, $filter, Config, NavService) {
+angular.module('gdgXBoomerang')
+.controller('ActivitiesController', function (Config, NavService) {
     var vm = this;
-    NavService.setNavTab(2);
-    vm.chapter_name = Config.name;
-    vm.loading = true;
-    vm.dateFormat = Config.dateFormat;
-    vm.events = { past:[], future:[] };
+    vm.loading = false;
+    NavService.setNavTab(1);
+    vm.activities = [];
 
-    var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/upcoming?callback=JSON_CALLBACK';
-    var headers = { 'headers': { 'Accept': 'application/json;' }, 'timeout': 2000 };
-    $http.jsonp(url, headers)
-        .success(function (data) {
-            for (var i = data.items.length - 1; i >= 0; i--) {
-                data.items[i].about = data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
-                vm.events.future.push(data.items[i]);
-            }
-            vm.events.future = $filter('orderBy')(vm.events.future, 'start', false);
-            vm.loading = false;
-            vm.status = 'ready';
-        })
-        .error(function (response) {
-            vm.upcomingError = "Sorry, we failed to retrieve the upcoming events from the GDG-X Hub API.";
-            vm.loading = false;
-            vm.status = 'ready';
-            $log.debug('Sorry, we failed to retrieve the upcoming events from the GDG-X Hub API: ' + response);
-        });
-
-    var getPastEventsPage = function(page) {
-        var url = 'http://hub.gdgx.io/api/v1/chapters/' + Config.id + '/events/past?callback=JSON_CALLBACK&page=' + page;
-        var headers = { 'headers': {'Accept': 'application/json;'}, 'timeout': 2000 };
-        $http.jsonp(url, headers)
-            .success(function (data) {
-                var i;
-                for (i = data.items.length - 1; i >= 0; i--) {
-                    data.items[i].about = data.items[i].about.replace(/<br\s*\/?><br\s*\/?><br\s*\/?><br\s*\/?>/g, '<br><br>');
-                    vm.events.past.push(data.items[i]);
-                }
-                if (data.pages === page) {
-                    vm.events.past = $filter('orderBy')(vm.events.past, 'start', true);
-                    vm.loading = false;
-                    vm.status = 'ready';
-                } else {
-                    getPastEventsPage(page + 1);
-                }
-            })
-            .error(function (response) {
-                vm.pastError = "Sorry, we failed to retrieve the past events from the GDG-X Hub API.";
-                vm.loading = false;
-                vm.status = 'ready';
-                $log.debug('Sorry, we failed to retrieve the past events from the GDG-X Hub API: ' + response);
-            });
+    var activityList = {
+        techTalks: {
+            name: 'Tech Talks',
+            description: 'These talks are a grassroots-style series of presentation given by various ' +
+                'technical experts spanning a wide spectrum of topics in technology and related areas.',
+            color: 'purple',
+            icon: 'app/images/icons/ic_mic_48px.svg'
+        },
+        roundTables: {
+            name: 'Round Tables',
+            description: 'Free-form, community-focused events where all attendees can raise topics for discussion.',
+            color: 'darkBlue',
+            icon: 'app/images/icons/ic_local_pizza_48px.svg'
+        },
+        codeLabs: {
+            name: 'Code Labs',
+            description: 'Specially prepared to provide step-by-step instructions, these events focus on ' +
+                'introducing new technology and maximizing hands-on learning.',
+            color: 'green',
+            icon: 'app/images/icons/ic_code_48px.svg'
+        },
+        devFests: {
+            name: 'Dev Fests',
+            description: 'GDG Dev Fests are large scale, community-run events that offer speaker sessions ' +
+                'across single or multiple product areas, hackathons, code labs, and more...',
+            color: 'deepBlue',
+            icon: 'app/images/icons/ic_event_48px.svg'
+        },
+        appClinics: {
+            name: 'App Clinics',
+            description: 'These community events bring together developers, designers, testers, and ' +
+                'usability experts to evaluate specific apps with a focus on constructive criticism, ' +
+                'problem solving, and collaboration.',
+            color: 'yellow',
+            icon: 'app/images/icons/ic_local_hospital_48px.svg'
+        },
+        panels: {
+            name: 'Panels',
+            description: 'These events bring together multiple experts on a topic. The formats can vary from ' +
+                'moderator-led Q&A, debate, focused or free-form discussion, to audience Q&A.',
+            color: 'lightPurple',
+            icon: 'app/images/icons/ic_people_48px.svg'
+        },
+        hackathons: {
+            name: 'Hackathons',
+            description: 'Events where cross-disciplined teams collaborate intensively on specific projects ' +
+                'or challenges. They often involve timed demonstrations and competition for prizes.',
+            color: 'red',
+            icon: 'app/images/icons/ic_timer_48px.svg'
+        },
+        designSprints: {
+            name: 'Design Sprints',
+            description: 'Intense, focused, collaborative brainstorming events where product design is key. ' +
+                'Iterate through the various phases of understanding, sketching, deciding, prototyping, ' +
+                'and testing.',
+            color: 'pink',
+            icon: 'app/images/icons/ic_directions_run_48px.svg'
+        }
     };
-    getPastEventsPage(1);
+
+    if (Config.activities.techTalks) {
+        vm.activities.push(activityList.techTalks);
+    }
+    if (Config.activities.roundTables) {
+        vm.activities.push(activityList.roundTables);
+    }
+    if (Config.activities.codeLabs) {
+        vm.activities.push(activityList.codeLabs);
+    }
+    if (Config.activities.devFests) {
+        vm.activities.push(activityList.devFests);
+    }
+    if (Config.activities.appClinics) {
+        vm.activities.push(activityList.appClinics);
+    }
+    if (Config.activities.panels) {
+        vm.activities.push(activityList.panels);
+    }
+    if (Config.activities.hackathons) {
+        vm.activities.push(activityList.hackathons);
+    }
+    if (Config.activities.designSprints) {
+        vm.activities.push(activityList.designSprints);
+    }
+});
+
+angular.module('gdgXBoomerang')
+.controller('ConductController', function ($http, $sce, Config, NavService) {
+    var vm = this;
+    vm.loading = true;
+    NavService.setNavTab(2);
+    vm.chapter = Config.name;
 });
 
 // Google+ hashtag linky from http://plnkr.co/edit/IEpLfZ8gO2B9mJcTKuWY?p=preview
-boomerang.filter('hashLinky', function() {
+angular.module('gdgXBoomerang')
+.filter('hashLinky', function() {
     var ELEMENT_NODE = 1;
     var TEXT_NODE = 3;
     var linkifiedDOM = document.createElement('div');
@@ -198,7 +249,8 @@ boomerang.filter('hashLinky', function() {
 });
 
 // HTML-ified linky from http://plnkr.co/edit/IEpLfZ8gO2B9mJcTKuWY?p=preview
-boomerang.filter('htmlLinky', function($filter) {
+angular.module('gdgXBoomerang')
+.filter('htmlLinky', function($filter) {
     var ELEMENT_NODE = 1;
     var TEXT_NODE = 3;
     var linkifiedDOM = document.createElement('div');
@@ -233,157 +285,11 @@ boomerang.filter('htmlLinky', function($filter) {
     }
 });
 
-boomerang.controller("NewsController", function ($http, $timeout, $filter, $log, $sce, Config, NavService) {
-    var vm = this;
-    NavService.setNavTab(1);
-    vm.loading = true;
-    vm.chapter_name = Config.name;
+'use strict';
 
-    $http.jsonp('https://www.googleapis.com/plus/v1/people/' + Config.id +
-        '/activities/public?callback=JSON_CALLBACK&maxResults=20&key=' + Config.google_api)
-        .success(function (response) {
-            var entries = [], i;
-            var item, actor, object, itemTitle, html;
-            var published, actorImage, entry;
-
-            if (!response.items) {
-                handleError('Response from server contained no news items.');
-                return;
-            }
-
-            for (i = 0; i < response.items.length; i++) {
-                item = response.items[i];
-                actor = item.actor || {};
-                object = item.object || {};
-                itemTitle = object.content;
-                published = $filter('date')(new Date(item.published), 'fullDate');
-                html = [];
-
-                html.push(itemTitle.replace(new RegExp('\n', 'g'), '<br />').replace('<br><br>', '<br />'));
-                html = html.join('');
-                html = $sce.trustAsHtml(html);
-
-                actorImage = actor.image.url;
-                actorImage = actorImage.substr(0, actorImage.length - 2) + '16';
-
-                entry = {
-                    via: {
-                        name: 'Google+',
-                        url: item.url
-                    },
-                    published: published,
-                    body: html,
-                    date: item.updated,
-                    reshares: (object.resharers || {}).totalItems,
-                    plusones: (object.plusoners || {}).totalItems,
-                    comments: (object.replies || {}).totalItems,
-                    icon: actorImage,
-                    item: item,
-                    object: object
-                };
-
-                entries.push(entry);
-            }
-            vm.news = $filter('orderBy')(entries, 'date', true);
-            $timeout(function () {
-                gapi.plusone.go();
-            });
-            vm.loading = false;
-            vm.status = 'ready';
-        })
-        .error(handleError);
-
-    function handleError(error) {
-        vm.desc = "Sorry, we failed to retrieve the news from the Google+ API.";
-        vm.loading = false;
-        vm.status = 'ready';
-        $log.debug('Sorry, we failed to retrieve the news from the Google+ API: ' + error);
-    }
-});
-
-boomerang.controller("PhotosController", function ($http, Config, NavService) {
-    var vm = this;
-    vm.loading = true;
-    NavService.setNavTab(3);
-    vm.chapter_name = Config.name;
-    vm.photos = [];
-
-    var pwa = 'https://picasaweb.google.com/data/feed/api/user/' + Config.id + '/albumid/' + Config.pwa_id +
-        '?access=public&alt=json-in-script&kind=photo&max-results=50&fields=entry(title,link/@href,summary,content/@src)&v=2.0&callback=JSON_CALLBACK';
-
-    $http.jsonp(pwa).
-        success(function (data) {
-            var p = data.feed.entry;
-            for (var x in p) {
-                var photo = {
-                    link: p[x].link[1].href,
-                    src: p[x].content.src,
-                    alt: p[x].title.$t,
-                    title: p[x].summary.$t
-                };
-                vm.photos.push(photo);
-            }
-            vm.loading = false;
-        })
-        .error(function (data) {
-            vm.error_msg = "Sorry, we failed to retrieve the Photos from the Picasa Web Albums API. Logging out of your Google Account and logging back in may resolve this issue.";
-            vm.loading = false;
-        });
-});
-boomerang.directive('gplusAlbum', function () {
+angular.module('gdgXBoomerang').directive('boomerangFooter', function() {
     return {
-        scope: {
-            article: '=',
-            attachment: '='
-        },
-        templateUrl: 'app/news/components/gplusAlbum.html'
-    }
-});
-boomerang.directive('gplusArticle', function () {
-    return {
-        scope: {
-            article: '=',
-            attachment: '='
-        },
-        templateUrl: 'app/news/components/gplusArticle.html'
-    }
-});
-boomerang.directive('gplusEvent', function () {
-    return {
-        scope: { article: '=' },
-        templateUrl: 'app/news/components/gplusEvent.html'
-    }
-});
-boomerang.directive('gplusNoAttachments', function () {
-    return {
-        scope: { article: '=' },
-        templateUrl: 'app/news/components/gplusNoAttachments.html'
-    }
-});
-boomerang.directive('gplusPhotoVideo', function () {
-    return {
-        scope: {
-            article: '=',
-            attachment: '='
-        },
-        templateUrl: 'app/news/components/gplusPhotoVideo.html'
-    }
-});
-boomerang.directive('gplusPostContent', function () {
-    return {
-        transclude: true,
-        templateUrl: 'app/news/components/gplusPostContent.html'
-    }
-});
-
-boomerang.directive('gplusPostImage', function () {
-    return {
-        templateUrl: 'app/news/components/gplusPostImage.html'
-    }
-});
-
-boomerang.directive('newsItemFooter', function () {
-    return {
-        templateUrl: 'app/news/components/newsItemFooter.html'
-    }
+        templateUrl: '/app/footer/footer.html',
+        restrict: 'E'
+    };
 });
