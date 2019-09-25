@@ -1,5 +1,7 @@
 {
-    "excludeFiles": ["node_modules/**", "bower_components/**"],
+    "excludeFiles": ["node_modules/**", "bower_components/**",
+        "./app/services/configService.js"
+    ],
 
     "requireCurlyBraces": [
         "if",

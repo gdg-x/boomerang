@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="gdgXBoomerang" itemscope itemtype="http://schema.org/Organization">
+<html ng-app="gdgXBoomerang" itemscope itemtype="http://schema.org/Organization" lang="en">
     <head>
         <title>Google Developer Group</title>
         <link rel="canonical" ng-href="{{ canonical }}"/>
@@ -11,12 +11,13 @@
         <link href="https://fonts.googleapis.com/css?family=RobotoDraft:400,300,500,700,400italic" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,700italic,300,700' rel='stylesheet'>
         <!-- bower:css -->
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc3/angular-material.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="/bower_components/google-material-icons/google-material-icons.min.css">
+        <link rel="stylesheet" href="/bower_components/google-material-icons/google-material-icons.css">
+        <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
         <!-- endinject -->
         <!-- inject:css -->
-        <link rel="stylesheet" href="app/css/gdg.css">
+        <link rel="stylesheet" href="/app/css/gdg.css">
         <!-- endinject -->
         <link rel="icon" sizes="16x16 32x32" href="favicon.ico">
         <script>
@@ -46,12 +47,6 @@
                     <span ng-cloak>{{ mc.chapterName }}</span>
                 </h2>
                 <span flex></span>
-                <div>
-                    <div class="g-plusone" data-size="large"></div>
-                </div>
-                <a ng-if="mc.googlePlusLink" ng-href="{{ mc.googlePlusLink }}" rel="publisher" target="_blank">
-                    <md-icon class="socialIcon" md-font-set="fa fa-lg fa-google-plus-square" aria-label="Google+"></md-icon>
-                </a>
                 <a ng-if="mc.twitterLink" ng-href="{{ mc.twitterLink }}" target="_blank">
                     <md-icon class="socialIcon" md-font-set="fa fa-lg fa-twitter-square" aria-label="Twitter"></md-icon>
                 </a>
@@ -64,9 +59,6 @@
                 <a ng-if="mc.meetupLink" ng-href="{{ mc.meetupLink }}" target="_blank">
                     <img src="app/images/icons/meetup.png" alt="Meetup" class="png-icon invert">
                 </a>
-                <a ng-if="mc.gdgLink" ng-href="{{ mc.gdgLink }}" target="_blank">
-                    <img src="app/images/icons/GDG_square_lg.png" alt="GDG" class="png-icon gdg-icon grayscale">
-                </a>
             </div>
             <h2 class="md-toolbar-tools md-toolbar-tools-bottom" hide-gt-sm ng-cloak>
                 {{ mc.chapterName }}
@@ -75,11 +67,7 @@
 
         <md-tabs class="navTabs" md-selected="mc.navTab" md-stretch-tabs="never" hide-sm>
             <md-tab id="about-tab"><a class="navTabLink" href="#!/about">About</a></md-tab>
-            <md-tab id="news-tab"><a class="navTabLink" href="#!/news">News</a></md-tab>
-            <md-tab id="events-tab"><a class="navTabLink" href="#!/events">Events</a></md-tab>
             <md-tab id="activities-tab"><a class="navTabLink" href="#!/activities">What We Do</a></md-tab>
-            <md-tab id="organizers-tab"><a class="navTabLink" href="#!/organizers">Organizers</a></md-tab>
-            <md-tab id="photos-tab"><a class="navTabLink" href="#!/photos">Photos</a></md-tab>
             <md-tab id="conduct-tab"><a class="navTabLink" href="#!/conduct">Code of Conduct</a></md-tab>
         </md-tabs>
 
@@ -89,20 +77,8 @@
                 <md-list-item href="#!/about" ng-click="$mdSidenav('left').close()">
                   About
                 </md-list-item>
-                <md-list-item href="#!/news" ng-click="$mdSidenav('left').close()">
-                  News
-                </md-list-item>
-                <md-list-item href="#!/events" ng-click="$mdSidenav('left').close()">
-                  Events
-                </md-list-item>
                 <md-list-item href="#!/activities" ng-click="$mdSidenav('left').close()">
                   What We Do
-                </md-list-item>
-                <md-list-item href="#!/organizers" ng-click="$mdSidenav('left').close()">
-                  Organizers
-                </md-list-item>
-                <md-list-item href="#!/photos" ng-click="$mdSidenav('left').close()">
-                  Photos
                 </md-list-item>
                 <md-list-item href="#!/conduct" ng-click="$mdSidenav('left').close()">
                   Code of Conduct
@@ -118,14 +94,24 @@
     </body>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- bower:js -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.0.0-rc3/angular-material.min.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
     <!-- endinject -->
     <!-- inject:js -->
-    <script src="app/dist/boomerang.min.js"></script>
+    <script src="/app/boomerang.module.js"></script>
+    <script src="/app/services/navService.js"></script>
+    <script src="/app/services/configService.js"></script>
+    <script src="/app/filters/htmlLinkyFilter.js"></script>
+    <script src="/app/filters/hashLinkyFilter.js"></script>
+    <script src="/app/footer/footer.directive.js"></script>
+    <script src="/app/activities/activities.js"></script>
+    <script src="/app/conduct/conduct.js"></script>
+    <script src="/app/about/about.js"></script>
+    <script src="/app/boomerang.config.js"></script>
     <!-- endinject -->
 </html>

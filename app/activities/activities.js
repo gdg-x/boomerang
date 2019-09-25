@@ -2,7 +2,7 @@ angular.module('gdgXBoomerang')
 .controller('ActivitiesController', function (Config, NavService) {
     var vm = this;
     vm.loading = false;
-    NavService.setNavTab(3);
+    NavService.setNavTab(1);
     vm.activities = [];
 
     var activityList = {
