@@ -98,12 +98,12 @@ Sites using this template
 * http://gdga-site.appspot.com/
 * http://gdg.nz/
 
-###Contributors
+### Contributors
 See [list of contributors](https://github.com/gdg-x/boomerang/graphs/contributors)
 
 Maintainer: [Splaktar](https://github.com/Splaktar).
 
-######GDG Apps, GDG[x] are not endorsed and/or supported by Google, the corporation.
+###### GDG Apps, GDG[x] are not endorsed and/or supported by Google, the corporation.
 
 License
 --------
