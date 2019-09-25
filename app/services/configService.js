@@ -8,7 +8,7 @@ angular.module('gdgXBoomerang')
         'facebook'      : 'gdgspacecoast',
         'youtube'       : 'UCkiYHK3IZMk5XsYZ626b9Rw',
         'meetup'        : 'gdgspacecoast',
-        'chapterDesc'  : 'Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs. We focus on learning about the broad spectrum of technologies provided by Google and finding ways that these technologies can be applied. This includes discussions of the technologies from a number of angles (startups, corporations, and individuals).',
+        'chapterDesc'  : 'Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs. We focus on learning about the broad spectrum of technologies provided by Google and finding ways that these technologies can be applied. This includes discussions of the technologies from a number of angles (startups, corporations, and individuals).', // jshint ignore:line
         // Change to 'EEEE, MMMM d, y - H:mm' for 24 hour time format.
         'dateFormat'    : 'EEEE, MMMM d, y - h:mm a',
         'cover' : {

@@ -38,7 +38,7 @@
         <span itemprop="description" style="display: none;">Google Developer Group (GDG) Space Coast is a technology user group that meets to discuss the latest Google Technologies, Tools, SDKs, and APIs.</span>
         <img itemprop="image" style="display: none;" src="app/images/GDG-X-Boomerang-snippet.png">
 
-        <md-toolbar class="md-hue-2 navBar" ng-class="{ 'md-tall': $mdMedia('sm') }">
+        <md-toolbar class="md-hue-2 navBar" ng-class="{ 'md-tall': $mdMedia('sm') }" role="banner">
             <div class="md-toolbar-tools">
                 <md-button class="md-icon-button" hide-gt-sm ng-click="$mdSidenav('left').open()" flex="none">
                     <md-icon>menu</md-icon>
@@ -106,12 +106,12 @@
     <script src="/app/boomerang.module.js"></script>
     <script src="/app/services/navService.js"></script>
     <script src="/app/services/configService.js"></script>
+    <script src="/app/footer/footer.directive.js"></script>
     <script src="/app/filters/htmlLinkyFilter.js"></script>
     <script src="/app/filters/hashLinkyFilter.js"></script>
-    <script src="/app/footer/footer.directive.js"></script>
-    <script src="/app/activities/activities.js"></script>
     <script src="/app/conduct/conduct.js"></script>
     <script src="/app/about/about.js"></script>
+    <script src="/app/activities/activities.js"></script>
     <script src="/app/boomerang.config.js"></script>
     <!-- endinject -->
 </html>
