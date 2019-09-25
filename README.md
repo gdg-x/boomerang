@@ -4,33 +4,16 @@ GDG-X Boomerang
 [![Build Status](https://travis-ci.org/gdg-x/boomerang.svg)](https://travis-ci.org/gdg-x/boomerang) [![Join the chat at https://gitter.im/gdg-x/boomerang](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gdg-x/boomerang?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 Boomerang is a template for a dynamic material design GDG chapter web site that can be deployed
-within 30 minutes. It pulls data from [GDG-X Hub](https://github.com/gdg-x/hub) and 
-[Google+ API](https://developers.google.com/+/api/) using [AngularJS](https://angularjs.org/) and 
-[Angular-Material](https://material.angularjs.org).
+within 30 minutes. It is built using [AngularJS](https://angularjs.org/) and 
+[AngularJS Material](https://material.angularjs.org).
 
 See it in action: http://gdg-x.github.io/boomerang
-
-There are multiple forked versions for Google App Engine
-* Java - https://github.com/Splaktar/boomerang-gae
-* Python - https://github.com/neojato/boomerang-gae
 
 Configuration
 ---------------
 Update app/services/configService.js with values appropriate for your group:
 
 1. **name**: The name of your GDG
-1. **id**: The ID of the Google+ page for your GDG; for example, if your page
-   URL is https://plus.google.com/u/0/b/115803993493374365281/, then the ID is '115803993493374365281'.
-1. **google_api**: The API key for your project, available from the [Cloud Console](https://console.developers.google.com/apis)
-  1. Create a new project
-  1. Go to the Dashboard, click `Enable API`.
-  1. Select `Google+` and click `Enable`.
-  1. Go to Credentials.
-  1. Click `Create credentials` -> `API Key` -> `Browser Key`
-  1. Don't put anything in `"Accept requests from these HTTP referrers"` since this is a development-only key.
-  1. Click Create.
-1. **pwa_id**: The ID for a Picasa web album from which pictures will be drawn. If you do not have a Picasa web album
-   for your group, you will want to comment out the photos tab in **index.html**.
 1. **twitter**, **facebook**, **meetup**: Update these with your chapter's social network handles. Setting them to '' will hide the icon.
 1. Create your Google Analytics account and modify the Google Analytics tracking code in **index.html**.
 
@@ -67,25 +50,25 @@ Automated Testing
 
 Testing locally
 ---------------
-If you aren't using App Engine, you should be able to test locally with Node.js using the following:
+You should be able to test locally with Node.js using the following:
 
-1. `npm install http-server -g`
-1. `cd boomerang`
-1. `http-server -o`
+1. `npm start`
 
 Deployment
 ---------------
 Deploy on your web server of choice (Apache, Nginx, etc).
-If you need a web server, Google App Engine's free tier should be more than sufficient for your chapter's needs.
+If you need a web server, Google App Engine's free tier should be more than sufficient for your
+chapter's needs.
 
 Development Details
 ---------------
 Make sure that you do the following successfully before committing:
 
-1. `gulp prod` - Make sure you fix any JSCS or JSHint errors.
+1. `gulp prod`
 2. `gulp karma` - Make sure that you fix any broken tests.
 3. Protractor tests - Make sure that you fix any broken tests.
-4. If you changed any dependency versions in `bower.json`, make sure that `config/CDN.json` is updated to match.
+4. If you changed any dependency versions in `bower.json`, make sure that `config/CDN.json` is
+   updated to match.
 
 Sites using this template
 ---------------
@@ -108,7 +91,7 @@ Maintainer: [Splaktar](https://github.com/Splaktar).
 License
 --------
 
-    © 2013-2016 GDG[x]
+    © 2013-2019 GDG[x]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
