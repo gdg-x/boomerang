@@ -5,7 +5,7 @@
     "main": "index.html",
     "scripts": {
         "start": "http-server -o",
-        "build:dev": "gulp dev",
+        "build:dev": "gulp default",
         "build:prod": "gulp prod",
         "test": "gulp karma",
         "postinstall": "bower install"

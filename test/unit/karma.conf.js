@@ -62,9 +62,7 @@ module.exports = function (config) {
 
     var browsers = process.env.TRAVIS ? [] : [
         'Chrome',
-        'ChromeCanary',
-        'Firefox',
-        'Safari'
+        'Firefox'
     ];
     config.browsers = browsers.concat(config.browsers);
 };
