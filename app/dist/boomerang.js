@@ -108,6 +108,14 @@ angular.module('gdgXBoomerang')
 });
 
 angular.module('gdgXBoomerang')
+.controller('ConductController', function ($http, $sce, Config, NavService) {
+    var vm = this;
+    vm.loading = true;
+    NavService.setNavTab(2);
+    vm.chapter = Config.name;
+});
+
+angular.module('gdgXBoomerang')
 .controller('ActivitiesController', function (Config, NavService) {
     var vm = this;
     vm.loading = false;
@@ -200,14 +208,6 @@ angular.module('gdgXBoomerang')
     }
 });
 
-angular.module('gdgXBoomerang')
-.controller('ConductController', function ($http, $sce, Config, NavService) {
-    var vm = this;
-    vm.loading = true;
-    NavService.setNavTab(2);
-    vm.chapter = Config.name;
-});
-
 // Google+ hashtag linky from http://plnkr.co/edit/IEpLfZ8gO2B9mJcTKuWY?p=preview
 angular.module('gdgXBoomerang')
 .filter('hashLinky', function() {
@@ -289,7 +289,7 @@ angular.module('gdgXBoomerang')
 
 angular.module('gdgXBoomerang').directive('boomerangFooter', function() {
     return {
-        templateUrl: '/app/footer/footer.html',
+        templateUrl: 'app/footer/footer.html',
         restrict: 'E'
     };
 });
