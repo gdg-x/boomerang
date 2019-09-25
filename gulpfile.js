@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var gulpJshint = require('gulp-jshint');
 var gulpConcat = require('gulp-concat');
 var del = require('del');
 var browserify = require('browserify');
@@ -8,7 +7,6 @@ var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var ngAnnotate = require('gulp-ng-annotate');
-var gulpJscs = require('gulp-jscs');
 var karma = require('karma');
 var gulpInject = require('gulp-inject');
 var mainBowerFiles = require('main-bower-files');
@@ -26,14 +24,12 @@ var getBundleName = function () {
 /**
  *  Tasks
  */
-gulp.task('default', ['jshint', 'jscs', 'dev']);
+gulp.task('default', ['dev']);
 gulp.task('clean', clean);
 gulp.task('concat', ['clean'], concat);
-gulp.task('jshint', ['clean'], jshint);
-gulp.task('jscs', jscs);
 gulp.task('dev', ['clean'], devBuild);
 gulp.task('inject-cdn', injectCdn);
-gulp.task('prod', ['jshint', 'jscs', 'concat', 'inject-cdn'], productionBuild);
+gulp.task('prod', ['concat', 'inject-cdn'], productionBuild);
 gulp.task('karma', unitTests);
 gulp.task('karma-watch', unitTestsWatch);
 
@@ -42,30 +38,6 @@ gulp.task('karma-watch', unitTestsWatch);
  */
 function clean(cb) {
     del([outputPath + '**'], cb);
-}
-
-function jshint() {
-    return gulp.src([
-        __dirname + '/gulpfile.js',
-        __dirname + '/app/**/**.js',
-        __dirname + '/test/e2e/**.js',
-        __dirname + '/test/unit/**.js',
-        '!' + outputPath + '**'
-    ])
-        .pipe(gulpJshint())
-        .pipe(gulpJshint.reporter('default'))
-        .pipe(gulpJshint.reporter('fail'));
-}
-
-function jscs() {
-    return gulp.src([
-        __dirname + '/gulpfile.js',
-        __dirname + '/app/**/**.js',
-        __dirname + '/test/e2e/**.js',
-        __dirname + '/test/unit/**.js',
-        '!' + outputPath + '**'
-    ])
-        .pipe(gulpJscs({configPath: '.jscsrc'}));
 }
 
 /**
